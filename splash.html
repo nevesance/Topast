@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to ToPast</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#10243E',
+            cream: '#F8F4E8',
+            gold: '#C59C5F',
+            pastel: '#EBE8D5',
+            tomato: '#BF3B2C'
+          },
+          fontFamily: {
+            serif: ['EB Garamond', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            script: ['Dancing Script', 'cursive']
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .splash-overlay {
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(2px);
+      height: 100vh;
+    }
+
+    .horizontal-line {
+      height: 1px;
+      background-color: #10243E;
+      width: 100%;
+      max-width: 220px;
+    }
+
+    .grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(16, 36, 62, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 36, 62, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body class="font-serif text-navy">
+  <div class="splash-overlay flex flex-col items-center justify-center relative">
+    <div class="grid-pattern"></div>
+    
+    <!-- Logo Top Left -->
+    <div class="absolute top-8 left-8">
+      <h1 class="text-3xl font-bold">
+        <span class="text-navy">Top</span><span class="text-gold">ast</span>
+        <span class="text-lg align-text-top text-navy">.</span>
+        <span class="text-lg align-text-top text-navy">.</span>
+      </h1>
+    </div>
+    
+    <div class="max-w-3xl w-full px-6">
+      <!-- Welcome Section -->
+      <div class="flex flex-col items-center">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-serif mb-10 text-center tracking-wide">WELCOME TO</h2>
+        
+        <div class="flex flex-col items-center">
+          <div class="horizontal-line mb-10"></div>
+          
+          <div class="flex items-center gap-3 mb-12">
+            <span class="text-3xl md:text-4xl font-serif text-navy">toast</span>
+            <span class="text-3xl md:text-4xl font-script text-blue-600 italic">pastry</span>
+          </div>
+          
+          <a href="index.html" class="mt-8 px-12 py-2 border border-navy text-navy font-medium rounded-full hover:bg-navy hover:text-white transition-colors duration-300 text-center text-sm tracking-wide">
+            Explore now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
