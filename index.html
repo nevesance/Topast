@@ -170,66 +170,121 @@
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-16 px-4 md:px-8 bg-pastel/40">
+    <section id="menu" class="py-16 px-4 md:px-8 bg-pastel/20">
       <div class="max-w-7xl mx-auto">
+        <!-- Original Series Title -->
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Our Signature Creations</h2>
+          <h2 class="text-5xl font-script text-navy mb-6">original</h2>
           <p class="text-xl text-navy/70 max-w-3xl mx-auto">
             Discover our delicious menu of artisanal pastries, each crafted with precision and care
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1586767616402-606aec0741cf?q=80&w=870&auto=format&fit=crop"
-              alt="Classic Croissant Toast" 
-              class="w-full h-60 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-navy mb-2">Classic Croissant Toast</h3>
-              <p class="text-navy/70 mb-4">Buttery layers of flaky perfection, golden and crisp on the outside.</p>
-              <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-gold">$5.95</span>
-                <button class="px-4 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">Add to Cart</button>
+        <!-- Original Products Carousel -->
+        <div class="relative">
+          <!-- Products Row -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="products-container">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
+              <div class="h-60 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1623334044303-241021148842?q=80&w=870&auto=format&fit=crop"
+                  alt="Matcha Kunafa" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-xl font-bold text-navy mb-2">Matcha Kunafa</h3>
+                <p class="text-lg font-bold text-gold mb-4">Rp16.000,00</p>
+                <button class="flex items-center justify-center mx-auto px-6 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">
+                  <i class="fas fa-shopping-cart mr-2"></i>
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
+              <div class="h-60 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1618426703623-ddad72889561?q=80&w=774&auto=format&fit=crop"
+                  alt="Klepon" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-xl font-bold text-navy mb-2">Klepon</h3>
+                <p class="text-lg font-bold text-gold mb-4">Rp16.000,00</p>
+                <button class="flex items-center justify-center mx-auto px-6 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">
+                  <i class="fas fa-shopping-cart mr-2"></i>
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
+              <div class="h-60 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=80&w=870&auto=format&fit=crop"
+                  alt="Beef & Cheese" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-xl font-bold text-navy mb-2">Beef & Cheese</h3>
+                <p class="text-lg font-bold text-gold mb-4">Rp16.000,00</p>
+                <button class="flex items-center justify-center mx-auto px-6 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">
+                  <i class="fas fa-shopping-cart mr-2"></i>
+                  Add To Cart
+                </button>
               </div>
             </div>
           </div>
           
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1645696301019-35adcc18fc22?q=80&w=774&auto=format&fit=crop"
-              alt="Chocolate Swirl Delight" 
-              class="w-full h-60 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-navy mb-2">Chocolate Swirl Delight</h3>
-              <p class="text-navy/70 mb-4">Rich chocolate filling between delicate pastry layers, a perfect sweet treat.</p>
-              <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-gold">$6.50</span>
-                <button class="px-4 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">Add to Cart</button>
+          <!-- Carousel Controls -->
+          <button class="absolute top-1/2 -right-12 transform -translate-y-1/2 text-navy text-2xl hidden md:block" id="next-product" aria-label="Next products">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        
+        <!-- Toast Pastry Special Products -->
+        <div class="mt-24">
+          <h2 class="text-3xl md:text-4xl font-script text-navy text-center mb-10">Toast Pastry</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="relative rounded-lg overflow-hidden group">
+              <img 
+                src="https://images.unsplash.com/photo-1631143070457-c1aecc92abbc?q=80&w=774&auto=format&fit=crop"
+                alt="Strawberry Roll" 
+                class="w-full h-80 object-cover"
+              />
+              <div class="absolute top-0 left-0 w-full h-full bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="absolute -rotate-90 left-0 top-1/2 -translate-y-1/2 -translate-x-1/3 text-tomato font-bold tracking-wider">
+                STRAWBERRY ROLL
+              </div>
+              <div class="absolute bottom-6 left-0 right-0 text-center">
+                <p class="text-xl font-bold text-white mb-2">Rp18.000,00</p>
+                <p class="text-sm text-white/80 italic">*available only at offline store</p>
               </div>
             </div>
-          </div>
-          
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=872&auto=format&fit=crop"
-              alt="Savory Herb & Cheese" 
-              class="w-full h-60 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-navy mb-2">Savory Herb & Cheese</h3>
-              <p class="text-navy/70 mb-4">Aromatic herbs and premium cheese blend in our signature savory creation.</p>
-              <div class="flex justify-between items-center">
-                <span class="text-lg font-bold text-gold">$7.25</span>
-                <button class="px-4 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">Add to Cart</button>
+            
+            <div class="relative rounded-lg overflow-hidden group">
+              <img 
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1026&auto=format&fit=crop"
+                alt="Chocolate Roll" 
+                class="w-full h-80 object-cover"
+              />
+              <div class="absolute top-0 left-0 w-full h-full bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="absolute -rotate-90 right-0 top-1/2 -translate-y-1/2 translate-x-1/3 text-tomato font-bold tracking-wider">
+                CHOCOLATE ROLL
+              </div>
+              <div class="absolute bottom-6 left-0 right-0 text-center">
+                <p class="text-xl font-bold text-white mb-2">Rp18.000,00</p>
+                <p class="text-sm text-white/80 italic">*available only at offline store</p>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="text-center mt-12">
+        <div class="text-center mt-16">
           <a href="#" class="inline-block px-8 py-3 border-2 border-navy text-navy font-medium rounded-full hover:bg-navy hover:text-white transition-colors duration-300">
             View Full Menu
           </a>
@@ -237,10 +292,57 @@
       </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with Visi, Misi, etc. -->
     <section id="about" class="py-16 px-4 md:px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center">
+        <!-- Vision, Mission and Values -->
+        <div class="flex flex-col md:flex-row flex-wrap items-center justify-between gap-6 mb-20">
+          <!-- Center Image -->
+          <div class="w-full md:w-1/3 order-1 md:order-2">
+            <img 
+              src="https://images.unsplash.com/photo-1579105728744-9d8bd14b0a02?q=80&w=870&auto=format&fit=crop"
+              alt="ToPast pastries collection" 
+              class="w-full rounded-lg shadow-xl aspect-square object-cover"
+            />
+          </div>
+          
+          <!-- Left side mission/vision -->
+          <div class="w-full md:w-2/7 order-2 md:order-1">
+            <div class="bg-white/80 rounded-3xl p-8 shadow-sm mb-6">
+              <h3 class="text-2xl text-navy font-script mb-3 text-center">Visi</h3>
+              <p class="text-navy text-center text-lg">
+                <span class="font-bold">Menghadirkan rasa yang berani</span>, dalam <span class="font-bold">bentuk yang sederhana</span>.
+              </p>
+            </div>
+            
+            <div class="bg-white/80 rounded-3xl p-8 shadow-sm">
+              <h3 class="text-2xl text-navy font-script mb-3 text-center">Misi</h3>
+              <p class="text-navy text-center text-lg">
+                <span class="font-bold">Menghadirkan produk yang inovatif, berkualitas, dan penuh kejutan rasa</span>.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Right side product/values -->
+          <div class="w-full md:w-2/7 order-3">
+            <div class="bg-white/80 rounded-3xl p-8 shadow-sm mb-6">
+              <h3 class="text-2xl text-navy font-script mb-3 text-center">ToPast</h3>
+              <p class="text-navy text-center text-lg">
+                <span class="font-bold">Toast pastry yang renyah di luar</span>, penuh <span class="font-bold">kejutan di dalam</span>.
+              </p>
+            </div>
+            
+            <div class="bg-white/80 rounded-3xl p-8 shadow-sm">
+              <h3 class="text-2xl text-navy font-script mb-3 text-center">Our Value</h3>
+              <p class="text-navy text-center text-lg">
+                <span class="font-bold">Kreatif. Autentik. Penuh rasa.</span> Kami percaya camilan bisa jadi cerita, dan setiap gigitan punya kesan.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Our Story Section -->
+        <div class="flex flex-col md:flex-row items-center mt-16">
           <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
             <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Our Story</h2>
             <p class="text-lg text-navy/80 mb-6">
@@ -264,80 +366,169 @@
       </div>
     </section>
 
+    <!-- Events Section -->
+    <section id="events" class="py-16 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-script text-navy text-center mb-12">Our previous event</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Event 1 -->
+          <div class="bg-white p-4 rounded-lg shadow-md event-card">
+            <div class="overflow-hidden rounded-lg mb-4">
+              <img 
+                src="https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=870&auto=format&fit=crop"
+                alt="Entrepreneur day event booth" 
+                class="w-full h-48 object-cover"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-1 text-center">BOOTH</h3>
+            <p class="text-navy/70 mb-4 text-center">Entrepreneur day, IDD PIK</p>
+            <div class="flex justify-between items-center border-t border-gray-200 pt-3">
+              <div class="text-navy/70 text-sm">
+                <span id="booth-views" class="event-views">10K</span> views 0 comment
+              </div>
+              <div class="text-navy/70 text-sm">
+                <span id="booth-likes">500+</span> <i class="fas fa-heart text-tomato ml-1"></i>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Event 2 -->
+          <div class="bg-white p-4 rounded-lg shadow-md event-card">
+            <div class="overflow-hidden rounded-lg mb-4">
+              <img 
+                src="https://images.unsplash.com/photo-1638132704795-6bb223151bf1?q=80&w=870&auto=format&fit=crop"
+                alt="University bazaar" 
+                class="w-full h-48 object-cover"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-1 text-center">BAZAAR</h3>
+            <p class="text-navy/70 mb-4 text-center">Liga Prasmul, Universitas Prasetiya Mulya</p>
+            <div class="flex justify-between items-center border-t border-gray-200 pt-3">
+              <div class="text-navy/70 text-sm">
+                <span id="bazaar-views" class="event-views">10K</span> views 0 comment
+              </div>
+              <div class="text-navy/70 text-sm">
+                <span id="bazaar-likes">500+</span> <i class="fas fa-heart text-tomato ml-1"></i>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Event 3 -->
+          <div class="bg-white p-4 rounded-lg shadow-md event-card">
+            <div class="overflow-hidden rounded-lg mb-4">
+              <img 
+                src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=774&auto=format&fit=crop"
+                alt="Gading Serpong store" 
+                class="w-full h-48 object-cover"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-1 text-center">GADING SERPONG</h3>
+            <p class="text-navy/70 mb-4 text-center">Tenant, Penabur school</p>
+            <div class="flex justify-between items-center border-t border-gray-200 pt-3">
+              <div class="text-navy/70 text-sm">
+                <span id="gading-views" class="event-views">10K</span> views 0 comment
+              </div>
+              <div class="text-navy/70 text-sm">
+                <span id="gading-likes">500+</span> <i class="fas fa-heart text-tomato ml-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-16 px-4 md:px-8 bg-pastel/40">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">What Our Customers Say</h2>
-          <p class="text-xl text-navy/70 max-w-3xl mx-auto">
-            Hear from those who have experienced the ToPast difference
-          </p>
+        <div class="relative mb-12">
+          <div class="absolute inset-0 flex items-center">
+            <img 
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=872&auto=format&fit=crop" 
+              alt="Pastry background" 
+              class="w-full h-32 object-cover opacity-30"
+            />
+          </div>
+          <div class="relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">TESTIMONIALS</h2>
+            <p class="text-xl text-navy italic">What our costumer says?</p>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <!-- Testimonial 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
-              <div class="text-gold">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emily" class="w-12 h-12 rounded-full mr-3">
+              <div>
+                <h4 class="font-bold text-navy">Emily</h4>
+                <p class="text-navy/70 text-sm">Customer</p>
               </div>
             </div>
-            <p class="text-navy/80 mb-6 italic">"ToPast has completely changed my morning routine. The chocolate swirl is simply divine - flaky, buttery, and with the perfect amount of sweetness."</p>
-            <div class="flex items-center">
-              <div class="mr-4">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="w-12 h-12 rounded-full">
-              </div>
-              <div>
-                <h4 class="font-bold text-navy">Sarah J.</h4>
-                <p class="text-navy/60 text-sm">Loyal Customer</p>
-              </div>
+            <p class="text-navy/80 mb-4">"Gak nyangka seenak ini! Luarnya renyah, dalemnya lembut banget. Nagih parah!"</p>
+            <div class="text-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
           </div>
           
-          <div class="bg-white p-8 rounded-lg shadow-md">
+          <!-- Testimonial 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
-              <div class="text-gold">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Nisa" class="w-12 h-12 rounded-full mr-3">
+              <div>
+                <h4 class="font-bold text-navy">Nisa</h4>
+                <p class="text-navy/70 text-sm">Customer</p>
               </div>
             </div>
-            <p class="text-navy/80 mb-6 italic">"I'm obsessed with the savory herb & cheese ToPast. It's the perfect breakfast or snack, and I love how it's substantial without being heavy. Worth every penny!"</p>
-            <div class="flex items-center">
-              <div class="mr-4">
-                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Customer" class="w-12 h-12 rounded-full">
-              </div>
-              <div>
-                <h4 class="font-bold text-navy">Michael T.</h4>
-                <p class="text-navy/60 text-sm">Food Enthusiast</p>
-              </div>
+            <p class="text-navy/80 mb-4">"Udah coba semua rasa, dan semuanya enak-enak! Bikin susah milih karena semuanya nagih!"</p>
+            <div class="text-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
           </div>
           
-          <div class="bg-white p-8 rounded-lg shadow-md">
+          <!-- Testimonial 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
-              <div class="text-gold">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+              <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Evellyn" class="w-12 h-12 rounded-full mr-3">
+              <div>
+                <h4 class="font-bold text-navy">Evellyn</h4>
+                <p class="text-navy/70 text-sm">Customer</p>
               </div>
             </div>
-            <p class="text-navy/80 mb-6 italic">"The quality of ingredients really shines through in every bite. I've tried many similar products, but ToPast has a level of craftsmanship that's unmatched. A true pastry delight!"</p>
-            <div class="flex items-center">
-              <div class="mr-4">
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-12 h-12 rounded-full">
-              </div>
+            <p class="text-navy/80 mb-4">"Rasanya perfect banget. Luarnya crispy, dalemnya lembut dan manisnya pas. Wajib coba!"</p>
+            <div class="text-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          
+          <!-- Testimonial 4 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <img src="https://randomuser.me/api/portraits/women/54.jpg" alt="Icha" class="w-12 h-12 rounded-full mr-3">
               <div>
-                <h4 class="font-bold text-navy">Emma L.</h4>
-                <p class="text-navy/60 text-sm">Chef</p>
+                <h4 class="font-bold text-navy">Icha</h4>
+                <p class="text-navy/70 text-sm">Customer</p>
               </div>
+            </div>
+            <p class="text-navy/80 mb-4">"Salah satu pastry terenak yang pernah aku coba. Teksturnya bikin kangen!"</p>
+            <div class="text-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
           </div>
         </div>
@@ -409,6 +600,80 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Articles Section -->
+    <section id="articles" class="py-16 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Latest Articles</h2>
+          <p class="text-xl text-navy/70 max-w-3xl mx-auto">
+            Discover pastry insights, tips, and stories on our blog
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Article 1 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1609970957077-6baa39b4a749?q=80&w=870&auto=format&fit=crop"
+              alt="Toast breakfast" 
+              class="w-full h-52 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-navy mb-2">An Ode to Toast, simplest of breakfast</h3>
+              <p class="text-navy/70 mb-4 line-clamp-2">Toast, a seemingly modest breakfast staple, has evolved far beyond its humble beginnings. From artisanal sourdough to brioche...</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-navy/60">April 15, 2024</span>
+                <span class="text-sm text-navy/60"><span id="article-1-index-views">1.2K</span> views</span>
+              </div>
+              <a href="blog.html" class="mt-4 inline-block px-6 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">Read More</a>
+            </div>
+          </div>
+          
+          <!-- Article 2 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=774&auto=format&fit=crop"
+              alt="Dessert plate" 
+              class="w-full h-52 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-navy mb-2">Benefits of dessert</h3>
+              <p class="text-navy/70 mb-4 line-clamp-2">Indulging in dessert isn't just about satisfying your sweet tooth—it can actually have some surprising benefits for both your mental and physical well-being...</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-navy/60">March 27, 2024</span>
+                <span class="text-sm text-navy/60"><span id="article-2-index-views">986</span> views</span>
+              </div>
+              <a href="blog.html" class="mt-4 inline-block px-6 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">Read More</a>
+            </div>
+          </div>
+          
+          <!-- Article 3 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1559598467-f8b76c8155d0?q=80&w=871&auto=format&fit=crop"
+              alt="Chef working" 
+              class="w-full h-52 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-navy mb-2">Super flaky pastry</h3>
+              <p class="text-navy/70 mb-4 line-clamp-2">What's the secret to creating pastry with those perfect, shatteringly crisp layers? This deep dive into the science and technique of laminated dough...</p>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-navy/60">February 28, 2024</span>
+                <span class="text-sm text-navy/60"><span id="article-4-index-views">2.3K</span> views</span>
+              </div>
+              <a href="blog.html" class="mt-4 inline-block px-6 py-2 bg-navy text-white rounded-full hover:bg-navy/80 transition">Read More</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-10">
+          <a href="blog.html" class="inline-block px-8 py-3 border-2 border-navy text-navy font-medium rounded-full hover:bg-navy hover:text-white transition-colors duration-300">
+            View All Articles
+          </a>
         </div>
       </div>
     </section>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Shopping Cart - ToPast</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#10243E',
+              cream: '#F8F4E8',
+              gold: '#C59C5F',
+              pastel: '#EBE8D5',
+              tomato: '#BF3B2C'
+            },
+            fontFamily: {
+              serif: ['EB Garamond', 'serif'],
+              sans: ['Montserrat', 'sans-serif'],
+              script: ['Dancing Script', 'cursive']
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom styles */
+      .nav-button {
+        @apply px-5 py-2 rounded-full text-navy border border-navy/20 hover:bg-pastel/50 transition-colors duration-200 font-medium text-sm;
+      }
+      body {
+        background-color: #F8F4E8;
+        background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=2526&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-blend-mode: overlay;
+      }
+      .search-bar {
+        border: 1px solid #BF3B2C;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        background-color: white;
+      }
+    </style>
+    <meta name="description" content="Your ToPast shopping cart with all your pastry selections.">
+  </head>
+  <body class="font-serif">
+    <!-- Header -->
+    <header class="py-5 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center">
+              <h1 class="text-4xl font-bold">
+                <span class="text-navy">Top</span><span class="text-gold">ast</span>
+                <span class="text-lg align-text-top">.</span>
+                <span class="text-lg align-text-top">.</span>
+              </h1>
+            </a>
+          </div>
+
+          <!-- Search and Cart -->
+          <div class="hidden md:flex items-center space-x-4">
+            <div class="search-bar flex items-center">
+              <button class="text-navy mr-2">
+                <i class="fas fa-search"></i>
+              </button>
+              <input type="text" placeholder="SEARCH & SHOP" class="bg-transparent outline-none text-sm w-48">
+            </div>
+            <a href="cart.html" class="text-navy relative">
+              <i class="fas fa-shopping-bag text-2xl"></i>
+              <span class="absolute -top-2 -right-2 bg-tomato text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+            </a>
+            <div class="w-8 h-2 bg-tomato"></div>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <button 
+            id="mobile-menu-button" 
+            class="md:hidden text-navy"
+            aria-label="Open mobile menu"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mt-8 flex flex-wrap justify-center space-x-4">
+          <a href="index.html#about" class="nav-button">ABOUT US</a>
+          <a href="index.html#menu" class="nav-button">OUR MENU</a>
+          <a href="index.html#events" class="nav-button">EVENT</a>
+          <a href="index.html#testimonials" class="nav-button">TESTIMONIAL</a>
+          <a href="index.html#find" class="nav-button">FIND US</a>
+          <a href="index.html#articles" class="nav-button">FIND AN ARTICLE</a>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0 mt-4">
+          <div class="space-y-2 bg-pastel/80 p-4 rounded-lg">
+            <div class="search-bar flex items-center mb-4 bg-white">
+              <button class="text-navy mr-2">
+                <i class="fas fa-search"></i>
+              </button>
+              <input type="text" placeholder="SEARCH & SHOP" class="bg-transparent outline-none text-sm w-full">
+            </div>
+            <a href="index.html#about" class="block py-2 text-navy font-medium">ABOUT US</a>
+            <a href="index.html#menu" class="block py-2 text-navy font-medium">OUR MENU</a>
+            <a href="index.html#events" class="block py-2 text-navy font-medium">EVENT</a>
+            <a href="index.html#testimonials" class="block py-2 text-navy font-medium">TESTIMONIAL</a>
+            <a href="index.html#find" class="block py-2 text-navy font-medium">FIND US</a>
+            <a href="index.html#articles" class="block py-2 text-navy font-medium">FIND AN ARTICLE</a>
+            <a href="cart.html" class="block py-2 text-navy font-medium">
+              <i class="fas fa-shopping-bag mr-2"></i>View Cart (3)
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Shopping Cart Section -->
+    <section class="py-16 px-4 md:px-8 mb-20">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center mb-8">
+          <i class="fas fa-arrow-left text-navy mr-4"></i>
+          <h1 class="text-3xl md:text-4xl text-navy font-bold">SHOPPING CART</h1>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Cart Items -->
+          <div class="lg:w-2/3 space-y-4">
+            <!-- Cart Item 1 -->
+            <div class="bg-white rounded-lg shadow p-4 flex items-center">
+              <img src="https://images.unsplash.com/photo-1623334044303-241021148842?q=80&w=870&auto=format&fit=crop" alt="Matcha Kunafa" class="w-20 h-20 object-cover rounded-lg mr-4">
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-bold text-navy text-lg">MATCHA KUNAFA</h3>
+                    <div class="text-gold">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span class="text-navy ml-1">5/5</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-blue-500 text-white font-bold px-4 py-1 rounded-md text-center">
+                      Rp16.000,00
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center bg-gray-100 rounded-full px-2">
+                    <button class="w-8 h-8 flex items-center justify-center text-navy hover:text-tomato">-</button>
+                    <span class="w-6 text-center text-navy">5</span>
+                    <button class="w-8 h-8 flex items-center justify-center text-navy hover:text-tomato">+</button>
+                  </div>
+                  <button class="text-tomato hover:text-red-700 transition-colors">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="bg-white rounded-lg shadow p-4 flex items-center">
+              <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=80&w=870&auto=format&fit=crop" alt="Beef & Cheese" class="w-20 h-20 object-cover rounded-lg mr-4">
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-bold text-navy text-lg">BEEF & CHEESE</h3>
+                    <div class="text-gold">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span class="text-navy ml-1">5/5</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-blue-500 text-white font-bold px-4 py-1 rounded-md text-center">
+                      Rp16.000,00
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center bg-gray-100 rounded-full px-2">
+                    <button class="w-8 h-8 flex items-center justify-center text-navy hover:text-tomato">-</button>
+                    <span class="w-6 text-center text-navy">3</span>
+                    <button class="w-8 h-8 flex items-center justify-center text-navy hover:text-tomato">+</button>
+                  </div>
+                  <button class="text-tomato hover:text-red-700 transition-colors">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cart Item 3 -->
+            <div class="bg-white rounded-lg shadow p-4 flex items-center">
+              <img src="https://images.unsplash.com/photo-1618426703623-ddad72889561?q=80&w=774&auto=format&fit=crop" alt="Klepon" class="w-20 h-20 object-cover rounded-lg mr-4">
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-bold text-navy text-lg">KLEPON</h3>
+                    <div class="text-gold">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span class="text-navy ml-1">5/5</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-blue-500 text-white font-bold px-4 py-1 rounded-md text-center">
+                      Rp16.000,00
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center bg-gray-100 rounded-full px-2">
+                    <button class="w-8 h-8 flex items-center justify-center text-navy hover:text-tomato">-</button>
+                    <span class="w-6 text-center text-navy">3</span>
+                    <button class="w-8 h-8 flex items-center justify-center text-navy hover:text-tomato">+</button>
+                  </div>
+                  <button class="text-tomato hover:text-red-700 transition-colors">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="lg:w-1/3">
+            <div class="bg-blue-50 rounded-lg shadow p-6 mb-4">
+              <div class="flex justify-between items-center mb-2">
+                <h2 class="text-xl text-navy font-bold">ORDER SUMMARY</h2>
+                <span class="text-navy">19 April 2025</span>
+              </div>
+              <div class="border-b border-gray-200 pb-4 mb-4">
+                <div class="flex justify-between py-2">
+                  <span class="text-navy">Sub Total</span>
+                  <span class="text-navy font-medium">Rp176.000,00</span>
+                </div>
+                <div class="flex justify-between py-2">
+                  <span class="text-navy">Tax (5%)</span>
+                  <span class="text-navy font-medium">Rp8.800,00</span>
+                </div>
+                <div class="flex justify-between py-2">
+                  <span class="text-navy">Shipping</span>
+                  <span class="text-navy font-medium">Rp10.000,00</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center text-lg font-bold">
+                <span class="text-navy">Total</span>
+                <span class="text-navy">Rp184.800,00</span>
+              </div>
+            </div>
+
+            <div class="bg-blue-100 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-navy font-bold">Total Checkout</span>
+                <span class="text-navy text-2xl font-bold">Rp184.800,00</span>
+              </div>
+              <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-pastel py-12 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h1 class="text-3xl font-bold mb-4">
+              <span class="text-navy">Top</span><span class="text-gold">ast</span>
+            </h1>
+            <p class="text-navy/70 mb-4">Elevating everyday toast into moments of indulgence and delight.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
+                <i class="fab fa-pinterest text-xl"></i>
+              </a>
+              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold text-navy mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html#about" class="text-navy/70 hover:text-tomato transition-colors">About Us</a></li>
+              <li><a href="index.html#menu" class="text-navy/70 hover:text-tomato transition-colors">Our Menu</a></li>
+              <li><a href="index.html#find" class="text-navy/70 hover:text-tomato transition-colors">Locations</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Catering</a></li>
+              <li><a href="cart.html" class="text-navy/70 hover:text-tomato transition-colors">Order Online</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold text-navy mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">FAQ</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Shipping Policy</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Returns & Refunds</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Contact Us</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Wholesale Inquiries</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold text-navy mb-4">Contact</h3>
+            <ul class="space-y-2 text-navy/70">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-2 text-tomato"></i>
+                <span>BSD City, Tangerang</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone mt-1 mr-2 text-tomato"></i>
+                <span>+62 813 1456 221</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mt-1 mr-2 text-tomato"></i>
+                <span>topast236@gmail.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-clock mt-1 mr-2 text-tomato"></i>
+                <span>Mon-Sat: 7AM-7PM, Sun: 8AM-4PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-navy/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-navy/70">© <span id="current-year"></span> ToPast. All rights reserved.</p>
+          <div class="mt-4 md:mt-0">
+            <ul class="flex flex-wrap justify-center space-x-4">
+              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Terms of Service</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Accessibility</a></li>
+              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-white shadow-lg rounded-lg p-4 transform translate-y-10 opacity-0 transition-all duration-300 z-50 max-w-sm pointer-events-none">
+      <div class="flex items-center">
+        <div id="toast-icon-container" class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-4">
+          <i id="toast-icon" class="fas fa-check"></i>
+        </div>
+        <div>
+          <h4 id="toast-title" class="font-semibold text-navy text-sm">Success!</h4>
+          <p id="toast-message" class="text-navy/70 text-sm">Operation completed successfully.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

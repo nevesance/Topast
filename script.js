@@ -26,7 +26,7 @@ function toggleMobileMenu() {
 
 // Product Hover Effects
 function initProductHover() {
-  const productCards = document.querySelectorAll('.bg-white.rounded-lg.shadow-md');
+  const productCards = document.querySelectorAll('.product-card');
   
   productCards.forEach(card => {
     card.addEventListener('mouseenter', () => {
@@ -62,20 +62,24 @@ function validateNewsletterForm(event) {
 
 // Add to Cart Functionality
 function initAddToCartButtons() {
-  const addToCartButtons = document.querySelectorAll('button:contains("Add to Cart")');
-  
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const productCard = this.closest('.bg-white.rounded-lg');
-      const productName = productCard.querySelector('h3').textContent;
-      
-      showToast('Added to Cart', `${productName} has been added to your cart.`, 'success');
-    });
+  document.querySelectorAll('button').forEach(button => {
+    if (button.textContent.includes('Add to Cart') || button.textContent.includes('Add To Cart')) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productCard = this.closest('.product-card') || this.closest('.bg-white.rounded-lg.shadow-md');
+        if (productCard) {
+          const productName = productCard.querySelector('h3').textContent;
+          showToast('Added to Cart', `${productName} has been added to your cart.`, 'success');
+        }
+      });
+    }
   });
 }
 
 // Toast Notification
 function showToast(title, message, type = 'success') {
+  if (!toast) return;
+  
   toastTitle.textContent = title;
   toastMessage.textContent = message;
   
@@ -116,7 +120,7 @@ function smoothScrollToElement(elementId) {
     });
     
     // Close mobile menu if open
-    if (mobileMenu.classList.contains('max-h-60')) {
+    if (mobileMenu && mobileMenu.classList.contains('max-h-60')) {
       toggleMobileMenu();
     }
   }
@@ -184,13 +188,164 @@ function initParallaxEffect() {
   });
 }
 
+// Event View Counter Functionality
+function initEventViewCounter() {
+  const eventCards = document.querySelectorAll('.event-card');
+  
+  if (eventCards.length === 0) return;
+  
+  // Load view counts from localStorage or initialize if not present
+  const eventViewCounts = JSON.parse(localStorage.getItem('eventViewCounts')) || {
+    'booth': 10000,
+    'bazaar': 10000,
+    'gading': 10000
+  };
+  
+  // Update view counters on the page
+  document.querySelectorAll('.event-views').forEach(counter => {
+    const id = counter.id.split('-')[0];
+    const count = eventViewCounts[id];
+    counter.textContent = count >= 1000 
+      ? `${(count / 1000).toFixed(1)}K` 
+      : count.toString();
+  });
+  
+  // Add click event to event cards to track views
+  eventCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const titleElement = this.querySelector('h3');
+      if (titleElement) {
+        const title = titleElement.textContent.toLowerCase();
+        // Increment view count
+        eventViewCounts[title] = (eventViewCounts[title] || 0) + 1;
+        
+        // Save to localStorage
+        localStorage.setItem('eventViewCounts', JSON.stringify(eventViewCounts));
+        
+        // Update display
+        const counterElement = document.getElementById(`${title}-views`);
+        if (counterElement) {
+          const newCount = eventViewCounts[title];
+          counterElement.textContent = newCount >= 1000 
+            ? `${(newCount / 1000).toFixed(1)}K` 
+            : newCount.toString();
+        }
+      }
+    });
+  });
+}
+
+// Like Counter Functionality
+function initLikeCounter() {
+  // Load like counts from localStorage or initialize if not present
+  const likeCounts = JSON.parse(localStorage.getItem('eventLikeCounts')) || {
+    'booth': 500,
+    'bazaar': 500,
+    'gading': 500
+  };
+  
+  // Add click handlers to like buttons
+  document.querySelectorAll('.fa-heart').forEach(heartIcon => {
+    const likeCounterId = heartIcon.parentElement.id?.split('-')[0];
+    const likeCounterElement = document.getElementById(`${likeCounterId}-likes`);
+    
+    heartIcon.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Toggle active state
+      const isActive = this.classList.contains('text-tomato');
+      
+      if (likeCounterId && likeCounterElement) {
+        if (!isActive) {
+          // Like
+          likeCounts[likeCounterId]++;
+          this.classList.add('text-tomato');
+        } else {
+          // Unlike
+          likeCounts[likeCounterId]--;
+          this.classList.remove('text-tomato');
+        }
+        
+        // Update display
+        likeCounterElement.textContent = likeCounts[likeCounterId] > 500 
+          ? `${likeCounts[likeCounterId]}` 
+          : '500+';
+        
+        // Save to localStorage
+        localStorage.setItem('eventLikeCounts', JSON.stringify(likeCounts));
+      }
+    });
+  });
+}
+
+// Blog View Counter Synchronization
+function initBlogViewCounters() {
+  // Load view counts from localStorage or initialize if not present
+  const viewCounts = JSON.parse(localStorage.getItem('blogViewCounts')) || {
+    'article-1': 1200,
+    'article-2': 986,
+    'article-3': 1500,
+    'article-4': 2300
+  };
+  
+  // Update homepage article view counters
+  const homepageViewCounters = document.querySelectorAll('[id^="article-"][id$="-index-views"]');
+  if (homepageViewCounters.length > 0) {
+    homepageViewCounters.forEach(counter => {
+      const id = counter.id.split('-index-views')[0];
+      const count = viewCounts[id];
+      if (count !== undefined) {
+        counter.textContent = count >= 1000 
+          ? `${(count / 1000).toFixed(1)}K` 
+          : count.toString();
+      }
+    });
+  }
+  
+  // Add click event on homepage article links to track views
+  document.querySelectorAll('a[href="blog.html"]').forEach(link => {
+    const article = link.closest('div.bg-white.rounded-lg');
+    if (article) {
+      const headingElement = article.querySelector('h3');
+      if (headingElement) {
+        link.addEventListener('click', function() {
+          const title = headingElement.textContent;
+          let articleId;
+          
+          // Determine which article this is
+          if (title.includes("Toast")) {
+            articleId = 'article-1';
+          } else if (title.includes("Benefits")) {
+            articleId = 'article-2';
+          } else if (title.includes("flaky")) {
+            articleId = 'article-4';
+          } else {
+            return; // Unknown article
+          }
+          
+          // Increment view count
+          viewCounts[articleId] = (viewCounts[articleId] || 0) + 1;
+          
+          // Save to localStorage
+          localStorage.setItem('blogViewCounts', JSON.stringify(viewCounts));
+        });
+      }
+    }
+  });
+}
+
 // Initialize the page
 function init() {
   // Set current year in footer
-  currentYearSpan.textContent = new Date().getFullYear();
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
+  }
   
   // Setup event listeners
-  mobileMenuButton.addEventListener('click', toggleMobileMenu);
+  if (mobileMenuButton) {
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+  }
   
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', validateNewsletterForm);
@@ -200,19 +355,10 @@ function init() {
   initProductHover();
   initButtonHoverEffects();
   initSearch();
-  // Note: AddToCart buttons use a non-standard selector which might not work in some browsers
-  // We'll use a different approach to select those buttons
-  document.querySelectorAll('button').forEach(button => {
-    if (button.textContent.includes('Add to Cart')) {
-      button.addEventListener('click', function() {
-        const productCard = this.closest('.bg-white.rounded-lg');
-        if (productCard) {
-          const productName = productCard.querySelector('h3').textContent;
-          showToast('Added to Cart', `${productName} has been added to your cart.`, 'success');
-        }
-      });
-    }
-  });
+  initAddToCartButtons();
+  initEventViewCounter();
+  initLikeCounter();
+  initBlogViewCounters();
   
   // Add smooth scrolling to all in-page links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -233,14 +379,16 @@ function init() {
   // Add subtle shadow to header on scroll
   window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
-    if (window.scrollY > 10) {
-      header.classList.add('shadow-md');
-      header.style.backgroundColor = 'rgba(248, 244, 232, 0.95)';
-      header.style.backdropFilter = 'blur(8px)';
-    } else {
-      header.classList.remove('shadow-md');
-      header.style.backgroundColor = 'transparent';
-      header.style.backdropFilter = 'none';
+    if (header) {
+      if (window.scrollY > 10) {
+        header.classList.add('shadow-md');
+        header.style.backgroundColor = 'rgba(248, 244, 232, 0.95)';
+        header.style.backdropFilter = 'blur(8px)';
+      } else {
+        header.classList.remove('shadow-md');
+        header.style.backgroundColor = 'transparent';
+        header.style.backdropFilter = 'none';
+      }
     }
   });
 }
