@@ -34,6 +34,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.join(process.cwd(), 'blog.html'));
   });
   
+  app.get('/blog-post.html', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog-post.html'));
+  });
+  
   app.get('/splash.html', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'splash.html'));
   });

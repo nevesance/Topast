@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - ToPast</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#10243E',
+              cream: '#F8F4E8',
+              gold: '#C59C5F',
+              pastel: '#EBE8D5',
+              tomato: '#BF3B2C'
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-cream">
+    <div id="blog-content" class="max-w-4xl mx-auto p-8">
+        <a href="blog.html" class="text-navy hover:text-tomato mb-8 inline-block">
+            <i class="fas fa-arrow-left mr-2"></i>Back to Articles
+        </a>
+        <h1 id="blog-title" class="text-4xl font-bold text-navy mb-4"></h1>
+        <div id="blog-date" class="text-navy/60 mb-8"></div>
+        <div id="blog-body" class="prose max-w-none"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            
+            // Sample blog data - you can replace this with your actual content
+            const blogPosts = {
+                '1': {
+                    title: 'An Ode to Toast, simplest of breakfast',
+                    date: 'April 15, 2024',
+                    content: `<p class="mb-4">Toast, a seemingly modest breakfast staple, has evolved far beyond its humble beginnings. From artisanal sourdough to brioche, the canvas for morning creativity is endless.</p>
+                    <p class="mb-4">This article explores the rich history and endless possibilities of this breakfast essential.</p>`
+                },
+                '2': {
+                    title: 'Benefits of dessert',
+                    date: 'March 27, 2024',
+                    content: `<p class="mb-4">Indulging in dessert isn't just about satisfying your sweet tooth—it can actually have some surprising benefits for both your mental and physical well-being.</p>
+                    <p class="mb-4">From boosting serotonin levels to providing essential nutrients found in ingredients like dark chocolate and fruits, desserts can be a delightful part of a balanced diet when enjoyed mindfully.</p>`
+                },
+                '3': {
+                    title: 'Dessert, embracing pleasure in life',
+                    date: 'March 12, 2024',
+                    content: `<p class="mb-4">In our fast-paced world, taking a moment to savor a delicious dessert can be a form of mindfulness and self-care.</p>
+                    <p class="mb-4">This article explores how the ritual of enjoying dessert connects us to cultural traditions, creates moments of joy, and helps us practice the art of savoring life's pleasures.</p>`
+                },
+                '4': {
+                    title: 'Super flaky pastry',
+                    date: 'February 28, 2024',
+                    content: `<p class="mb-4">What's the secret to creating pastry with those perfect, shatteringly crisp layers? This deep dive into the science and technique of laminated dough reveals the careful balance of temperature, timing, and technique required to achieve pastry perfection.</p>
+                    <p class="mb-4">Learn professional tips for creating buttery, flaky layers every time.</p>`
+                }
+            };
+
+            if (articleId && blogPosts[articleId]) {
+                const post = blogPosts[articleId];
+                document.getElementById('blog-title').textContent = post.title;
+                document.getElementById('blog-date').textContent = post.date;
+                document.getElementById('blog-body').innerHTML = post.content;
+                document.title = `${post.title} - ToPast`;
+            }
+        });
+    </script>
+</body>
+</html>
