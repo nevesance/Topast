@@ -2,9 +2,13 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import path from "path";
+import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes would go here, prefixed with /api
+  
+  // Serve static files from assets directory
+  app.use('/assets', express.static(path.join(process.cwd(), 'assets')));
   
   // Serve static files from root directory
   app.get('/', (req, res) => {
