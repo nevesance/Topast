@@ -8,9 +8,11 @@ import Home from "@/pages/Home";
 import Splash from './pages/Splash';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import TestPage from './pages/TestPage';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ThemeProvider } from "./hooks/use-theme";
+// Temporarily removing ThemeProvider to simplify
+// import { ThemeProvider } from "./hooks/use-theme";
 
 function Router() {
   return (
@@ -19,6 +21,7 @@ function Router() {
       <Route path="/splash" component={Splash} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/test" component={TestPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -26,20 +29,18 @@ function Router() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              <Router />
-            </main>
-            <Footer />
-          </div>
-          <Toaster />
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            <Router />
+          </main>
+          <Footer />
+        </div>
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 }
 

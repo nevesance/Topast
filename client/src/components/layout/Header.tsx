@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "@/hooks/use-theme";
+// Comment out theme for now to fix the issue
+// import { useTheme } from "@/hooks/use-theme";
 import { Link } from "wouter";
 import { scrollToElement } from "@/lib/utils";
 import { useLocation } from "wouter";
 
 export function Header() {
-  const { theme, toggleTheme } = useTheme();
+  // Temporarily disable theme functionality
+  const theme: 'light' | 'dark' = 'light';
+  const toggleTheme = () => {};
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
