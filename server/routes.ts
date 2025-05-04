@@ -1,3 +1,4 @@
+
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
@@ -20,26 +21,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.join(process.cwd(), 'index.html'));
   });
 
+  // Blog routes
+  app.get('/blog', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog.html'));
+  });
+
+  app.get('/blog/:id', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog-post.html'));
+  });
+
+  // Articles routes
+  app.get('/articles', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'articles.html'));
+  });
+
   // Serve script.js file
   app.get('/script.js', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'script.js'));
-  });
-  
-  // Serve other HTML pages
-  app.get('/cart.html', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'cart.html'));
-  });
-  
-  app.get('/blog.html', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'blog.html'));
-  });
-  
-  app.get('/blog-post.html', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'blog-post.html'));
-  });
-  
-  app.get('/splash.html', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'splash.html'));
   });
 
   const httpServer = createServer(app);
