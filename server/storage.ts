@@ -73,7 +73,9 @@ export class MemStorage implements IStorage {
       ...insertPost,
       id,
       publishedAt: new Date(),
-      viewCount: 0
+      viewCount: 0,
+      // Make sure imageUrl is never undefined
+      imageUrl: insertPost.imageUrl || ""
     };
     this.blogPosts.set(id, post);
     return post;
@@ -151,7 +153,8 @@ export class MemStorage implements IStorage {
         ...post,
         id,
         publishedAt: publishedDate,
-        viewCount: Math.floor(Math.random() * 2000) + 500 // Random view count between 500-2500
+        viewCount: Math.floor(Math.random() * 2000) + 500, // Random view count between 500-2500
+        imageUrl: post.imageUrl || "" // Ensure imageUrl is never undefined
       });
     });
   }

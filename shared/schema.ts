@@ -23,7 +23,7 @@ export const blogPosts = pgTable("blog_posts", {
   slug: text("slug").notNull().unique(),
   summary: text("summary").notNull(),
   content: text("content").notNull(),
-  imageUrl: text("image_url"),
+  imageUrl: text("image_url").notNull(),
   publishedAt: timestamp("published_at").notNull().defaultNow(),
   viewCount: integer("view_count").notNull().default(0),
 });

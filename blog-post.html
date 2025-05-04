@@ -5,6 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Post - ToPast</title>
+    <script>
+      // Extract the ID or slug from the URL and redirect to the new React page
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        
+        // Map old IDs to new slugs
+        const slugMap = {
+          '1': 'ode-to-toast',
+          '2': 'benefits-of-dessert',
+          '3': 'embracing-pleasure-dessert',
+          '4': 'super-flaky-pastry'
+        };
+        
+        // If we have a mapping for this ID, redirect to the slug-based URL
+        // Otherwise, redirect to the blog list page
+        if (articleId && slugMap[articleId]) {
+          window.location.href = `/blog/${slugMap[articleId]}`;
+        } else {
+          // Check if there's a slug in the URL path
+          const pathSegments = window.location.pathname.split('/');
+          const possibleSlug = pathSegments[pathSegments.length - 1];
+          
+          if (possibleSlug && possibleSlug !== 'blog-post.html' && possibleSlug !== 'blog-post') {
+            window.location.href = `/blog/${possibleSlug}`;
+          } else {
+            window.location.href = '/blog';
+          }
+        }
+      });
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
