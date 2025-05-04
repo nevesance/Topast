@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import path from "path";
 
 const app = express();
 app.use(express.json());
@@ -63,7 +64,7 @@ app.use((req, res, next) => {
       next();
     } else {
       // In production we'd serve the index.html
-      res.sendFile(path.join(__dirname, "../dist", "index.html"));
+      res.sendFile(path.join(process.cwd(), "dist", "index.html"));
     }
   });
 
