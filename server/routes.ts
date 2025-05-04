@@ -73,9 +73,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.join(process.cwd(), 'index.html'));
   });
 
-  // For the React blog routes, we'll now let the Vite middleware handle them
-  // These routes will be handled by the React router
-
+  // Serve the static HTML blog pages directly
+  // Blog routes
+  app.get('/blog', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog.html'));
+  });
+  
+  app.get('/blog.html', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog.html'));
+  });
+  
+  app.get('/blog-post.html', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog-post.html'));
+  });
+  
+  // Also handle the query parameter version
+  app.get('/blog-post', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog-post.html'));
+  });
+  
   // Articles routes
   app.get('/articles', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'articles.html'));
