@@ -6,9 +6,9 @@ import { scrollToElement } from "@/lib/utils";
 import { useLocation } from "wouter";
 
 export function Header() {
-  // Temporarily disable theme functionality
-  const theme: 'light' | 'dark' = 'light';
-  const toggleTheme = () => {};
+  // Temporarily use a simple theme state instead of the theme provider
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
