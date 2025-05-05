@@ -1,316 +1,267 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Topast Blog</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              navy: '#10243E',
-              cream: '#F8F4E8',
-              gold: '#C59C5F',
-              pastel: '#EBE8D5',
-              tomato: '#BF3B2C'
-            },
-            fontFamily: {
-              serif: ['EB Garamond', 'serif'],
-              sans: ['Montserrat', 'sans-serif'],
-              script: ['Dancing Script', 'cursive']
-            },
-          }
-        }
-      }
-    </script>
-    <style>
-      /* Custom styles */
-      .nav-button {
-        @apply px-5 py-2 rounded-full text-navy border border-navy/20 hover:bg-pastel/50 transition-colors duration-200 font-medium text-sm;
-      }
-      body {
-        background-color: #F8F4E8;
-        background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=2526&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-blend-mode: overlay;
-      }
-      .search-bar {
-        border: 1px solid #BF3B2C;
-        border-radius: 20px;
-        padding: 0.5rem 1rem;
-        background-color: white;
-      }
-      .blog-title {
-        font-style: italic;
-        @apply mb-4 text-xl font-medium text-navy hover:text-tomato transition-colors;
-      }
-    </style>
-    <meta name="description" content="Read our latest blog articles about toast, pastry, and culinary adventures.">
-  </head>
-  <body class="font-serif">
-    <!-- Header with blue background -->
-    <header class="bg-[#4286f4] text-white py-10">
-      <div class="container mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-2">TOPAST BLOG</h1>
-        <p class="text-xl md:text-2xl italic font-light">Pengganjal Lapar yang Lezat dan Kekinian</p>
-      </div>
-    </header>
-    
-    <!-- Blog Articles Section -->
-    <section class="py-16 px-4 md:px-8 mb-20">
-      <div class="max-w-5xl mx-auto">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - ModernWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#0f172a',
+          },
+        },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .blog-card {
+      transition: transform 0.2s ease-in-out;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <i class="fas fa-cube text-primary text-2xl"></i>
+        <span class="text-xl font-bold text-secondary">ModernWeb</span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+        <a href="blog.html" class="text-primary font-semibold">Blog</a>
+        <a href="articles.html" class="text-gray-600 hover:text-primary transition-colors">Articles</a>
+        <button class="px-4 py-2 bg-primary text-white rounded shadow hover:bg-primary/90 transition-colors">
+          Contact Us
+        </button>
+      </nav>
+      <button class="md:hidden text-gray-600">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+  </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <!-- Blog Articles -->
-            <div class="space-y-8">
-              <a href="blog-post.html?id=1" class="blog-article block" data-article-id="1">
-                <h2 class="blog-title">An Ode to Toast, simplest of breakfast</h2>
-                <p class="text-navy/70 line-clamp-3">
-                  Toast, a seemingly modest breakfast staple, has evolved far beyond its humble beginnings. From artisanal sourdough to brioche, the canvas for morning creativity is endless. This article explores the rich history and endless possibilities of this breakfast essential.
-                </p>
-                <div class="flex items-center justify-between mt-4 text-sm text-navy/60">
-                  <span>April 15, 2024</span>
-                  <span class="views-counter" id="article-1-views">1.2K views</span>
-                </div>
-              </a>
-              
-              <a href="blog-post.html?id=2" class="blog-article block" data-article-id="2">
-                <h2 class="blog-title">Benefits of dessert</h2>
-                <p class="text-navy/70 line-clamp-3">
-                  Indulging in dessert isn't just about satisfying your sweet tooth—it can actually have some surprising benefits for both your mental and physical well-being. From boosting serotonin levels to providing essential nutrients found in ingredients like dark chocolate and fruits, desserts can be a delightful part of a balanced diet when enjoyed mindfully.
-                </p>
-                <div class="flex items-center justify-between mt-4 text-sm text-navy/60">
-                  <span>March 27, 2024</span>
-                  <span class="views-counter" id="article-2-views">986 views</span>
-                </div>
-              </a>
-              
-              <a href="blog-post.html?id=3" class="blog-article block" data-article-id="3">
-                <h2 class="blog-title">Dessert, embracing pleasure in life</h2>
-                <p class="text-navy/70 line-clamp-3">
-                  In our fast-paced world, taking a moment to savor a delicious dessert can be a form of mindfulness and self-care. This article explores how the ritual of enjoying dessert connects us to cultural traditions, creates moments of joy, and helps us practice the art of savoring life's pleasures.
-                </p>
-                <div class="flex items-center justify-between mt-4 text-sm text-navy/60">
-                  <span>March 12, 2024</span>
-                  <span class="views-counter" id="article-3-views">1.5K views</span>
-                </div>
-              </a>
-              
-              <a href="blog-post.html?id=4" class="blog-article block" data-article-id="4">
-                <h2 class="blog-title">Super flaky pastry</h2>
-                <p class="text-navy/70 line-clamp-3">
-                  What's the secret to creating pastry with those perfect, shatteringly crisp layers? This deep dive into the science and technique of laminated dough reveals the careful balance of temperature, timing, and technique required to achieve pastry perfection. Learn professional tips for creating buttery, flaky layers every time.
-                </p>
-                <div class="flex items-center justify-between mt-4 text-sm text-navy/60">
-                  <span>February 28, 2024</span>
-                  <span class="views-counter" id="article-4-views">2.3K views</span>
-                </div>
-              </a>
-            </div>
+  <main class="container mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Our Blog</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">Stay updated with our latest thoughts, tips, and insights on web development, design trends, and technology innovations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span>May 2, 2024</span>
+            <span class="mx-2">•</span>
+            <span>Web Development</span>
           </div>
-          
-          <div>
-            <!-- Featured Article Image -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <img 
-                src="https://images.unsplash.com/photo-1606131731446-5568d87113aa?q=80&w=1064&auto=format&fit=crop"
-                alt="Stack of toast pastry" 
-                class="w-full h-80 object-cover rounded-lg mb-6"
-              />
-              <h3 class="text-2xl font-bold text-navy mb-4">Toast Pastry</h3>
-              <p class="text-navy/80 mb-6">
-                Our signature toast pastries combine traditional French lamination techniques with innovative flavors. Each pastry features dozens of delicate, buttery layers and a perfect balance of textures.
-              </p>
-              <a href="index.html#menu" class="text-navy font-bold hover:text-tomato transition-colors flex items-center">
-                Explore our menu <i class="fas fa-arrow-right ml-2"></i>
-              </a>
-            </div>
-            
-            <!-- Recent Posts -->
-            <div class="bg-pastel/60 p-6 rounded-lg shadow-md mt-8">
-              <h3 class="text-xl font-bold text-navy mb-4">Popular Articles</h3>
-              <div class="space-y-4">
-                <div class="flex items-start">
-                  <div class="text-navy font-bold mr-3 text-lg">01</div>
-                  <div>
-                    <a href="blog-post.html?id=4" class="text-navy hover:text-tomato transition-colors font-medium">Super flaky pastry</a>
-                    <p class="text-sm text-navy/60"><span id="article-4-popular-views">2.3K</span> views</p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="text-navy font-bold mr-3 text-lg">02</div>
-                  <div>
-                    <a href="blog-post.html?id=3" class="text-navy hover:text-tomato transition-colors font-medium">Dessert, embracing pleasure in life</a>
-                    <p class="text-sm text-navy/60"><span id="article-3-popular-views">1.5K</span> views</p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="text-navy font-bold mr-3 text-lg">03</div>
-                  <div>
-                    <a href="blog-post.html?id=1" class="text-navy hover:text-tomato transition-colors font-medium">An Ode to Toast, simplest of breakfast</a>
-                    <p class="text-sm text-navy/60"><span id="article-1-popular-views">1.2K</span> views</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 class="text-xl font-bold text-secondary mb-3">10 Essential VS Code Extensions for Web Developers</h2>
+          <p class="text-gray-600 mb-4">Boost your productivity with these must-have extensions for Visual Studio Code that every web developer should be using in 2024.</p>
+          <a href="blog-post.html?id=1" class="text-primary font-medium flex items-center">
+            Read More
+            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
         </div>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-pastel py-12 px-4 md:px-8">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h1 class="text-3xl font-bold mb-4">
-              <span class="text-navy">Top</span><span class="text-gold">ast</span>
-            </h1>
-            <p class="text-navy/70 mb-4">Elevating everyday toast into moments of indulgence and delight.</p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
-                <i class="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
-                <i class="fab fa-facebook text-xl"></i>
-              </a>
-              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
-                <i class="fab fa-pinterest text-xl"></i>
-              </a>
-              <a href="#" class="text-navy hover:text-tomato transition-colors duration-200">
-                <i class="fab fa-twitter text-xl"></i>
-              </a>
-            </div>
+      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span>April 28, 2024</span>
+            <span class="mx-2">•</span>
+            <span>Performance</span>
           </div>
-          
-          <div>
-            <h3 class="text-lg font-bold text-navy mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <li><a href="index.html#about" class="text-navy/70 hover:text-tomato transition-colors">About Us</a></li>
-              <li><a href="index.html#menu" class="text-navy/70 hover:text-tomato transition-colors">Our Menu</a></li>
-              <li><a href="index.html#find" class="text-navy/70 hover:text-tomato transition-colors">Locations</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Catering</a></li>
-              <li><a href="cart.html" class="text-navy/70 hover:text-tomato transition-colors">Order Online</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 class="text-lg font-bold text-navy mb-4">Support</h3>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">FAQ</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Shipping Policy</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Returns & Refunds</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Contact Us</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato transition-colors">Wholesale Inquiries</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 class="text-lg font-bold text-navy mb-4">Contact</h3>
-            <ul class="space-y-2 text-navy/70">
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt mt-1 mr-2 text-tomato"></i>
-                <span>BSD City, Tangerang</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-phone mt-1 mr-2 text-tomato"></i>
-                <span>+62 813 1456 221</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-envelope mt-1 mr-2 text-tomato"></i>
-                <span>topast236@gmail.com</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-clock mt-1 mr-2 text-tomato"></i>
-                <span>Mon-Sat: 7AM-7PM, Sun: 8AM-4PM</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="border-t border-navy/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p class="text-navy/70">© <span id="current-year"></span> ToPast. All rights reserved.</p>
-          <div class="mt-4 md:mt-0">
-            <ul class="flex flex-wrap justify-center space-x-4">
-              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Privacy Policy</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Terms of Service</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Accessibility</a></li>
-              <li><a href="#" class="text-navy/70 hover:text-tomato text-sm transition-colors">Sitemap</a></li>
-            </ul>
-          </div>
+          <h2 class="text-xl font-bold text-secondary mb-3">Optimizing Web Performance: A Comprehensive Guide</h2>
+          <p class="text-gray-600 mb-4">Learn how to improve your website's loading speed, responsiveness, and overall performance with these expert tips and best practices.</p>
+          <a href="blog-post.html?id=2" class="text-primary font-medium flex items-center">
+            Read More
+            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
         </div>
       </div>
-    </footer>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-white shadow-lg rounded-lg p-4 transform translate-y-10 opacity-0 transition-all duration-300 z-50 max-w-sm pointer-events-none">
-      <div class="flex items-center">
-        <div id="toast-icon-container" class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-4">
-          <i id="toast-icon" class="fas fa-check"></i>
+      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?q=80&w=1476&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span>April 15, 2024</span>
+            <span class="mx-2">•</span>
+            <span>JavaScript</span>
+          </div>
+          <h2 class="text-xl font-bold text-secondary mb-3">Modern JavaScript Features You Should Be Using</h2>
+          <p class="text-gray-600 mb-4">Discover the latest JavaScript features that can help you write cleaner, more efficient code and stay ahead of the curve in web development.</p>
+          <a href="blog-post.html?id=3" class="text-primary font-medium flex items-center">
+            Read More
+            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
         </div>
-        <div>
-          <h4 id="toast-title" class="font-semibold text-navy text-sm">Success!</h4>
-          <p id="toast-message" class="text-navy/70 text-sm">Operation completed successfully.</p>
+      </div>
+
+      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span>April 10, 2024</span>
+            <span class="mx-2">•</span>
+            <span>CSS</span>
+          </div>
+          <h2 class="text-xl font-bold text-secondary mb-3">CSS Grid vs. Flexbox: When to Use Which</h2>
+          <p class="text-gray-600 mb-4">A detailed comparison of CSS Grid and Flexbox layout systems, with practical examples and guidelines on when to use each for optimal results.</p>
+          <a href="blog-post.html?id=4" class="text-primary font-medium flex items-center">
+            Read More
+            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1664&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span>April 5, 2024</span>
+            <span class="mx-2">•</span>
+            <span>Accessibility</span>
+          </div>
+          <h2 class="text-xl font-bold text-secondary mb-3">Web Accessibility Checklist for Developers</h2>
+          <p class="text-gray-600 mb-4">Ensure your websites are accessible to all users with this comprehensive checklist covering WCAG guidelines, best practices, and testing tools.</p>
+          <a href="blog-post.html" class="text-primary font-medium flex items-center">
+            Read More
+            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span>March 25, 2024</span>
+            <span class="mx-2">•</span>
+            <span>Security</span>
+          </div>
+          <h2 class="text-xl font-bold text-secondary mb-3">Frontend Security Best Practices</h2>
+          <p class="text-gray-600 mb-4">Protect your web applications from common security threats with these essential frontend security practices that every developer should implement.</p>
+          <a href="blog-post.html" class="text-primary font-medium flex items-center">
+            Read More
+            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-    <script>
-      // Blog view counter functionality
-      document.addEventListener('DOMContentLoaded', () => {
-        // Load view counts from localStorage or initialize if not present
-        const viewCounts = JSON.parse(localStorage.getItem('blogViewCounts')) || {
-          'article-1': 1200,
-          'article-2': 986,
-          'article-3': 1500,
-          'article-4': 2300
-        };
+    <div class="mt-12 flex justify-center">
+      <div class="inline-flex items-center">
+        <a href="#" class="px-4 py-2 border border-gray-300 rounded-l-md bg-white text-gray-700 hover:bg-gray-50 flex items-center justify-center mr-1">
+          <i class="fas fa-chevron-left mr-2"></i>
+          Previous
+        </a>
+        <span class="px-4 py-2 border border-gray-300 bg-primary text-white">1</span>
+        <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">2</a>
+        <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">3</a>
+        <a href="#" class="px-4 py-2 border border-gray-300 rounded-r-md bg-white text-gray-700 hover:bg-gray-50 flex items-center justify-center ml-1">
+          Next
+          <i class="fas fa-chevron-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-12 mt-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h2 class="text-xl font-bold mb-4">ModernWeb</h2>
+          <p class="text-gray-400 mb-4">Building better web experiences with modern technologies and clean design.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
         
-        // Update view counters on the page
-        Object.keys(viewCounts).forEach(articleId => {
-          const viewCounters = document.querySelectorAll(`#${articleId}-views, #${articleId}-popular-views`);
-          viewCounters.forEach(counter => {
-            const count = viewCounts[articleId];
-            counter.textContent = count >= 1000 
-              ? `${(count / 1000).toFixed(1)}K` 
-              : count.toString();
-          });
-        });
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
+            <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+          <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
+          <form class="flex flex-col sm:flex-row gap-2">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
+        <p>&copy; 2024 ModernWeb. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Mobile menu toggle
+    const menuButton = document.querySelector('button.md\\:hidden');
+    const navigation = document.querySelector('nav.hidden');
+    
+    if (menuButton && navigation) {
+      menuButton.addEventListener('click', () => {
+        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
         
-        // Add click event to track article views
-        document.querySelectorAll('.blog-article').forEach(article => {
-          article.addEventListener('click', function() {
-            const articleId = this.dataset.articleId;
-            if (articleId) {
-              // Increment view count
-              const key = `article-${articleId}`;
-              viewCounts[key] = (viewCounts[key] || 0) + 1;
-              
-              // Save to localStorage
-              localStorage.setItem('blogViewCounts', JSON.stringify(viewCounts));
-              
-              // Could also send to server to persist the count
-              // fetch('/api/article-views', {
-              //   method: 'POST',
-              //   headers: { 'Content-Type': 'application/json' },
-              //   body: JSON.stringify({ articleId, count: viewCounts[key] })
-              // });
-            }
-          });
-        });
+        if (!expanded) {
+          navigation.classList.remove('hidden');
+          navigation.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'right-4', 'bg-white', 'p-4', 'shadow-lg', 'rounded', 'space-y-4', 'z-50', 'w-48');
+          menuButton.setAttribute('aria-expanded', 'true');
+        } else {
+          navigation.classList.add('hidden');
+          navigation.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'right-4', 'bg-white', 'p-4', 'shadow-lg', 'rounded', 'space-y-4', 'z-50', 'w-48');
+          menuButton.setAttribute('aria-expanded', 'false');
+        }
       });
-    </script>
-  </body>
+    }
+  </script>
+</body>
 </html>
