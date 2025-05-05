@@ -11,16 +11,16 @@ const toastIconContainer = document.getElementById('toast-icon-container');
 
 // Mobile Menu Toggle
 function toggleMobileMenu() {
-  const isOpen = mobileMenu.classList.contains('max-h-60');
-  
-  if (isOpen) {
-    mobileMenu.classList.remove('max-h-60');
-    mobileMenu.classList.add('max-h-0');
-    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-  } else {
-    mobileMenu.classList.remove('max-h-0');
-    mobileMenu.classList.add('max-h-60');
-    mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+  if (mobileMenu) {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    
+    if (isOpen) {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+    } else {
+      mobileMenu.classList.remove('hidden');
+      mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+    }
   }
 }
 
@@ -120,7 +120,7 @@ function smoothScrollToElement(elementId) {
     });
     
     // Close mobile menu if open
-    if (mobileMenu && mobileMenu.classList.contains('max-h-60')) {
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
       toggleMobileMenu();
     }
   }
