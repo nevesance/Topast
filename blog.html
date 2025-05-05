@@ -131,8 +131,11 @@
         <div>
           <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
           
-          <div id="article-links-container">
-            <!-- Article links will be loaded here -->
+          <div>
+            <a href="blog-post.html?id=1" class="article-link">An Ode to Toast, simplest of breakfast</a>
+            <a href="blog-post.html?id=2" class="article-link">Dessert, embracing pleasure in life</a>
+            <a href="blog-post.html?id=3" class="article-link">Super flaky pastry</a>
+            <a href="blog-post.html?id=5" class="article-link">Pengganjal Lapar yang Lezat dan Kekinian</a>
           </div>
         </div>
         
@@ -146,8 +149,66 @@
       <!-- Featured Articles Section -->
       <div class="mt-20">
         <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
-        <div id="featured-posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Featured posts will be loaded here -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Article 1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
+                 alt="Food blog post" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>May 15, 2024</span>
+                <span class="mx-2">•</span>
+                <span>Food</span>
+              </div>
+              <h3 class="text-xl font-bold text-navy mb-3">An Ode to Toast, simplest of breakfast</h3>
+              <p class="text-gray-600 mb-4">Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.</p>
+              <a href="blog-post.html?id=1" class="text-blue-light font-medium flex items-center">
+                Read More
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" 
+                 alt="Food blog post" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>April 28, 2024</span>
+                <span class="mx-2">•</span>
+                <span>Culinary</span>
+              </div>
+              <h3 class="text-xl font-bold text-navy mb-3">Dessert, embracing pleasure in life</h3>
+              <p class="text-gray-600 mb-4">Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.</p>
+              <a href="blog-post.html?id=2" class="text-blue-light font-medium flex items-center">
+                Read More
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop" 
+                 alt="Food blog post" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>April 20, 2024</span>
+                <span class="mx-2">•</span>
+                <span>Recipe</span>
+              </div>
+              <h3 class="text-xl font-bold text-navy mb-3">Super flaky pastry</h3>
+              <p class="text-gray-600 mb-4">Apa rahasia di balik kulit pastry Topast yang super flaky? Yuk, kenali proses pembuatan pastry yang sempurna dari Topast.</p>
+              <a href="blog-post.html?id=3" class="text-blue-light font-medium flex items-center">
+                Read More
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -213,10 +274,7 @@
     </div>
   </footer>
 
-  <!-- Load the blog data -->
-  <script src="blog-data.js"></script>
-  
-  <!-- Blog functionality -->
+  <!-- Mobile menu toggle script -->
   <script>
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -233,51 +291,6 @@
         }
       });
     }
-    
-    // Load blog content
-    document.addEventListener('DOMContentLoaded', function() {
-      // All the blog posts
-      const posts = getAllPosts();
-      
-      // Load article links
-      const articleLinksContainer = document.getElementById('article-links-container');
-      if (articleLinksContainer) {
-        let linksHTML = '';
-        posts.forEach(post => {
-          linksHTML += `<a href="blog-post.html?id=${post.id}" class="article-link">${post.title}</a>`;
-        });
-        articleLinksContainer.innerHTML = linksHTML;
-      }
-      
-      // Load featured articles
-      const featuredContainer = document.getElementById('featured-posts-container');
-      if (featuredContainer) {
-        let featuredHTML = '';
-        posts.slice(0, 3).forEach(post => {
-          featuredHTML += `
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img src="${post.featuredImage}" 
-                   alt="${post.title}" 
-                   class="w-full h-48 object-cover">
-              <div class="p-6">
-                <div class="flex items-center text-sm text-gray-500 mb-3">
-                  <span>${post.date}</span>
-                  <span class="mx-2">•</span>
-                  <span>${post.category}</span>
-                </div>
-                <h3 class="text-xl font-bold text-navy mb-3">${post.title}</h3>
-                <p class="text-gray-600 mb-4">${post.excerpt}</p>
-                <a href="blog-post.html?id=${post.id}" class="text-blue-light font-medium flex items-center">
-                  Read More
-                  <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                </a>
-              </div>
-            </div>
-          `;
-        });
-        featuredContainer.innerHTML = featuredHTML;
-      }
-    });
   </script>
 </body>
 </html>
