@@ -72,7 +72,7 @@
         <!-- Logo -->
         <div class="flex-shrink-0">
           <a href="index.html" class="flex items-center">
-            <h1 class="text-3xl font-bold">
+            <h1 class="text-3xl font-serif font-bold">
               <span class="text-navy">Top</span><span class="text-blue-500">ast</span><span class="text-navy">..</span>
             </h1>
           </a>
@@ -80,14 +80,14 @@
 
         <!-- Search and Cart -->
         <div class="flex items-center space-x-4">
-          <div class="relative">
-            <button class="p-2 text-white rounded-full bg-red-700">
+          <div class="relative flex items-center">
+            <button class="absolute left-3 text-gray-500">
               <i class="fas fa-search"></i>
             </button>
-            <input type="text" placeholder="SEARCH & SHOP" class="hidden md:inline-block ml-2 border rounded-full px-4 py-1 text-sm w-40">
+            <input type="text" placeholder="SEARCH & SHOP" class="border border-gray-300 rounded-full px-10 py-1 text-sm w-56 bg-white">
           </div>
           <a href="#" class="text-navy">
-            <i class="fas fa-shopping-bag text-2xl"></i>
+            <i class="fas fa-shopping-bag text-xl"></i>
           </a>
           <div class="w-12 h-6 bg-red-600 rounded"></div>
         </div>
@@ -95,22 +95,20 @@
 
       <!-- Navigation -->
       <div class="mt-4 flex flex-wrap justify-center">
-        <a href="index.html#about" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">ABOUT US</a>
-        <a href="index.html#menu" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">OUR MENU</a>
-        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">GIFTS</a>
-        <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
-        <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">FIND US</a>
-        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-blue-200 border border-blue-300 text-navy hover:bg-blue-100 transition">FIND AN ARTICLE</a>
+        <a href="index.html#about" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">ABOUT US</a>
+        <a href="index.html#menu" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">OUR MENU</a>
+        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">GIFTS</a>
+        <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
+        <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">FIND US</a>
+        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-blue-200 border border-blue-200 text-navy font-medium">FIND AN ARTICLE</a>
       </div>
 
       <!-- Mobile Navigation (hidden by default) -->
       <div id="mobile-menu" class="hidden mt-4">
         <div class="space-y-2 bg-blue-50 p-4 rounded-lg">
-          <div class="flex items-center mb-4">
-            <button class="text-white mr-2 p-2 rounded-full bg-red-700">
-              <i class="fas fa-search"></i>
-            </button>
-            <input type="text" placeholder="SEARCH & SHOP" class="border rounded-full px-4 py-1 text-sm w-full">
+          <div class="flex items-center mb-4 relative">
+            <i class="fas fa-search absolute left-3 text-gray-500"></i>
+            <input type="text" placeholder="SEARCH & SHOP" class="border border-gray-300 rounded-full pl-10 pr-4 py-1 text-sm w-full">
           </div>
           <a href="index.html#about" class="block py-2 text-navy font-medium">ABOUT US</a>
           <a href="index.html#menu" class="block py-2 text-navy font-medium">OUR MENU</a>
@@ -129,22 +127,19 @@
   <!-- Main Content -->
   <main class="py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <h1 class="main-heading">FIND AN ARTICLE</h1>
+          <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
           
           <a href="blog-post.html?id=1" class="article-link">An Ode to Toast, simplest of breakfast</a>
           <a href="blog-post.html?id=2" class="article-link">Dessert, embracing pleasure in life</a>
           <a href="blog-post.html?id=3" class="article-link">Super flaky pastry</a>
-          <a href="blog-post.html?id=3" class="article-link">The Magic of Matcha Kunafa</a>
-          <a href="blog-post.html?id=3" class="article-link">Klepon: A Taste of Indonesia</a>
-          <a href="blog-post.html?id=3" class="article-link">Gourmet Toast: A Global Trend</a>
         </div>
         
         <div>
-          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop" 
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
                alt="Topast spread with various pastries" 
-               class="rounded-lg shadow-lg w-full h-[400px] object-cover">
+               class="rounded-lg w-full object-cover">
         </div>
       </div>
       
