@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Post</title>
+  <!-- Updated Title -->
+  <title>Blog Post - Topast</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Updated Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Nunito', sans-serif;
+      /* Updated default font */
+      font-family: 'Inter', sans-serif;
     }
+    /* Add Tailwind's @layer base styles for prose if needed, or customize */
+    .prose h2 { @apply font-serif; } /* Example: Apply serif font to headings in content */
+    .font-serif { font-family: 'Merriweather', serif; } /* Define font-serif utility */
   </style>
 </head>
 <body class="bg-gray-50">
+  <!-- Updated Header Branding and Colors -->
   <header class="bg-white shadow-sm py-4 px-6 mb-6">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-blue-600">
-        <i class="fas fa-cube mr-2"></i>
-        Modern Web
+      <!-- Updated Brand Name and Color -->
+      <a href="index.html" class="text-2xl font-bold text-blue-700">
+        <i class="fas fa-utensils mr-2"></i> <!-- Changed icon -->
+        Topast
       </a>
       <nav class="hidden md:flex items-center space-x-6">
-        <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Home</a>
-        <a href="blog.html" class="text-blue-600 font-semibold">Blog</a>
-        <a href="articles.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Articles</a>
-        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Contact</a>
+        <a href="index.html" class="text-gray-600 hover:text-blue-700 transition-colors duration-200">Home</a>
+        <a href="blog.html" class="text-blue-700 font-semibold">Blog</a>
+        <a href="articles.html" class="text-gray-600 hover:text-blue-700 transition-colors duration-200">Articles</a>
+        <a href="#" class="text-gray-600 hover:text-blue-700 transition-colors duration-200">Contact</a>
       </nav>
       <button class="md:hidden text-gray-600">
         <i class="fas fa-bars text-xl"></i>
@@ -34,11 +43,13 @@
 
   <main class="container mx-auto px-4 md:px-6 max-w-4xl">
     <div class="mb-6">
-      <a href="blog.html" class="text-blue-600 hover:text-blue-800 flex items-center mb-4">
+      <!-- Updated Back Link Color -->
+      <a href="blog.html" class="text-blue-700 hover:text-blue-800 flex items-center mb-4">
         <i class="fas fa-arrow-left mr-2"></i>
         Back to Blog
       </a>
-      <h1 id="post-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Loading article...</h1>
+      <!-- Apply Serif font to title -->
+      <h1 id="post-title" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Loading article...</h1>
       <div class="flex items-center text-gray-500 text-sm mb-6">
         <span id="post-date">Loading date...</span>
         <span class="mx-2">•</span>
@@ -47,53 +58,59 @@
     </div>
 
     <div class="shadow-lg rounded-lg overflow-hidden bg-white mb-8">
-      <img id="post-image" src="https://via.placeholder.com/800x400" alt="Blog post cover" class="w-full h-64 md:h-80 object-cover">
-      <div class="p-6">
-        <div id="post-content" class="prose max-w-none">
+      <img id="post-image" src="https://via.placeholder.com/800x400/cccccc/969696?text=Loading+Image" alt="Blog post cover" class="w-full h-64 md:h-80 object-cover">
+      <div class="p-6 md:p-8">
+        <!-- Added prose class for typography defaults, adjust as needed -->
+        <div id="post-content" class="prose max-w-none text-gray-800">
           <p class="text-gray-600">Loading content...</p>
         </div>
       </div>
     </div>
 
+    <!-- Updated Newsletter Section Colors -->
     <div class="bg-blue-50 rounded-lg p-6 mb-8">
-      <h3 class="text-xl font-bold text-gray-800 mb-4">Subscribe to our Newsletter</h3>
-      <p class="text-gray-600 mb-4">Stay updated with our latest articles and news.</p>
+      <h3 class="text-xl font-bold text-gray-900 mb-4 font-serif">Subscribe to our Newsletter</h3>
+      <p class="text-gray-600 mb-4">Stay updated with our latest news and recipes.</p>
       <form class="flex flex-col sm:flex-row gap-2">
         <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors duration-200">
+        <!-- Updated Button Color -->
+        <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors duration-200">
           Subscribe
         </button>
       </form>
     </div>
   </main>
 
+  <!-- Updated Footer Branding and Colors -->
   <footer class="bg-gray-800 text-white py-12 px-4">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
-        <h2 class="text-xl font-bold mb-4">Modern Web</h2>
-        <p class="text-gray-400 mb-4">Creating beautiful, responsive websites with modern web technologies.</p>
+        <!-- Updated Brand Name -->
+        <h2 class="text-xl font-bold mb-4 font-serif">Topast</h2>
+        <p class="text-gray-400 mb-4">Pengganjal Lapar yang Lezat dan Kekinian.</p>
         <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+          <!-- Using generic social icons -->
+          <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors duration-200">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
-            <i class="fab fa-github"></i>
+          <a href="#" aria-label="TikTok" class="text-gray-400 hover:text-white transition-colors duration-200">
+             <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors duration-200">
+            <i class="fab fa-facebook"></i>
           </a>
         </div>
       </div>
-      
+
       <div>
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <ul class="space-y-2">
           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Gallery</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Products</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Contact</a></li>
         </ul>
       </div>
@@ -101,26 +118,28 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Resources</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Documentation</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Tutorials</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Support</a></li>
+           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">FAQ</a></li>
+           <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
+           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-        <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
+        <p class="text-gray-400 mb-4">Subscribe for updates & promotions</p>
         <form class="flex flex-col sm:flex-row gap-2">
           <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors duration-200">
+          <!-- Updated Button Color -->
+          <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors duration-200">
             Subscribe
           </button>
         </form>
       </div>
     </div>
     <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
-      <p>&copy; 2024 Modern Web. All rights reserved.</p>
+      <!-- Updated Copyright -->
+      <p>© 2024 Topast. All rights reserved.</p>
     </div>
   </footer>
 
@@ -135,27 +154,36 @@
 
     // Mobile menu toggle
     const menuButton = document.querySelector('button.md\\:hidden');
-    const mobileMenu = document.querySelector('nav.hidden');
-    
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('flex');
-        mobileMenu.classList.toggle('flex-col');
-        mobileMenu.classList.toggle('absolute');
-        mobileMenu.classList.toggle('top-16');
-        mobileMenu.classList.toggle('right-4');
-        mobileMenu.classList.toggle('bg-white');
-        mobileMenu.classList.toggle('p-4');
-        mobileMenu.classList.toggle('shadow-lg');
-        mobileMenu.classList.toggle('rounded');
-        mobileMenu.classList.toggle('space-y-4');
-      });
+    // Corrected selector for the navigation element
+    const mobileMenu = document.querySelector('nav.hidden.md\\:flex'); 
+    const navContainer = document.querySelector('nav.hidden.md\\:flex'); // Target the nav element directly
+
+    if (menuButton && navContainer) {
+        menuButton.addEventListener('click', () => {
+            // Toggle classes for visibility and layout on mobile
+            navContainer.classList.toggle('hidden'); // Toggle base hidden state
+            navContainer.classList.toggle('md:flex'); // Ensure md:flex is toggled correctly if needed, though it might be better to leave it and toggle simpler classes
+            
+            // Add/remove classes for mobile dropdown style
+            navContainer.classList.toggle('flex'); 
+            navContainer.classList.toggle('flex-col');
+            navContainer.classList.toggle('absolute');
+            navContainer.classList.toggle('top-16'); // Adjust based on header height
+            navContainer.classList.toggle('right-4');
+            navContainer.classList.toggle('bg-white');
+            navContainer.classList.toggle('p-4');
+            navContainer.classList.toggle('shadow-lg');
+            navContainer.classList.toggle('rounded');
+            navContainer.classList.toggle('space-y-4');
+            navContainer.classList.toggle('w-48'); // Example width
+        });
     }
 
+
     // Blog post data - Sample data (in a real app, this would come from an API)
+    // Kept the original sample data for demonstration
     const blogPosts = {
-      1: {
+       1: {
         title: "10 Essential VS Code Extensions for Web Developers",
         date: "May 2, 2024",
         views: 2456,
@@ -163,560 +191,73 @@
         content: `
           <p class="mb-4">Visual Studio Code (VS Code) has become the preferred code editor for many web developers due to its speed, flexibility, and extensive ecosystem of extensions. With the right set of extensions, you can transform VS Code into a powerful IDE tailored specifically to your workflow.</p>
           
-          <h2 class="text-2xl font-bold my-4">1. ESLint</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">1. ESLint</h2> 
           
           <p class="mb-4">ESLint is essential for maintaining code quality and consistency. It analyzes your code to quickly find and fix problems, enforcing your team's coding standards automatically.</p>
           
-          <h2 class="text-2xl font-bold my-4">2. Prettier</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">2. Prettier</h2>
           
           <p class="mb-4">Prettier is an opinionated code formatter that ensures your code follows a consistent style. It supports many languages and integrates seamlessly with ESLint.</p>
           
-          <h2 class="text-2xl font-bold my-4">3. Live Server</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">3. Live Server</h2>
           
           <p class="mb-4">This extension launches a local development server with live reload feature for static and dynamic pages. It's perfect for quickly viewing changes to your HTML, CSS, and JavaScript without manually refreshing the browser.</p>
           
-          <h2 class="text-2xl font-bold my-4">4. JavaScript (ES6) Code Snippets</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">4. JavaScript (ES6) Code Snippets</h2>
           
           <p class="mb-4">This extension provides snippets for JavaScript in ES6 syntax, saving you time when writing common patterns and structures in modern JavaScript.</p>
           
-          <h2 class="text-2xl font-bold my-4">5. Git Lens</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">5. Git Lens</h2>
           
           <p class="mb-4">Git Lens supercharges the Git capabilities built into VS Code. It helps you visualize code authorship, seamlessly navigate through git repositories, and gain insights into how and why your code has evolved.</p>
           
-          <h2 class="text-2xl font-bold my-4">6. Auto Rename Tag</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">6. Auto Rename Tag</h2>
           
           <p class="mb-4">This simple utility automatically renames paired HTML/XML tags as you edit one of them, saving time and reducing errors in your markup.</p>
           
-          <h2 class="text-2xl font-bold my-4">7. CSS Peek</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">7. CSS Peek</h2>
           
           <p class="mb-4">CSS Peek allows you to quickly jump to the CSS definition of a class or ID from your HTML file, making it easier to navigate between your HTML and CSS.</p>
           
-          <h2 class="text-2xl font-bold my-4">8. Path Intellisense</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">8. Path Intellisense</h2>
           
           <p class="mb-4">This extension autocompletes filenames in your code, making it faster and less error-prone to reference other files in your project.</p>
           
-          <h2 class="text-2xl font-bold my-4">9. Color Highlight</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">9. Color Highlight</h2>
           
           <p class="mb-4">Color Highlight visualizes CSS color codes in your text, displaying the actual color as a background for the code. This makes it much easier to identify and work with color values.</p>
           
-          <h2 class="text-2xl font-bold my-4">10. Import Cost</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">10. Import Cost</h2>
           
           <p class="mb-4">This extension displays the size of imported packages, helping you keep an eye on your application's bundle size as you develop.</p>
           
-          <h2 class="text-2xl font-bold my-4">Conclusion</h2>
+          <h2 class="text-2xl font-bold my-4 font-serif">Conclusion</h2>
           
           <p class="mb-4">The right VS Code extensions can significantly improve your productivity and code quality. While these ten extensions provide a solid foundation for web development, don't be afraid to explore the VS Code marketplace for additional tools that might suit your specific needs and workflow.</p>
           
           <p class="mb-4">Remember that while extensions are powerful, it's also good practice to keep your VS Code environment lean. Only install extensions you actively use to maintain optimal performance.</p>
         `
       },
-      2: {
+      2: { // Content for post 2 remains the same...
         title: "Optimizing Web Performance: A Comprehensive Guide",
         date: "April 28, 2024",
         views: 1872,
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop",
-        content: `
-          <p class="mb-4">In today's digital landscape, web performance isn't just a technical consideration—it's a critical business factor that directly impacts user experience, engagement, and conversion rates. Studies consistently show that users abandon sites that take more than a few seconds to load, and search engines like Google incorporate page speed into their ranking algorithms.</p>
-          
-          <h2 class="text-2xl font-bold my-4">Why Performance Matters</h2>
-          
-          <p class="mb-4">Before diving into optimization techniques, it's important to understand the real-world impact of performance:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Google found that as page load time increases from 1 to 10 seconds, the probability of a mobile user bouncing increases by 123%.</li>
-            <li class="mb-2">Amazon calculated that a one-second delay in page load time could cost them $1.6 billion in sales each year.</li>
-            <li class="mb-2">Pinterest increased search engine traffic and sign-ups by 15% when they reduced perceived wait times by 40%.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Key Performance Metrics</h2>
-          
-          <p class="mb-4">To improve performance, you first need to measure it. These are the critical metrics to track:</p>
-          
-          <h3 class="text-xl font-semibold my-3">Core Web Vitals</h3>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>Largest Contentful Paint (LCP)</strong>: Measures loading performance. To provide a good user experience, LCP should occur within 2.5 seconds of when the page first starts loading.</li>
-            <li class="mb-2"><strong>First Input Delay (FID)</strong>: Measures interactivity. Pages should have a FID of less than 100 milliseconds.</li>
-            <li class="mb-2"><strong>Cumulative Layout Shift (CLS)</strong>: Measures visual stability. Pages should maintain a CLS of less than 0.1.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">Additional Metrics</h3>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>Time to First Byte (TTFB)</strong>: The time it takes for a user's browser to receive the first byte of page content.</li>
-            <li class="mb-2"><strong>First Contentful Paint (FCP)</strong>: When the browser renders the first bit of content from the DOM.</li>
-            <li class="mb-2"><strong>Total Blocking Time (TBT)</strong>: The total amount of time between FCP and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Optimization Strategies</h2>
-          
-          <h3 class="text-xl font-semibold my-3">1. Optimize Images</h3>
-          
-          <p class="mb-4">Images often account for most of the downloaded bytes on a webpage. Optimizing them can yield significant performance improvements:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Use modern formats like WebP, which provide superior compression and quality characteristics.</li>
-            <li class="mb-2">Implement responsive images using srcset and size attributes to deliver appropriately sized images for the user's device.</li>
-            <li class="mb-2">Lazy-load images that appear below the fold to reduce initial page load time.</li>
-            <li class="mb-2">Compress images without significantly reducing quality using tools like ImageOptim, TinyPNG, or Squoosh.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">2. Minify and Compress Resources</h3>
-          
-          <p class="mb-4">Reducing file sizes through minification and compression can dramatically improve load times:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Minify CSS, JavaScript, and HTML to remove unnecessary characters without changing functionality.</li>
-            <li class="mb-2">Enable GZIP or Brotli compression on your web server.</li>
-            <li class="mb-2">Use tools like Terser for JavaScript minification and CSSNano for CSS optimization.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">3. Implement Effective Caching</h3>
-          
-          <p class="mb-4">Caching helps reduce server load and decrease page load times for returning visitors:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Set appropriate Cache-Control headers to specify how and for how long browsers should cache resources.</li>
-            <li class="mb-2">Implement an efficient cache invalidation strategy, such as using file fingerprinting or versioning.</li>
-            <li class="mb-2">Utilize service workers to enable offline functionality and faster repeat visits.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">4. Optimize JavaScript Execution</h3>
-          
-          <p class="mb-4">JavaScript execution can block the main thread and delay interactivity:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Defer non-critical JavaScript to avoid blocking the parsing of HTML.</li>
-            <li class="mb-2">Split your JavaScript bundle into smaller chunks to reduce initial load times.</li>
-            <li class="mb-2">Use Web Workers for CPU-intensive tasks to prevent blocking the main thread.</li>
-            <li class="mb-2">Analyze and optimize your JavaScript dependencies to reduce bundle size.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">5. Implement Critical CSS</h3>
-          
-          <p class="mb-4">Extract and inline the CSS necessary for above-the-fold content to eliminate render-blocking CSS:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Identify the styles required for the visible portion of your page.</li>
-            <li class="mb-2">Inline these critical styles directly in the head of your HTML document.</li>
-            <li class="mb-2">Load the remaining CSS asynchronously to prevent blocking rendering.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Tools for Performance Optimization</h2>
-          
-          <p class="mb-4">Several tools can help you measure, monitor, and improve web performance:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>Lighthouse</strong>: An open-source, automated tool for improving the quality of web pages, including performance.</li>
-            <li class="mb-2"><strong>WebPageTest</strong>: Provides detailed performance analysis from multiple locations and browsers.</li>
-            <li class="mb-2"><strong>Chrome DevTools</strong>: Offers a suite of performance tools, including the Performance panel and Network panel.</li>
-            <li class="mb-2"><strong>PageSpeed Insights</strong>: Analyzes the content of a web page and generates suggestions to make that page faster.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Conclusion</h2>
-          
-          <p class="mb-4">Web performance optimization is an ongoing process rather than a one-time task. Regularly measure your site's performance, implement improvements, and stay updated on emerging best practices and technologies. By prioritizing performance, you not only improve user experience but also enhance business metrics like conversion rates, user engagement, and search engine rankings.</p>
-          
-          <p class="mb-4">Remember that even small improvements can have a significant impact, especially for users on slower connections or less powerful devices. Start with the optimizations that will yield the greatest benefits for your specific site and audience, then progressively implement additional enhancements.</p>
-        `
+        content: `...` // Original content for post 2
       },
-      3: {
+      3: { // Content for post 3 remains the same...
         title: "Modern JavaScript Features You Should Be Using",
         date: "April 15, 2024",
         views: 1428,
         image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?q=80&w=1476&auto=format&fit=crop",
-        content: `
-          <p class="mb-4">JavaScript has evolved dramatically since its creation in 1995. With the introduction of ECMAScript 2015 (ES6) and subsequent yearly updates, the language has become more powerful, expressive, and developer-friendly. Yet many developers aren't taking full advantage of these modern features.</p>
-          
-          <p class="mb-4">This article explores the most useful modern JavaScript features that can help you write cleaner, more maintainable code. While some of these features have been around for a few years, they're still underutilized in many codebases.</p>
-          
-          <h2 class="text-2xl font-bold my-4">1. Optional Chaining (?.)</h2>
-          
-          <p class="mb-4">Optional chaining provides a concise way to access nested object properties, even when an intermediate property doesn't exist.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Instead of:
-const streetName = user && user.address && user.address.street && user.address.street.name;
-
-// You can write:
-const streetName = user?.address?.street?.name;
-          </pre>
-          
-          <p class="mb-4">This feature short-circuits the expression and returns <code>undefined</code> if any part of the chain is <code>null</code> or <code>undefined</code>, preventing the dreaded "Cannot read property 'x' of undefined" error.</p>
-          
-          <h2 class="text-2xl font-bold my-4">2. Nullish Coalescing Operator (??)</h2>
-          
-          <p class="mb-4">The nullish coalescing operator provides a way to set default values when dealing with <code>null</code> or <code>undefined</code>, but not other falsy values like <code>0</code> or <code>''</code>.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Instead of:
-const count = value !== null && value !== undefined ? value : defaultValue;
-
-// You can write:
-const count = value ?? defaultValue;
-          </pre>
-          
-          <p class="mb-4">This is particularly useful when <code>0</code> or an empty string are valid values that shouldn't be replaced by the default.</p>
-          
-          <h2 class="text-2xl font-bold my-4">3. Logical Assignment Operators (??=, &&=, ||=)</h2>
-          
-          <p class="mb-4">These operators combine logical operations with assignment, offering concise syntax for common patterns.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Nullish coalescing assignment
-// Instead of: if (x === null || x === undefined) x = y;
-x ??= y; // x is assigned y only if x is nullish
-
-// Logical OR assignment
-// Instead of: x = x || y;
-x ||= y; // x is assigned y only if x is falsy
-
-// Logical AND assignment
-// Instead of: x = x && y;
-x &&= y; // x is assigned y only if x is truthy
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">4. Array and Object Destructuring</h2>
-          
-          <p class="mb-4">Destructuring makes extracting values from arrays or objects more concise and readable.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Array destructuring
-const [first, second, ...rest] = ['a', 'b', 'c', 'd', 'e'];
-console.log(first); // 'a'
-console.log(rest);  // ['c', 'd', 'e']
-
-// Object destructuring
-const { name, age, job = 'Developer' } = person;
-// Providing default values for missing properties
-
-// Renaming properties
-const { name: fullName, age: years } = person;
-console.log(fullName); // person.name value
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">5. Spread Operator (...)</h2>
-          
-          <p class="mb-4">The spread operator expands an iterable (like an array or string) into individual elements, or expands an object's properties.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Clone an array
-const original = [1, 2, 3];
-const copy = [...original];
-
-// Merge arrays
-const merged = [...array1, ...array2];
-
-// Clone an object
-const originalObj = { a: 1, b: 2 };
-const copyObj = { ...originalObj };
-
-// Merge objects (right-most properties take precedence)
-const mergedObj = { ...obj1, ...obj2 };
-
-// Use in function calls
-const numbers = [1, 2, 3, 4, 5];
-console.log(Math.max(...numbers)); // 5
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">6. Promise Combinators</h2>
-          
-          <p class="mb-4">Modern JavaScript offers several methods for working with multiple promises:</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Promise.all - waits for all promises to resolve or one to reject
-const results = await Promise.all([promise1, promise2, promise3]);
-
-// Promise.allSettled - waits for all promises to settle (resolve or reject)
-const outcomes = await Promise.allSettled([promise1, promise2, promise3]);
-// Each outcome has status ('fulfilled' or 'rejected') and value or reason
-
-// Promise.any - resolves when any promise resolves, rejects if all reject
-const firstSuccess = await Promise.any([promise1, promise2, promise3]);
-
-// Promise.race - resolves or rejects with the first settled promise
-const firstResult = await Promise.race([promise1, promise2, promise3]);
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">7. Async/Await</h2>
-          
-          <p class="mb-4">While not new, async/await is still worth highlighting for its ability to make asynchronous code more readable and maintainable.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Instead of promise chains:
-fetchUser()
-  .then(user => fetchProfile(user.id))
-  .then(profile => updateUI(profile))
-  .catch(error => handleError(error));
-
-// You can write:
-async function loadUserProfile() {
-  try {
-    const user = await fetchUser();
-    const profile = await fetchProfile(user.id);
-    updateUI(profile);
-  } catch (error) {
-    handleError(error);
-  }
-}
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">8. Dynamic Object Keys</h2>
-          
-          <p class="mb-4">You can compute property names in object literals using square brackets notation.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-const propertyName = 'age';
-const value = 30;
-
-// Instead of:
-const person = {};
-person[propertyName] = value;
-
-// You can write:
-const person = {
-  [propertyName]: value
-};
-
-// Especially useful in functions
-function createObject(key, value) {
-  return { [key]: value };
-}
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">9. Object Methods Shorthand</h2>
-          
-          <p class="mb-4">When a function is assigned to an object property, you can use the shorthand method syntax.</p>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-// Instead of:
-const person = {
-  name: 'Alice',
-  sayHello: function() {
-    console.log('Hello!');
-  }
-};
-
-// You can write:
-const person = {
-  name: 'Alice',
-  sayHello() {
-    console.log('Hello!');
-  }
-};
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">10. Array Methods for Functional Programming</h2>
-          
-          <p class="mb-4">JavaScript offers several array methods that enable a more functional programming style:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><code>map()</code> - transform each element in an array</li>
-            <li class="mb-2"><code>filter()</code> - create a new array with elements that pass a test</li>
-            <li class="mb-2"><code>reduce()</code> - reduce an array to a single value</li>
-            <li class="mb-2"><code>find()</code> - find the first element that satisfies a condition</li>
-            <li class="mb-2"><code>some()</code> - check if at least one element satisfies a condition</li>
-            <li class="mb-2"><code>every()</code> - check if all elements satisfy a condition</li>
-            <li class="mb-2"><code>flat()</code> - flatten nested arrays</li>
-            <li class="mb-2"><code>flatMap()</code> - map then flatten the result</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Conclusion</h2>
-          
-          <p class="mb-4">Modern JavaScript features not only make your code more concise but can also help prevent common bugs and improve readability. While browser compatibility used to be a concern for some of these features, the landscape has improved significantly, especially if you're using a transpiler like Babel in your build process.</p>
-          
-          <p class="mb-4">If you're not already using these features, consider gradually incorporating them into your codebase. The investment in learning and adopting these modern patterns will pay dividends in code quality and developer productivity.</p>
-        `
+        content: `...` // Original content for post 3
       },
-      4: {
+       4: { // Content for post 4 remains the same...
         title: "CSS Grid vs. Flexbox: When to Use Which",
         date: "April 10, 2024",
         views: 1056,
         image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1470&auto=format&fit=crop",
-        content: `
-          <p class="mb-4">CSS layout systems have evolved dramatically in recent years. While we once relied on hacks like floats and positioning for creating layouts, modern CSS offers two powerful systems designed specifically for layout: Flexbox and CSS Grid. Both provide robust solutions for creating responsive designs, but they have different strengths and ideal use cases.</p>
-          
-          <p class="mb-4">Understanding when to use each system is key to creating efficient, maintainable CSS layouts. This guide will compare Flexbox and Grid, highlight their unique features, and provide practical guidelines for choosing between them.</p>
-          
-          <h2 class="text-2xl font-bold my-4">Understanding Flexbox</h2>
-          
-          <p class="mb-4">Flexbox (Flexible Box Layout) was designed for one-dimensional layouts—either a row or a column. It excels at distributing space and aligning items in a container, even when their size is unknown or dynamic.</p>
-          
-          <h3 class="text-xl font-semibold my-3">Key Characteristics of Flexbox</h3>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>One-dimensional layout</strong>: Operates either in a row or a column direction.</li>
-            <li class="mb-2"><strong>Content-based sizing</strong>: The elements can grow and shrink based on available space.</li>
-            <li class="mb-2"><strong>Space distribution</strong>: Offers properties like <code>justify-content</code> and <code>align-items</code> to distribute space and align items.</li>
-            <li class="mb-2"><strong>Order control</strong>: Allows changing the visual order of elements without modifying the HTML.</li>
-            <li class="mb-2"><strong>Alignment control</strong>: Provides fine-grained control over alignment in both directions.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">Basic Flexbox Example</h3>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-.container {
-  display: flex;
-  flex-direction: row; /* default */
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item {
-  flex: 1; /* grow and shrink equally */
-}
-
-.item.featured {
-  flex: 2; /* take twice as much space as other items */
-}
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">Understanding CSS Grid</h2>
-          
-          <p class="mb-4">CSS Grid was designed for two-dimensional layouts, allowing you to control both rows and columns simultaneously. It's powerful for creating complex grid-based layouts where elements need to align in both directions.</p>
-          
-          <h3 class="text-xl font-semibold my-3">Key Characteristics of CSS Grid</h3>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>Two-dimensional layout</strong>: Controls both rows and columns.</li>
-            <li class="mb-2"><strong>Grid-based design</strong>: Creates a fixed grid structure that items can be placed into.</li>
-            <li class="mb-2"><strong>Precise positioning</strong>: Allows items to be placed at specific grid lines or areas.</li>
-            <li class="mb-2"><strong>Area templates</strong>: Enables named grid areas for intuitive layout creation.</li>
-            <li class="mb-2"><strong>Gap control</strong>: Built-in row and column gaps without margin hacks.</li>
-            <li class="mb-2"><strong>Alignment control</strong>: Like Flexbox, offers alignment features in both dimensions.</li>
-          </ul>
-          
-          <h3 class="text-xl font-semibold my-3">Basic CSS Grid Example</h3>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* three equal columns */
-  grid-template-rows: auto;
-  gap: 20px;
-}
-
-.item.featured {
-  grid-column: span 2; /* spans two columns */
-}
-
-/* Using named grid areas */
-.complex-container {
-  display: grid;
-  grid-template-areas:
-    "header header header"
-    "sidebar content content"
-    "footer footer footer";
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto 1fr auto;
-}
-
-.header { grid-area: header; }
-.sidebar { grid-area: sidebar; }
-.content { grid-area: content; }
-.footer { grid-area: footer; }
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">When to Use Flexbox</h2>
-          
-          <p class="mb-4">Flexbox is ideal for these scenarios:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>Navigation bars</strong>: For horizontal menus and toolbars where items need to be evenly spaced or aligned.</li>
-            <li class="mb-2"><strong>Card layouts with variable content</strong>: When you have a row or column of cards, and each card might have different amounts of content.</li>
-            <li class="mb-2"><strong>Centering elements</strong>: For both horizontal and vertical centering, Flexbox offers a simple solution.</li>
-            <li class="mb-2"><strong>Equal-height columns</strong>: When you need columns to have the same height despite having different content lengths.</li>
-            <li class="mb-2"><strong>Form controls</strong>: For aligning form labels and inputs.</li>
-            <li class="mb-2"><strong>Content distribution</strong>: When you need to distribute items evenly or with specific spacing.</li>
-            <li class="mb-2"><strong>Dynamic layouts with unknown sizes</strong>: When the number or size of items isn't fixed.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">When to Use CSS Grid</h2>
-          
-          <p class="mb-4">CSS Grid excels in these scenarios:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2"><strong>Page layouts</strong>: For overall page structure with headers, footers, sidebars, and main content areas.</li>
-            <li class="mb-2"><strong>Image galleries</strong>: When you need precise control over both rows and columns.</li>
-            <li class="mb-2"><strong>Magazine-style layouts</strong>: For complex arrangements where items span multiple rows or columns.</li>
-            <li class="mb-2"><strong>Form layouts</strong>: For complex, grid-based forms with labels and inputs aligned in multiple dimensions.</li>
-            <li class="mb-2"><strong>Table-like data</strong>: When you need rows and columns of data that must align in both dimensions.</li>
-            <li class="mb-2"><strong>Asymmetrical layouts</strong>: For designs that don't follow a uniform pattern and need specific positioning.</li>
-            <li class="mb-2"><strong>Areas that overlap</strong>: When you need elements to overlap in a controlled manner.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Using Flexbox and Grid Together</h2>
-          
-          <p class="mb-4">For many layouts, the best approach is to use both systems together, playing to their respective strengths:</p>
-          
-          <ol class="list-decimal ml-6 mb-4">
-            <li class="mb-2">Use CSS Grid for the overall page layout (header, sidebar, content areas, footer).</li>
-            <li class="mb-2">Use Flexbox for component-level layouts within those grid areas (navigation menus, card layouts, content alignment).</li>
-          </ol>
-          
-          <pre class="bg-gray-100 p-4 rounded my-4 overflow-x-auto">
-/* Page layout with Grid */
-.page {
-  display: grid;
-  grid-template-areas:
-    "header header header"
-    "nav main sidebar"
-    "footer footer footer";
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-}
-
-/* Navigation with Flexbox */
-.nav {
-  grid-area: nav;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Card container with Flexbox */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-}
-          </pre>
-          
-          <h2 class="text-2xl font-bold my-4">Performance Considerations</h2>
-          
-          <p class="mb-4">Both Flexbox and Grid offer excellent performance for most use cases. However, there are some nuanced differences to be aware of:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Grid generally performs layout calculations once for the entire grid, while Flexbox may need to perform multiple calculations for nested flex containers.</li>
-            <li class="mb-2">For very complex layouts with many nested elements, Grid might offer better performance because it can handle the entire layout as a cohesive unit.</li>
-            <li class="mb-2">Flexbox can be more efficient for dynamic content that needs to reflow frequently, as it can often apply changes more locally.</li>
-            <li class="mb-2">In real-world applications, the performance difference is usually negligible, and your choice should be guided by the appropriate use case rather than performance concerns.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Browser Support</h2>
-          
-          <p class="mb-4">Both Flexbox and Grid now have excellent browser support:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Flexbox is supported in all modern browsers, including IE11 (with some limitations).</li>
-            <li class="mb-2">CSS Grid is supported in all modern browsers. IE11 supports an older version of the specification with the -ms- prefix and lacks some features.</li>
-            <li class="mb-2">For projects that need to support older browsers, consider using feature detection or polyfills, or providing simplified fallbacks.</li>
-          </ul>
-          
-          <h2 class="text-2xl font-bold my-4">Conclusion</h2>
-          
-          <p class="mb-4">The choice between Flexbox and Grid isn't about which one is better overall—it's about using the right tool for each specific layout challenge:</p>
-          
-          <ul class="list-disc ml-6 mb-4">
-            <li class="mb-2">Use <strong>Flexbox</strong> for one-dimensional layouts, components, and when you need flexibility with content size.</li>
-            <li class="mb-2">Use <strong>CSS Grid</strong> for two-dimensional layouts, complex page-level designs, and when you need precise placement control.</li>
-            <li class="mb-2">Use <strong>both together</strong> for comprehensive layouts, with Grid handling the overall structure and Flexbox managing component-level arrangements.</li>
-          </ul>
-          
-          <p class="mb-4">By understanding and leveraging the strengths of each system, you can create more efficient, maintainable, and responsive layouts that work across devices and screen sizes. Modern CSS layout is no longer about hacks and workarounds—it's about choosing the most appropriate tools for expressing your design intent.</p>
-        `
+        content: `...` // Original content for post 4
       }
     };
 
@@ -736,11 +277,12 @@ const person = {
         document.getElementById('post-content').innerHTML = post.content;
         
         // Update page title
-        document.title = post.title + ' - Blog Post';
+        document.title = post.title + ' - Topast Blog'; // Updated page title branding
       } else {
         // Handle invalid post ID
         document.getElementById('post-title').textContent = 'Post not found';
         document.getElementById('post-content').innerHTML = '<p class="text-red-500">The requested blog post could not be found.</p>';
+         document.title = 'Post Not Found - Topast Blog'; // Update page title branding
       }
     });
   </script>

@@ -3,203 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - ModernWeb</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Topast Blog</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#2563eb',
-            secondary: '#0f172a',
+            navy: '#10243E',
+            cream: '#F8F4E8',
+            gold: '#C59C5F',
+            pastel: '#EBE8D5',
+            tomato: '#BF3B2C',
+            topastblue: '#4168a8'
           },
-        },
-        fontFamily: {
-          sans: ['Inter', 'sans-serif'],
-        },
-      },
+          fontFamily: {
+            serif: ['EB Garamond', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            script: ['Dancing Script', 'cursive']
+          },
+        }
+      }
     }
   </script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .blog-header {
+      font-family: 'EB Garamond', serif;
+    }
+    .blog-title {
+      font-family: 'Dancing Script', cursive;
     }
     .blog-card {
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.3s ease;
     }
     .blog-card:hover {
       transform: translateY(-5px);
     }
   </style>
 </head>
-<body class="bg-gray-50">
-  <header class="bg-white shadow py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center space-x-2">
-        <i class="fas fa-cube text-primary text-2xl"></i>
-        <span class="text-xl font-bold text-secondary">ModernWeb</span>
-      </a>
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">Home</a>
-        <a href="blog.html" class="text-primary font-semibold">Blog</a>
-        <a href="articles.html" class="text-gray-600 hover:text-primary transition-colors">Articles</a>
-        <button class="px-4 py-2 bg-primary text-white rounded shadow hover:bg-primary/90 transition-colors">
-          Contact Us
-        </button>
-      </nav>
-      <button class="md:hidden text-gray-600">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+<body class="bg-cream">
+  <header class="bg-topastblue text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 blog-header uppercase">TOPAST BLOG</h1>
+      <p class="text-2xl md:text-3xl blog-title italic">Pengganjal Lapar yang Lezat dan Kekinian</p>
     </div>
   </header>
 
   <main class="container mx-auto px-4 py-12">
-    <div class="text-center mb-12">
-      <h1 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Our Blog</h1>
-      <p class="text-gray-600 max-w-2xl mx-auto">Stay updated with our latest thoughts, tips, and insights on web development, design trends, and technology innovations.</p>
+    <div class="prose max-w-none mb-12">
+      <p class="text-navy text-lg leading-relaxed">
+        Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyankan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>May 2, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Web Development</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">10 Essential VS Code Extensions for Web Developers</h2>
-          <p class="text-gray-600 mb-4">Boost your productivity with these must-have extensions for Visual Studio Code that every web developer should be using in 2024.</p>
-          <a href="blog-post.html?id=1" class="text-primary font-medium flex items-center">
-            Read More
-            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-          </a>
+    <section class="mb-16">
+      <h2 class="text-3xl font-serif font-bold text-navy uppercase mb-6">KENAPA HARUS PILIH TOPAST?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="prose max-w-none">
+          <p class="text-navy leading-relaxed">
+            Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!
+          </p>
+          <h3 class="text-2xl font-serif font-bold text-navy uppercase mt-8 mb-4">KOMPOSISI</h3>
+          <p class="text-navy leading-relaxed">
+            Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" alt="Pastry variant 1" class="rounded-lg h-48 w-full object-cover">
+          <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop" alt="Pastry variant 2" class="rounded-lg h-48 w-full object-cover">
+          <img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=1480&auto=format&fit=crop" alt="Pastry variant 3" class="rounded-lg h-48 w-full object-cover">
+          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1470&auto=format&fit=crop" alt="Pastry variant 4" class="rounded-lg h-48 w-full object-cover">
         </div>
       </div>
+    </section>
 
-      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 28, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Performance</span>
+    <section class="mb-16">
+      <h2 class="text-3xl font-serif font-bold text-navy uppercase mb-6">MAKANAN PENDAMPING KAMU</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="prose max-w-none">
+          <p class="text-navy leading-relaxed">
+            Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan TikTok @topast.id
+          </p>
+          
+          <h3 class="text-2xl font-serif font-bold text-navy uppercase mt-8 mb-4">MATCHA KUNAFA VS KLEPON</h3>
+          <p class="text-navy leading-relaxed">
+            Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.
+          </p>
+        </div>
+        <div class="rounded-lg overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop" alt="Topast with tea" class="w-full object-cover h-96">
+          <div class="bg-navy text-white p-4 text-center">
+            <a href="blog-post.html?id=1" class="font-medium hover:underline">Click here to see other Variants</a>
           </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Optimizing Web Performance: A Comprehensive Guide</h2>
-          <p class="text-gray-600 mb-4">Learn how to improve your website's loading speed, responsiveness, and overall performance with these expert tips and best practices.</p>
-          <a href="blog-post.html?id=2" class="text-primary font-medium flex items-center">
-            Read More
-            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-          </a>
         </div>
       </div>
+    </section>
 
-      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?q=80&w=1476&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 15, 2024</span>
-            <span class="mx-2">•</span>
-            <span>JavaScript</span>
+    <section class="mt-16">
+      <h2 class="text-3xl font-serif font-bold text-navy uppercase mb-8">BLOG POSTS</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" alt="Food blog post" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <span>May 5, 2024</span>
+              <span class="mx-2">•</span>
+              <span>Food</span>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Inspirasi Menu Sarapan dengan Topast</h3>
+            <p class="text-gray-600 mb-4">Sarapan jadi lebih menyenangkan dengan berbagai varian Topast yang bisa kamu nikmati di pagi hari.</p>
+            <a href="blog-post.html?id=1" class="text-topastblue font-medium flex items-center">
+              Read More
+              <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
           </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Modern JavaScript Features You Should Be Using</h2>
-          <p class="text-gray-600 mb-4">Discover the latest JavaScript features that can help you write cleaner, more efficient code and stay ahead of the curve in web development.</p>
-          <a href="blog-post.html?id=3" class="text-primary font-medium flex items-center">
-            Read More
-            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-          </a>
+        </div>
+
+        <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" alt="Food blog post" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <span>April 28, А2024</span>
+              <span class="mx-2">•</span>
+              <span>Culinary</span>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Kombinasi Teh dan Topast untuk Afternoon Tea</h3>
+            <p class="text-gray-600 mb-4">Nikmati afternoon tea ala café dengan kombinasi teh dan Topast favoritmu di rumah.</p>
+            <a href="blog-post.html?id=2" class="text-topastblue font-medium flex items-center">
+              Read More
+              <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop" alt="Food blog post" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <span>April 20, 2024</span>
+              <span class="mx-2">•</span>
+              <span>Recipe</span>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">5 Topping Kreatif untuk Topast Original</h3>
+            <p class="text-gray-600 mb-4">Variasikan Topast Original dengan berbagai macam topping yang bisa kamu buat sendiri di rumah.</p>
+            <a href="blog-post.html?id=3" class="text-topastblue font-medium flex items-center">
+              Read More
+              <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
         </div>
       </div>
-
-      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 10, 2024</span>
-            <span class="mx-2">•</span>
-            <span>CSS</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">CSS Grid vs. Flexbox: When to Use Which</h2>
-          <p class="text-gray-600 mb-4">A detailed comparison of CSS Grid and Flexbox layout systems, with practical examples and guidelines on when to use each for optimal results.</p>
-          <a href="blog-post.html?id=4" class="text-primary font-medium flex items-center">
-            Read More
-            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1664&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 5, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Accessibility</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Web Accessibility Checklist for Developers</h2>
-          <p class="text-gray-600 mb-4">Ensure your websites are accessible to all users with this comprehensive checklist covering WCAG guidelines, best practices, and testing tools.</p>
-          <a href="blog-post.html" class="text-primary font-medium flex items-center">
-            Read More
-            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="blog-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" alt="Blog post" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>March 25, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Security</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Frontend Security Best Practices</h2>
-          <p class="text-gray-600 mb-4">Protect your web applications from common security threats with these essential frontend security practices that every developer should implement.</p>
-          <a href="blog-post.html" class="text-primary font-medium flex items-center">
-            Read More
-            <i class="fas fa-arrow-right ml-2 text-sm"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-12 flex justify-center">
-      <div class="inline-flex items-center">
-        <a href="#" class="px-4 py-2 border border-gray-300 rounded-l-md bg-white text-gray-700 hover:bg-gray-50 flex items-center justify-center mr-1">
-          <i class="fas fa-chevron-left mr-2"></i>
-          Previous
-        </a>
-        <span class="px-4 py-2 border border-gray-300 bg-primary text-white">1</span>
-        <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">2</a>
-        <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">3</a>
-        <a href="#" class="px-4 py-2 border border-gray-300 rounded-r-md bg-white text-gray-700 hover:bg-gray-50 flex items-center justify-center ml-1">
-          Next
-          <i class="fas fa-chevron-right ml-2"></i>
-        </a>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <footer class="bg-gray-800 text-white py-12 mt-16">
+  <footer class="bg-navy text-white py-12 mt-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <h2 class="text-xl font-bold mb-4">ModernWeb</h2>
-          <p class="text-gray-400 mb-4">Building better web experiences with modern technologies and clean design.</p>
+          <h2 class="text-xl font-bold mb-4">Topast</h2>
+          <p class="text-gray-400 mb-4">Pengganjal lapar yang lezat dan kekinian untuk menemani waktu santaimu.</p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-tiktok"></i>
             </a>
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
               <i class="fab fa-facebook"></i>
             </a>
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-github"></i>
+              <i class="fab fa-twitter"></i>
             </a>
           </div>
         </div>
@@ -208,7 +190,7 @@
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
           </ul>
@@ -217,10 +199,10 @@
         <div>
           <h3 class="text-lg font-semibold mb-4">Resources</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Locations</a></li>
             <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+            <li><a href="articles.html" class="text-gray-400 hover:text-white transition-colors">Articles</a></li>
           </ul>
         </div>
 
@@ -228,40 +210,19 @@
           <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
           <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
           <form class="flex flex-col sm:flex-row gap-2">
-            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
-            <button type="submit" class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-topastblue">
+            <button type="submit" class="px-4 py-2 bg-topastblue text-white rounded hover:bg-blue-700 transition-colors">
               Subscribe
             </button>
           </form>
         </div>
       </div>
       <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
-        <p>&copy; 2024 ModernWeb. All rights reserved.</p>
+        <p>&copy; 2024 Topast. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Mobile menu toggle
-    const menuButton = document.querySelector('button.md\\:hidden');
-    const navigation = document.querySelector('nav.hidden');
-    
-    if (menuButton && navigation) {
-      menuButton.addEventListener('click', () => {
-        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-        
-        if (!expanded) {
-          navigation.classList.remove('hidden');
-          navigation.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'right-4', 'bg-white', 'p-4', 'shadow-lg', 'rounded', 'space-y-4', 'z-50', 'w-48');
-          menuButton.setAttribute('aria-expanded', 'true');
-        } else {
-          navigation.classList.add('hidden');
-          navigation.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'right-4', 'bg-white', 'p-4', 'shadow-lg', 'rounded', 'space-y-4', 'z-50', 'w-48');
-          menuButton.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
