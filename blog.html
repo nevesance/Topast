@@ -131,9 +131,14 @@
         <div>
           <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
           
-          <a href="https://www.saveur.com/article/food/toast-for-breakfast/" class="article-link">An Ode to Toast, simplest of breakfast</a>
-          <a href="https://www.wellandgood.com/food/benefits-of-dessert" class="article-link">Dessert, embracing pleasure in life</a>
-          <a href="https://www.tastetomorrow.com/inspiration/from-chewy-to-gooey-people-are-craving-interesting-textures" class="article-link">Super flaky pastry</a>
+          <div id="article-links">
+            <!-- Article links will be loaded here by JavaScript -->
+            <div class="animate-pulse">
+              <div class="h-8 bg-gray-200 rounded w-3/4 mb-6"></div>
+              <div class="h-8 bg-gray-200 rounded w-4/5 mb-6"></div>
+              <div class="h-8 bg-gray-200 rounded w-2/3 mb-6"></div>
+            </div>
+          </div>
         </div>
         
         <div>
@@ -268,6 +273,9 @@
     </div>
   </footer>
 
+  <!-- Import blog data -->
+  <script src="blog-data.js"></script>
+  
   <script>
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -284,6 +292,61 @@
         }
       });
     }
+    
+    // Load blog articles from data
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all blog posts
+      const allPosts = BlogUtils.getAllPosts();
+      
+      // Get container for article links
+      const articleLinksContainer = document.getElementById('article-links');
+      
+      if (articleLinksContainer) {
+        let linksHTML = '';
+        
+        // Generate article links
+        allPosts.forEach(post => {
+          linksHTML += `<a href="blog-post.html?id=${post.id}" class="article-link">${post.title}</a>`;
+        });
+        
+        // Update the container
+        articleLinksContainer.innerHTML = linksHTML;
+      }
+      
+      // Update featured articles section
+      const featuredArticlesContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-3.gap-8');
+      
+      if (featuredArticlesContainer) {
+        let featuredHTML = '';
+        
+        // Generate featured article cards (limited to 3)
+        allPosts.slice(0, 3).forEach(post => {
+          featuredHTML += `
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <img src="${post.featuredImage}" 
+                   alt="${post.title}" 
+                   class="w-full h-48 object-cover">
+              <div class="p-6">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                  <span>${post.date}</span>
+                  <span class="mx-2">•</span>
+                  <span>${post.category}</span>
+                </div>
+                <h3 class="text-xl font-bold text-navy mb-3">${post.title}</h3>
+                <p class="text-gray-600 mb-4">${post.excerpt}</p>
+                <a href="blog-post.html?id=${post.id}" class="text-blue-light font-medium flex items-center">
+                  Read More
+                  <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                </a>
+              </div>
+            </div>
+          `;
+        });
+        
+        // Update the container
+        featuredArticlesContainer.innerHTML = featuredHTML;
+      }
+    });
   </script>
 </body>
 </html>
