@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <title>Topast - Find an Article</title>
+  <title>Topast - Blog</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome Icons -->
@@ -22,8 +22,11 @@
             tomato: "#BF3B2C",
             blue: {
               light: "#4168a8",
-              dark: "#10243E"
-            }
+              dark: "#10243E",
+              topast: "#2b5ea3"
+            },
+            primary: '#4168a8',
+            secondary: '#10243E'
           },
           fontFamily: {
             serif: ["EB Garamond", "serif"],
@@ -37,6 +40,55 @@
   <style>
     body {
       background-color: #F8F4E8;
+    }
+    /* Add typography plugin styles inline since we can't use the plugin with CDN */
+    .prose {
+      max-width: 65ch;
+      color: #374151;
+    }
+    .prose p, .prose ul, .prose ol {
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+    }
+    .prose img {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    .prose h2 {
+      margin-top: 2em;
+      margin-bottom: 1em;
+      font-weight: 700;
+      font-size: 1.5em;
+      color: #10243E;
+    }
+    .prose h3 {
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 600;
+      font-size: 1.25em;
+      color: #10243E;
+    }
+    .prose a {
+      color: #4168a8;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .prose a:hover {
+      color: #10243E;
+    }
+    .prose-lg {
+      font-size: 1.125rem;
+      line-height: 1.7777778;
+    }
+    .prose-lg p {
+      margin-top: 1.3333333em;
+      margin-bottom: 1.3333333em;
+    }
+    .prose-lg h2 {
+      margin-top: 1.8888889em;
+      margin-bottom: 0.8888889em;
+      font-size: 1.6666667em;
+      line-height: 1.3;
     }
     .vertical-text {
       writing-mode: vertical-rl;
@@ -61,6 +113,38 @@
       color: #10243E;
       text-transform: uppercase;
       margin-bottom: 3rem;
+    }
+    .blog-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: white;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      color: #10243E;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .topast-header {
+      background-color: #2b5ea3;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .article-card {
+      transition: transform 0.2s ease-in-out;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+    }
+    .max-w-none {
+      max-width: none;
+    }
+    [v-cloak] {
+      display: none;
     }
   </style>
 </head>
@@ -100,7 +184,7 @@
         <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">GIFTS</a>
         <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
         <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">FIND US</a>
-        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-blue-200 border border-blue-200 text-navy font-medium">FIND AN ARTICLE</a>
+        <a href="#" onclick="router.navigate('/blog'); return false;" class="m-1 px-6 py-2 rounded-full bg-blue-200 border border-blue-200 text-navy font-medium">FIND AN ARTICLE</a>
       </div>
 
       <!-- Mobile Navigation (hidden by default) -->
@@ -115,7 +199,7 @@
           <a href="index.html#events" class="block py-2 text-navy font-medium">GIFTS</a>
           <a href="index.html#testimonials" class="block py-2 text-navy font-medium">TESTIMONIAL</a>
           <a href="index.html#find" class="block py-2 text-navy font-medium">FIND US</a>
-          <a href="blog.html" class="block py-2 text-navy font-medium">FIND AN ARTICLE</a>
+          <a href="#" onclick="router.navigate('/blog'); return false;" class="block py-2 text-navy font-medium">FIND AN ARTICLE</a>
           <a href="#" class="block py-2 text-navy font-medium">
             <i class="fas fa-shopping-bag mr-2"></i>View Cart
           </a>
@@ -124,101 +208,226 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
+  <!-- Main App Content -->
+  <main id="app" v-cloak>
+    <!-- Blog Listing View -->
+    <div v-if="currentView === 'blog'">
+      <div class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
+              
+              <div>
+                <a v-for="post in blogPosts" :key="post.id" href="#" @click.prevent="showPost(post.id)" class="article-link">{{ post.title }}</a>
+              </div>
+            </div>
+            
+            <div>
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
+                  alt="Topast spread with various pastries" 
+                  class="rounded-lg w-full object-cover">
+            </div>
+          </div>
           
-          <div>
-            <a href="blog-post.html?id=1" class="article-link">An Ode to Toast, simplest of breakfast</a>
-            <a href="blog-post.html?id=2" class="article-link">Dessert, embracing pleasure in life</a>
-            <a href="blog-post.html?id=3" class="article-link">Super flaky pastry</a>
-            <a href="blog-post.html?id=4" class="article-link">Making the perfect hot chocolate</a>
-            <a href="blog-post.html?id=5" class="article-link">Pengganjal Lapar yang Lezat dan Kekinian</a>
+          <!-- Featured Articles Section -->
+          <div class="mt-20">
+            <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <!-- Featured Articles -->
+              <div v-for="post in featuredPosts" :key="post.id" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img :src="post.featuredImage" 
+                    :alt="post.title" 
+                    class="w-full h-48 object-cover">
+                <div class="p-6">
+                  <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <span>{{ post.date }}</span>
+                    <span class="mx-2">•</span>
+                    <span>{{ post.category }}</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-navy mb-3">{{ post.title }}</h3>
+                  <p class="text-gray-600 mb-4">{{ post.excerpt }}</p>
+                  <a href="#" @click.prevent="showPost(post.id)" class="text-blue-light font-medium flex items-center">
+                    Read More
+                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- External Articles Link -->
+          <div class="mt-20 text-center">
+            <a href="#" @click.prevent="router.navigate('/articles')" class="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition-colors font-medium text-lg">
+              View External Articles
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Post View -->
+    <div v-if="currentView === 'post' && currentPost">
+      <!-- Blog Header -->
+      <div class="topast-header py-8">
+        <div class="container mx-auto px-4">
+          <h2 class="text-center text-white text-3xl font-bold mb-4">TOPAST BLOG</h2>
+          <h1 class="blog-title">{{ currentPost.title }}</h1>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Introduction Section -->
+        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="w-full">
+              <p class="text-gray-800 leading-relaxed" v-html="currentPost.introContent"></p>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <img :src="currentPost.featuredImage" 
+                 :alt="currentPost.title" 
+                 class="w-full h-auto object-cover rounded-lg">
+          </div>
+        </div>
+
+        <!-- Why Choose Topast Section -->
+        <div v-if="currentPost.whyChooseTopast" class="bg-white p-8 rounded-lg shadow-md mb-8">
+          <h2 class="section-title">KENAPA HARUS PILIH TOPAST?</h2>
+          
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+              <!-- Product Images Grid -->
+              <div class="grid grid-cols-2 gap-4">
+                <img v-for="(img, index) in currentPost.productImages" :key="index" 
+                     :src="img.src" 
+                     :alt="img.alt" 
+                     class="rounded-lg shadow-sm w-full h-48 object-cover">
+              </div>
+            </div>
+            
+            <div class="md:w-1/2">
+              <p class="text-gray-800 leading-relaxed" v-html="currentPost.whyChooseTopast"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Composition Section -->
+        <div v-if="currentPost.composition" class="bg-white p-8 rounded-lg shadow-md mb-8">
+          <h2 class="section-title">KOMPOSISI</h2>
+          
+          <p class="text-gray-800 leading-relaxed" v-html="currentPost.composition"></p>
+        </div>
+
+        <!-- Complementary Food Section -->
+        <div v-if="currentPost.complementaryFood" class="bg-white p-8 rounded-lg shadow-md mb-8">
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+              <h2 class="section-title">MAKANAN PENDAMPING KAMU</h2>
+              
+              <p class="text-gray-800 leading-relaxed mb-6" v-html="currentPost.complementaryFood"></p>
+            </div>
+            
+            <div class="md:w-1/2">
+              <img :src="currentPost.complementaryFoodImage" 
+                   alt="Complementary food" 
+                   class="rounded-lg shadow-md w-full h-auto object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Variants Section -->
+        <div v-if="currentPost.specialVariants" class="bg-white p-8 rounded-lg shadow-md mb-8">
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+              <h2 class="section-title">MATCHA KUNAFA VS KLEPON</h2>
+              
+              <p class="text-gray-800 leading-relaxed mb-6" v-html="currentPost.specialVariants"></p>
+              
+              <div class="text-center mt-8">
+                <a href="#" class="inline-block px-6 py-3 bg-blue-topast text-white rounded shadow hover:bg-blue-800 transition-colors font-medium text-lg">
+                  Click here to see other Variants
+                </a>
+              </div>
+            </div>
+            
+            <div class="md:w-1/2">
+              <img :src="currentPost.specialVariantsImage" 
+                   alt="Special variants" 
+                   class="rounded-lg shadow-md w-full h-auto object-cover">
+            </div>
           </div>
         </div>
         
-        <div>
-          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
-               alt="Topast spread with various pastries" 
-               class="rounded-lg w-full object-cover">
+        <!-- Additional Content Section -->
+        <div v-if="currentPost.additionalContent" class="bg-white p-8 rounded-lg shadow-md mb-8">
+          <div v-html="currentPost.additionalContent"></div>
+        </div>
+        
+        <!-- Related Articles -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-serif font-bold text-navy mb-8">Related Articles</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Related Articles -->
+            <a v-for="post in relatedPosts" :key="post.id" href="#" @click.prevent="showPost(post.id)" class="block group">
+              <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 group-hover:shadow-lg">
+                <img :src="post.featuredImage" 
+                     :alt="post.title" 
+                     class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="p-4">
+                  <h4 class="font-bold text-navy group-hover:text-blue-light transition-colors">{{ post.title }}</h4>
+                  <p class="text-sm text-gray-600 mt-2">{{ post.date }}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Back to blog link -->
+        <div class="text-center mt-12">
+          <a href="#" @click.prevent="router.navigate('/blog')" class="inline-flex items-center text-blue-light font-medium">
+            <i class="fas fa-arrow-left mr-2"></i> Back to all articles
+          </a>
         </div>
       </div>
-      
-      <!-- Featured Articles Section -->
-      <div class="mt-20">
-        <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Article 1 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>May 15, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Food</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">An Ode to Toast, simplest of breakfast</h3>
-              <p class="text-gray-600 mb-4">Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.</p>
-              <a href="blog-post.html?id=1" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
+    </div>
 
-          <!-- Article 2 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 28, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Culinary</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">Dessert, embracing pleasure in life</h3>
-              <p class="text-gray-600 mb-4">Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.</p>
-              <a href="blog-post.html?id=2" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
+    <!-- External Articles View -->
+    <div v-if="currentView === 'articles'">
+      <main class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">External Articles</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">Explore these curated articles from around the web about pastry, baking, and food innovations.</p>
+        </div>
 
-          <!-- Article 3 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1517578239113-b03992dcdd25?q=80&w=1470&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- External Articles -->
+          <div v-for="article in externalArticles" :key="article.id" class="article-card bg-white rounded-lg shadow overflow-hidden">
+            <img :src="article.image" :alt="article.title" class="w-full h-48 object-cover">
             <div class="p-6">
               <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 5, 2024</span>
+                <span>{{ article.date }}</span>
                 <span class="mx-2">•</span>
-                <span>Drinks</span>
+                <span>{{ article.source }}</span>
               </div>
-              <h3 class="text-xl font-bold text-navy mb-3">Making the perfect hot chocolate</h3>
-              <p class="text-gray-600 mb-4">Ingin menikmati hot chocolate sempurna di rumah? Topast punya resep spesial untuk menemani momen santaimu.</p>
-              <a href="blog-post.html?id=4" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              <h2 class="text-xl font-bold text-secondary mb-3">{{ article.title }}</h2>
+              <p class="text-gray-600 mb-4">{{ article.excerpt }}</p>
+              <a :href="article.url" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
+                {{ article.linkText }}
+                <i class="fas fa-external-link-alt ml-2 text-sm"></i>
               </a>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- External Articles Link -->
-      <div class="mt-20 text-center">
-        <a href="articles.html" class="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition-colors font-medium text-lg">
-          View External Articles
-        </a>
-      </div>
+        
+        <!-- Back to blog link -->
+        <div class="text-center mt-12">
+          <a href="#" @click.prevent="router.navigate('/blog')" class="inline-flex items-center text-blue-light font-medium">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Topast Articles
+          </a>
+        </div>
+      </main>
     </div>
   </main>
 
@@ -260,8 +469,8 @@
           <ul class="space-y-2">
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Locations</a></li>
-            <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            <li><a href="articles.html" class="text-gray-400 hover:text-white transition-colors">Articles</a></li>
+            <li><a href="#" @click.prevent="router.navigate('/blog')" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" @click.prevent="router.navigate('/articles')" class="text-gray-400 hover:text-white transition-colors">Articles</a></li>
           </ul>
         </div>
 
@@ -282,52 +491,346 @@
     </div>
   </footer>
 
-  <!-- Mobile menu toggle script -->
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  
+  <!-- Application Script -->
   <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.remove("hidden");
-          mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
-        } else {
-          mobileMenu.classList.add("hidden");
-          mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+    // Simple router
+    const router = {
+      routes: {
+        '/blog': 'blog',
+        '/post': 'post',
+        '/articles': 'articles'
+      },
+      navigate(path, params = {}) {
+        const route = this.routes[path] || 'blog';
+        app.currentView = route;
+        
+        if (route === 'post' && params.id) {
+          app.currentPostId = params.id;
+          app.loadCurrentPost();
         }
-      });
-    }
-    
-    // Simple view counter for blog posts
-    function incrementViewCounter() {
-      // Get current page information
-      const urlParams = new URLSearchParams(window.location.search);
-      const postId = urlParams.get('id');
-      
-      if (postId) {
-        try {
-          // Get current view counts from localStorage
-          const viewCountsKey = 'topast_blog_view_counts';
-          let viewCounts = JSON.parse(localStorage.getItem(viewCountsKey) || '{}');
-          
-          // Create a unique key for this post
-          const postKey = `post_${postId}`;
-          
-          // Increment the view count
-          viewCounts[postKey] = (viewCounts[postKey] || 0) + 1;
-          
-          // Save back to localStorage
-          localStorage.setItem(viewCountsKey, JSON.stringify(viewCounts));
-        } catch (e) {
-          console.error("Error updating view count:", e);
+        
+        // Update URL without page reload
+        const url = new URL(window.location);
+        url.hash = path + (params.id ? `/${params.id}` : '');
+        window.history.pushState({}, '', url);
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+      },
+      handleInitialRoute() {
+        // Parse the current URL
+        const hash = window.location.hash.slice(1);
+        if (!hash) {
+          this.navigate('/blog');
+          return;
+        }
+        
+        const parts = hash.split('/');
+        const route = parts[0];
+        const id = parts[1] ? parseInt(parts[1]) : null;
+        
+        if (this.routes[route]) {
+          this.navigate(route, id ? { id } : {});
+        } else {
+          this.navigate('/blog');
         }
       }
-    }
+    };
+
+    // Blog Data
+    const blogData = {
+      blogPosts: [
+        {
+          id: 1,
+          title: "An Ode to Toast, simplest of breakfast",
+          date: "May 15, 2024",
+          category: "Food",
+          views: 1250,
+          readTime: "5 min",
+          excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
+          featuredImage: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
+          introContent: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.",
+          whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
+          composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
+          complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
+          specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
+          productImages: [
+            { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop", alt: "Topast Product 1" },
+            { src: "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop", alt: "Topast Product 2" },
+            { src: "https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=1480&auto=format&fit=crop", alt: "Topast Product 3" },
+            { src: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1470&auto=format&fit=crop", alt: "Topast Product 4" },
+          ],
+          complementaryFoodImage: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop",
+          specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
+        },
+        {
+          id: 2,
+          title: "Dessert, embracing pleasure in life",
+          date: "April 28, 2024",
+          category: "Culinary",
+          views: 980,
+          readTime: "4 min",
+          excerpt: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.",
+          featuredImage: "https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop",
+          introContent: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert. Topast menyajikan berbagai pilihan dessert yang akan membuat hidupmu lebih manis dan menyenangkan.",
+          additionalContent: `
+            <h2 class="section-title">DESSERT DALAM KEHIDUPAN MODERN</h2>
+            <p class="text-gray-800 leading-relaxed mb-6">
+              Dalam kehidupan yang serba cepat, kita sering lupa untuk menikmati hal-hal sederhana. Dessert bukan hanya sekadar makanan penutup, tapi juga sebuah momen untuk berhenti sejenak dan merayakan kebahagiaan kecil. Topast hadir untuk mengingatkan kita bahwa kadang-kadang, hal terbaik dalam hidup bisa datang dalam bentuk makanan manis yang lezat.
+            </p>
+            <div class="grid grid-cols-2 gap-4 my-8">
+              <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop" 
+                   alt="Dessert 1" 
+                   class="rounded-lg shadow-md w-full h-48 object-cover">
+              <img src="https://images.unsplash.com/photo-1525640788966-69bdb028aa73?q=80&w=1287&auto=format&fit=crop" 
+                   alt="Dessert 2" 
+                   class="rounded-lg shadow-md w-full h-48 object-cover">
+            </div>
+            <h2 class="section-title">PERPADUAN RASA DAN TEKSTUR</h2>
+            <p class="text-gray-800 leading-relaxed">
+              Topast menggabungkan rasa manis yang pas dengan tekstur yang beragam untuk memberikan pengalaman dessert yang tidak terlupakan. Dari kelembutan whipped cream hingga kerenyahan pastry, setiap gigitan adalah petualangan baru untuk indra perasamu.
+            </p>
+          `,
+        },
+        {
+          id: 3,
+          title: "Super flaky pastry",
+          date: "April 20, 2024",
+          category: "Baking",
+          views: 850,
+          readTime: "7 min",
+          excerpt: "Rahasia di balik pastry yang super flaky yang akan membuat pengalaman makan kamu tidak terlupakan.",
+          featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=1287&auto=format&fit=crop",
+          introContent: "Pastry yang flaky adalah salah satu keajaiban dunia kuliner. Lapisan-lapisan tipis yang renyah menciptakan sensasi yang tak terlupakan saat digigit. Topast mengungkap rahasia di balik pastry super flaky yang selalu membuat pelanggan kembali untuk mendapatkan lebih.",
+          additionalContent: `
+            <h2 class="section-title">TEKNIK BERLAPIS</h2>
+            <p class="text-gray-800 leading-relaxed mb-6">
+              Proses pembuatan pastry yang flaky membutuhkan ketelitian dan kesabaran. Dengan teknik yang tepat, adonan yang dilipat berulang kali akan menghasilkan lapisan-lapisan tipis yang saat dipanggang, akan mengembang dan menciptakan tekstur yang renyah dan berlapis. Topast menguasai teknik ini dengan sempurna, sehingga setiap gigitan pastry kami selalu konsisten dan memuaskan.
+            </p>
+            <div class="grid grid-cols-2 gap-4 my-8">
+              <img src="https://images.unsplash.com/photo-1504387432042-8aca549e4729?q=80&w=1287&auto=format&fit=crop" 
+                   alt="Layered Pastry 1" 
+                   class="rounded-lg shadow-md w-full h-48 object-cover">
+              <img src="https://images.unsplash.com/photo-1501432781167-c0ccfd492297?q=80&w=1287&auto=format&fit=crop" 
+                   alt="Layered Pastry 2" 
+                   class="rounded-lg shadow-md w-full h-48 object-cover">
+            </div>
+            <h2 class="section-title">RAHASIA MENTEGA BERKUALITAS</h2>
+            <p class="text-gray-800 leading-relaxed">
+              Bahan baku memegang peranan penting dalam menciptakan pastry yang sempurna. Topast hanya menggunakan mentega berkualitas tinggi yang memiliki titik leleh dan kandungan lemak yang ideal untuk pastry. Kombinasi ini menghasilkan aroma yang harum dan tekstur yang tidak mudah lembek meski sudah beberapa jam di suhu ruangan.
+            </p>
+          `,
+        },
+        {
+          id: 4,
+          title: "Making the perfect hot chocolate",
+          date: "April 5, 2024",
+          category: "Drinks",
+          views: 1080,
+          readTime: "3 min",
+          excerpt: "Ingin menikmati hot chocolate sempurna di rumah? Topast punya resep spesial untuk menemani momen santaimu.",
+          featuredImage: "https://images.unsplash.com/photo-1517578239113-b03992dcdd25?q=80&w=1470&auto=format&fit=crop",
+          introContent: "Tidak ada yang lebih menenangkan daripada secangkir hot chocolate yang lembut dan kaya rasa di hari yang dingin atau saat kamu butuh sesuatu yang menenangkan. Topast berbagi resep hot chocolate spesial yang akan membuat momen bersantaimu semakin sempurna.",
+          additionalContent: `
+            <h2 class="section-title">RAHASIA HOT CHOCOLATE YANG SEMPURNA</h2>
+            <p class="text-gray-800 leading-relaxed mb-6">
+              Membuat hot chocolate yang sempurna bukan hanya tentang mencampurkan bubuk cokelat dengan susu panas. Ada beberapa rahasia yang akan membuat minumanmu naik kelas. Pertama, gunakan cokelat asli, bukan bubuk cokelat instan. Kedua, panaskan susu secara perlahan dan aduk terus agar tidak gosong. Terakhir, tambahkan sedikit garam untuk memperkuat rasa cokelat.
+            </p>
+            <div class="grid grid-cols-2 gap-4 my-8">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=1421&auto=format&fit=crop" 
+                   alt="Hot Chocolate 1" 
+                   class="rounded-lg shadow-md w-full h-48 object-cover">
+              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1287&auto=format&fit=crop" 
+                   alt="Hot Chocolate 2" 
+                   class="rounded-lg shadow-md w-full h-48 object-cover">
+            </div>
+            <h2 class="section-title">PASANGAN SEMPURNA UNTUK HOT CHOCOLATE</h2>
+            <p class="text-gray-800 leading-relaxed">
+              Hot chocolate yang kaya dan lembut adalah pasangan sempurna untuk Topast Original atau varian pastry manis lainnya. Perpaduan antara minuman hangat yang menenangkan dengan gigitan renyah pastry akan menciptakan pengalaman yang tak terlupakan di setiap momen santaimu.
+            </p>
+          `,
+        },
+        {
+          id: 5,
+          title: "Pengganjal Lapar yang Lezat dan Kekinian",
+          date: "May 15, 2024",
+          category: "Food",
+          views: 1250,
+          readTime: "5 min",
+          excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
+          featuredImage: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
+          introContent: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.",
+          whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
+          composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
+          complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
+          specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
+          productImages: [
+            { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop", alt: "Topast Product 1" },
+            { src: "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop", alt: "Topast Product 2" },
+            { src: "https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=1480&auto=format&fit=crop", alt: "Topast Product 3" },
+            { src: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1470&auto=format&fit=crop", alt: "Topast Product 4" },
+          ],
+          complementaryFoodImage: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop",
+          specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
+        }
+      ],
+      
+      externalArticles: [
+        {
+          id: 1,
+          title: "The Complete Guide to Flexbox",
+          date: "May 2, 2024",
+          source: "CSS-Tricks",
+          excerpt: "Our comprehensive guide to CSS flexbox layout. This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element.",
+          image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop",
+          url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+          linkText: "Read on CSS-Tricks"
+        },
+        {
+          id: 2,
+          title: "Modern CSS Solutions for Common Problems",
+          date: "April 28, 2024",
+          source: "Smashing Magazine",
+          excerpt: "This article explores modern CSS solutions to problems that web developers have been trying to solve with JavaScript for years.",
+          image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=1471&auto=format&fit=crop",
+          url: "https://www.smashingmagazine.com/category/css/",
+          linkText: "Read on Smashing Magazine"
+        },
+        {
+          id: 3,
+          title: "The State of JavaScript Frameworks in 2024",
+          date: "April 15, 2024",
+          source: "Dev.to",
+          excerpt: "A comprehensive overview of the current landscape of JavaScript frameworks, their strengths, weaknesses, and when to use each one.",
+          image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?q=80&w=1476&auto=format&fit=crop",
+          url: "https://dev.to/t/javascript",
+          linkText: "Read on Dev.to"
+        },
+        {
+          id: 4,
+          title: "Core Web Vitals: The Ultimate Guide",
+          date: "April 10, 2024",
+          source: "Web.dev",
+          excerpt: "Learn everything you need to know about Core Web Vitals, why they matter for SEO, and how to optimize your website to improve these critical metrics.",
+          image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop",
+          url: "https://web.dev/learn/performance/",
+          linkText: "Read on Web.dev"
+        },
+        {
+          id: 5,
+          title: "Frontend Development Best Practices for 2024",
+          date: "April 5, 2024",
+          source: "FreeCodeCamp",
+          excerpt: "A detailed guide to the latest best practices in frontend development, covering everything from accessibility to performance optimization.",
+          image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470&auto=format&fit=crop",
+          url: "https://www.freecodecamp.org/news/tag/front-end-development/",
+          linkText: "Read on FreeCodeCamp"
+        },
+        {
+          id: 6,
+          title: "Designing for Dark Mode: A Comprehensive Guide",
+          date: "March 25, 2024",
+          source: "UX Collective",
+          excerpt: "Everything you need to know about designing for dark mode, from color selection to accessibility considerations and implementation tips.",
+          image: "https://images.unsplash.com/photo-1550063873-ab792950096b?q=80&w=1470&auto=format&fit=crop",
+          url: "https://uxdesign.cc/",
+          linkText: "Read on UX Collective"
+        }
+      ]
+    };
+
+    // Create Vue App
+    const app = Vue.createApp({
+      data() {
+        return {
+          currentView: 'blog',
+          currentPostId: null,
+          viewCounts: {},
+          ...blogData  // Spread the blog data
+        };
+      },
+      computed: {
+        currentPost() {
+          if (!this.currentPostId) return null;
+          return this.blogPosts.find(post => post.id === this.currentPostId);
+        },
+        featuredPosts() {
+          // Return 3 posts as featured
+          return this.blogPosts.slice(0, 3);
+        },
+        relatedPosts() {
+          if (!this.currentPostId) return [];
+          // Return 3 posts that are not the current post
+          return this.blogPosts
+            .filter(post => post.id !== this.currentPostId)
+            .slice(0, 3);
+        }
+      },
+      methods: {
+        showPost(id) {
+          router.navigate('/post', { id });
+        },
+        loadCurrentPost() {
+          if (!this.currentPostId) return;
+          
+          // Update view count
+          try {
+            // Get current view counts from localStorage
+            const viewCountsKey = 'topast_blog_view_counts';
+            let viewCounts = JSON.parse(localStorage.getItem(viewCountsKey) || '{}');
+            
+            // Create a unique key for this post
+            const postKey = `post_${this.currentPostId}`;
+            
+            // Increment the view count
+            viewCounts[postKey] = (viewCounts[postKey] || 0) + 1;
+            
+            // Save back to localStorage
+            localStorage.setItem(viewCountsKey, JSON.stringify(viewCounts));
+            
+            // Store in component data
+            this.viewCounts = viewCounts;
+          } catch (e) {
+            console.error("Error updating view count:", e);
+          }
+        }
+      },
+      mounted() {
+        // Handle initial route
+        router.handleInitialRoute();
+        
+        // Set up navigation listener
+        window.addEventListener('popstate', () => {
+          router.handleInitialRoute();
+        });
+        
+        // Load view counts from localStorage
+        try {
+          const viewCountsKey = 'topast_blog_view_counts';
+          this.viewCounts = JSON.parse(localStorage.getItem(viewCountsKey) || '{}');
+        } catch (e) {
+          console.error("Error loading view counts:", e);
+        }
+      }
+    }).mount('#app');
     
-    // Call the function when the page loads
-    document.addEventListener('DOMContentLoaded', incrementViewCounter);
+    // Make router available globally
+    window.router = router;
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.querySelector('.fa-search').parentNode;
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
   </script>
 </body>
 </html>
