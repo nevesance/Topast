@@ -64,33 +64,63 @@
 </head>
 <body class="topast-bg min-h-screen">
   <!-- Navigation header -->
-  <header class="bg-white shadow-sm py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <h1 class="text-3xl font-bold">
-          <span class="topast-navy">Top</span><span class="topast-blue">ast</span><span class="topast-navy">..</span>
-        </h1>
-      </a>
-      <div class="flex items-center space-x-2">
-        <div class="relative">
-          <button class="p-2 text-gray-600 rounded-full bg-red-50">
-            <i class="fas fa-search"></i>
-          </button>
-          <input type="text" placeholder="SEARCH & SHOP" class="hidden md:inline-block ml-2 border rounded-full px-4 py-1 text-sm w-40">
+  <header class="bg-blue-50 py-4">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center">
+            <h1 class="text-3xl font-bold">
+              <span class="text-navy">Top</span><span class="text-blue-500">ast</span><span class="text-navy">..</span>
+            </h1>
+          </a>
         </div>
-        <button class="p-2 text-gray-600">
-          <i class="fas fa-shopping-bag"></i>
-        </button>
-        <button class="p-1 px-4 bg-red-600 text-white text-xs rounded">ID</button>
+
+        <!-- Search and Cart -->
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <button class="p-2 text-white rounded-full bg-red-700">
+              <i class="fas fa-search"></i>
+            </button>
+            <input type="text" placeholder="SEARCH & SHOP" class="hidden md:inline-block ml-2 border rounded-full px-4 py-1 text-sm w-40">
+          </div>
+          <a href="#" class="text-navy">
+            <i class="fas fa-shopping-bag text-2xl"></i>
+          </a>
+          <div class="w-12 h-6 bg-red-600 rounded"></div>
+        </div>
       </div>
-    </div>
-    <div class="container mx-auto mt-4 flex justify-center space-x-4">
-      <a href="#" class="px-6 py-2 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 transition">ABOUT US</a>
-      <a href="#" class="px-6 py-2 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 transition">OUR MENU</a>
-      <a href="#" class="px-6 py-2 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 transition">EVENT</a>
-      <a href="#" class="px-6 py-2 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 transition">TESTIMONIAL</a>
-      <a href="#" class="px-6 py-2 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 transition">FIND US</a>
-      <a href="#" class="px-6 py-2 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 transition">FIND AN ARTICLE</a>
+
+      <!-- Navigation -->
+      <div class="mt-4 flex flex-wrap justify-center">
+        <a href="index.html#about" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">ABOUT US</a>
+        <a href="index.html#menu" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">OUR MENU</a>
+        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">EVENT</a>
+        <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
+        <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">FIND US</a>
+        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-navy hover:bg-yellow-100 transition">BLOG</a>
+      </div>
+
+      <!-- Mobile Navigation (hidden by default) -->
+      <div id="mobile-menu" class="hidden mt-4">
+        <div class="space-y-2 bg-blue-50 p-4 rounded-lg">
+          <div class="flex items-center mb-4">
+            <button class="text-white mr-2 p-2 rounded-full bg-red-700">
+              <i class="fas fa-search"></i>
+            </button>
+            <input type="text" placeholder="SEARCH & SHOP" class="border rounded-full px-4 py-1 text-sm w-full">
+          </div>
+          <a href="index.html#about" class="block py-2 text-navy font-medium">ABOUT US</a>
+          <a href="index.html#menu" class="block py-2 text-navy font-medium">OUR MENU</a>
+          <a href="index.html#events" class="block py-2 text-navy font-medium">EVENT</a>
+          <a href="index.html#testimonials" class="block py-2 text-navy font-medium">TESTIMONIAL</a>
+          <a href="index.html#find" class="block py-2 text-navy font-medium">FIND US</a>
+          <a href="blog.html" class="block py-2 text-navy font-medium">BLOG</a>
+          <a href="#" class="block py-2 text-navy font-medium">
+            <i class="fas fa-shopping-bag mr-2"></i>View Cart
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
