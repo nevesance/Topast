@@ -146,6 +146,57 @@
     [v-cloak] {
       display: none;
     }
+    /* Analytics Dashboard */
+    .analytics-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 100vh;
+      background-color: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .analytics-panel.open {
+      transform: translateX(0);
+    }
+    .analytics-toggle {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #2b5ea3;
+      color: white;
+      padding: 0.5rem;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .stat-card {
+      background-color: #f5f7fa;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .stat-title {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #10243E;
+    }
+    .chart-container {
+      height: 200px;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -207,6 +258,57 @@
       </div>
     </div>
   </header>
+
+  <!-- Analytics Toggle Button -->
+  <div class="analytics-toggle" onclick="toggleAnalyticsPanel()">
+    <i class="fas fa-chart-line"></i>
+  </div>
+
+  <!-- Analytics Panel -->
+  <div id="analytics-panel" class="analytics-panel">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-bold">Analytics Dashboard</h3>
+      <button onclick="toggleAnalyticsPanel()" class="text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2 mb-4">
+      <div class="stat-card">
+        <div class="stat-title">Total Visits</div>
+        <div class="stat-value" id="total-visits">1,423</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Avg. Time on Page</div>
+        <div class="stat-value" id="avg-time">3:12</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Bounce Rate</div>
+        <div class="stat-value" id="bounce-rate">35.2%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Conversion Rate</div>
+        <div class="stat-value" id="conversion-rate">4.2%</div>
+      </div>
+    </div>
+
+    <h4 class="font-semibold mb-2">Traffic Sources</h4>
+    <div class="chart-container mb-4 bg-white p-3 rounded-lg">
+      <div id="traffic-sources-chart" class="h-full"></div>
+    </div>
+
+    <h4 class="font-semibold mb-2">Recent Page Views</h4>
+    <div id="recent-pageviews" class="bg-white p-3 rounded-lg mb-4">
+      <!-- Will be filled dynamically -->
+      <div class="text-sm text-gray-600">Loading...</div>
+    </div>
+
+    <h4 class="font-semibold mb-2">Top Posts by Views</h4>
+    <div id="top-posts" class="bg-white p-3 rounded-lg">
+      <!-- Will be filled dynamically -->
+      <div class="text-sm text-gray-600">Loading...</div>
+    </div>
+  </div>
 
   <!-- Main App Content -->
   <main id="app" v-cloak>
@@ -346,7 +448,7 @@
               <p class="text-gray-800 leading-relaxed mb-6" v-html="currentPost.specialVariants"></p>
               
               <div class="text-center mt-8">
-                <a href="#" class="inline-block px-6 py-3 bg-blue-topast text-white rounded shadow hover:bg-blue-800 transition-colors font-medium text-lg">
+                <a href="#variants" class="inline-block px-6 py-3 bg-blue-topast text-white rounded shadow hover:bg-blue-800 transition-colors font-medium text-lg">
                   Click here to see other Variants
                 </a>
               </div>
@@ -539,6 +641,202 @@
         }
       }
     };
+
+    // Analytics and KPI Tracking
+    const analytics = {
+      // Traffic sources
+      trafficSources: {
+        'direct': { visits: 423, percentage: 42.3 },
+        'organic-search': { visits: 312, percentage: 31.2 },
+        'social-media': { visits: 156, percentage: 15.6 },
+        'referral': { visits: 75, percentage: 7.5 },
+        'email': { visits: 34, percentage: 3.4 }
+      },
+      // Average time (in seconds)
+      averageTimeOnPage: {
+        'blog': 124,
+        'post': 318,
+        'articles': 87
+      },
+      // Bounce rate (percentage)
+      bounceRate: {
+        'blog': 35.2,
+        'post': 22.8,
+        'articles': 41.5
+      },
+      // Conversion rates (percentage)
+      conversionRate: {
+        'newsletter-signup': 4.2,
+        'product-click': 2.8,
+        'social-share': 1.5
+      },
+      // Sessions
+      sessions: {
+        'today': 127,
+        'yesterday': 145,
+        'last7days': 872,
+        'last30days': 3426,
+        'averageDuration': 214 // in seconds
+      },
+      // Track page view
+      trackPageView(page) {
+        // In a real implementation, this would send data to an analytics service
+        console.log(`Page view tracked: ${page}`);
+        
+        // Store in localStorage for demonstration
+        try {
+          const analyticsKey = 'topast_blog_analytics';
+          let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
+          
+          if (!analyticsData.pageViews) {
+            analyticsData.pageViews = {};
+          }
+          
+          if (!analyticsData.pageViews[page]) {
+            analyticsData.pageViews[page] = 0;
+          }
+          
+          analyticsData.pageViews[page]++;
+          analyticsData.lastVisit = new Date().toISOString();
+          
+          localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
+          
+          // Update the analytics dashboard
+          updateAnalyticsDashboard();
+        } catch (e) {
+          console.error("Error tracking analytics:", e);
+        }
+      },
+      // Track event (click, conversion, etc.)
+      trackEvent(category, action, label = null) {
+        // In a real implementation, this would send data to an analytics service
+        console.log(`Event tracked: ${category} - ${action}${label ? ' - ' + label : ''}`);
+        
+        // Store in localStorage for demonstration
+        try {
+          const analyticsKey = 'topast_blog_analytics';
+          let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
+          
+          if (!analyticsData.events) {
+            analyticsData.events = [];
+          }
+          
+          analyticsData.events.push({
+            category,
+            action,
+            label,
+            timestamp: new Date().toISOString()
+          });
+          
+          // Limit stored events to prevent localStorage overflow
+          if (analyticsData.events.length > 100) {
+            analyticsData.events = analyticsData.events.slice(-100);
+          }
+          
+          localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
+          
+          // Update the analytics dashboard
+          updateAnalyticsDashboard();
+        } catch (e) {
+          console.error("Error tracking event:", e);
+        }
+      },
+      // Get analytics data
+      getAnalyticsData() {
+        try {
+          const analyticsKey = 'topast_blog_analytics';
+          return JSON.parse(localStorage.getItem(analyticsKey) || '{}');
+        } catch (e) {
+          console.error("Error getting analytics data:", e);
+          return {};
+        }
+      }
+    };
+
+    // Update analytics dashboard
+    function updateAnalyticsDashboard() {
+      const data = analytics.getAnalyticsData();
+      
+      // Update page view stats
+      const totalVisitsElement = document.getElementById('total-visits');
+      if (totalVisitsElement && data.pageViews) {
+        const totalVisits = Object.values(data.pageViews).reduce((sum, count) => sum + count, 0);
+        totalVisitsElement.textContent = totalVisits.toLocaleString();
+      }
+      
+      // Update recent page views
+      const recentPageviewsElement = document.getElementById('recent-pageviews');
+      if (recentPageviewsElement && data.pageViews) {
+        let html = '';
+        const pageViewEntries = Object.entries(data.pageViews);
+        
+        if (pageViewEntries.length === 0) {
+          html = '<div class="text-sm text-gray-600">No page views recorded yet.</div>';
+        } else {
+          html = '<ul class="space-y-2">';
+          pageViewEntries.forEach(([page, count]) => {
+            html += `
+              <li class="flex justify-between items-center">
+                <span class="text-sm">${page}</span>
+                <span class="text-sm font-medium">${count} views</span>
+              </li>
+            `;
+          });
+          html += '</ul>';
+        }
+        
+        recentPageviewsElement.innerHTML = html;
+      }
+      
+      // Update top posts
+      const topPostsElement = document.getElementById('top-posts');
+      if (topPostsElement && data.pageViews) {
+        let html = '';
+        const postViews = {};
+        
+        // Extract post views
+        for (const [key, count] of Object.entries(data.pageViews)) {
+          if (key.startsWith('post/')) {
+            const postId = key.split('/')[1];
+            postViews[postId] = count;
+          }
+        }
+        
+        const sortedPosts = Object.entries(postViews)
+          .sort(([, countA], [, countB]) => countB - countA)
+          .slice(0, 5);
+        
+        if (sortedPosts.length === 0) {
+          html = '<div class="text-sm text-gray-600">No posts viewed yet.</div>';
+        } else {
+          html = '<ul class="space-y-2">';
+          sortedPosts.forEach(([postId, count], index) => {
+            // Find post title
+            const post = blogData.blogPosts.find(p => p.id === parseInt(postId));
+            const title = post ? post.title : `Post #${postId}`;
+            
+            html += `
+              <li class="flex justify-between items-center">
+                <span class="text-sm">${index + 1}. ${title}</span>
+                <span class="text-sm font-medium">${count} views</span>
+              </li>
+            `;
+          });
+          html += '</ul>';
+        }
+        
+        topPostsElement.innerHTML = html;
+      }
+    }
+    
+    // Toggle analytics panel
+    function toggleAnalyticsPanel() {
+      const panel = document.getElementById('analytics-panel');
+      if (panel) {
+        panel.classList.toggle('open');
+        updateAnalyticsDashboard();
+      }
+    }
 
     // Blog Data
     const blogData = {
@@ -772,9 +1070,16 @@
       methods: {
         showPost(id) {
           router.navigate('/post', { id });
+          analytics.trackEvent('navigation', 'show_post', `id: ${id}`);
         },
         loadCurrentPost() {
           if (!this.currentPostId) return;
+          
+          // Track page view
+          analytics.trackPageView(`post/${this.currentPostId}`);
+          
+          // Track session length start time
+          this.trackSessionStart();
           
           // Update view count
           try {
@@ -796,6 +1101,78 @@
           } catch (e) {
             console.error("Error updating view count:", e);
           }
+        },
+        trackSessionStart() {
+          // Store session start time in localStorage
+          try {
+            const sessionKey = 'topast_blog_session';
+            const sessionData = {
+              startTime: new Date().getTime(),
+              page: this.currentView,
+              referrer: document.referrer || 'direct'
+            };
+            localStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          } catch (e) {
+            console.error("Error tracking session start:", e);
+          }
+        },
+        trackSessionEnd() {
+          // Calculate session duration and store analytics
+          try {
+            const sessionKey = 'topast_blog_session';
+            const sessionDataStr = localStorage.getItem(sessionKey);
+            
+            if (sessionDataStr) {
+              const sessionData = JSON.parse(sessionDataStr);
+              const endTime = new Date().getTime();
+              const duration = (endTime - sessionData.startTime) / 1000; // in seconds
+              
+              analytics.trackEvent('session', 'end', `duration: ${duration}s, page: ${sessionData.page}`);
+              
+              // Clear session data
+              localStorage.removeItem(sessionKey);
+            }
+          } catch (e) {
+            console.error("Error tracking session end:", e);
+          }
+        },
+        // Track conversion (newsletter signup, product click, etc.)
+        trackConversion(type) {
+          analytics.trackEvent('conversion', type);
+          
+          // You could also show a success message or update UI here
+          console.log(`Conversion tracked: ${type}`);
+        },
+        setupEventTracking() {
+          // Track newsletter sign-ups
+          const newsletterForms = document.querySelectorAll('form');
+          newsletterForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+              e.preventDefault();
+              this.trackConversion('newsletter-signup');
+              form.reset();
+              alert('Thanks for subscribing!');
+            });
+          });
+          
+          // Track product clicks
+          const productLinks = document.querySelectorAll('a[href*="#variants"]');
+          productLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              analytics.trackEvent('product', 'click', 'variant-selection');
+            });
+          });
+          
+          // Track social media clicks
+          const socialLinks = document.querySelectorAll('a[href*="instagram"], a[href*="facebook"], a[href*="twitter"], a[href*="tiktok"]');
+          socialLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+              const platform = link.href.includes('instagram') ? 'instagram' : 
+                               link.href.includes('facebook') ? 'facebook' :
+                               link.href.includes('twitter') ? 'twitter' : 'tiktok';
+              analytics.trackEvent('social', 'click', platform);
+            });
+          });
         }
       },
       mounted() {
@@ -814,6 +1191,23 @@
         } catch (e) {
           console.error("Error loading view counts:", e);
         }
+        
+        // Track page view on initial load
+        analytics.trackPageView(this.currentView);
+        this.trackSessionStart();
+        
+        // Add event listener for when user leaves the page
+        window.addEventListener('beforeunload', this.trackSessionEnd);
+        
+        // Set up event tracking for UI interactions
+        this.setupEventTracking();
+      },
+      beforeUnmount() {
+        // Clean up event listeners
+        window.removeEventListener('beforeunload', this.trackSessionEnd);
+        
+        // Track session end when component is destroyed
+        this.trackSessionEnd();
       }
     }).mount('#app');
     
@@ -830,6 +1224,9 @@
           mobileMenu.classList.toggle('hidden');
         });
       }
+      
+      // Initialize analytics dashboard
+      updateAnalyticsDashboard();
     });
   </script>
 </body>
