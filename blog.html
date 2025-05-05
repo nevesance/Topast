@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topast - Toast Pastry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Topast - Find an Article</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome Icons -->
@@ -15,55 +15,57 @@
       theme: {
         extend: {
           colors: {
-            navy: '#10243E',
-            cream: '#F8F4E8',
-            gold: '#C59C5F',
-            pastel: '#EBE8D5',
-            tomato: '#BF3B2C',
-            topastblue: '#4168a8'
+            navy: "#10243E",
+            cream: "#F8F4E8",
+            gold: "#C59C5F",
+            pastel: "#EBE8D5",
+            tomato: "#BF3B2C",
+            blue: {
+              light: "#4168a8",
+              dark: "#10243E"
+            }
           },
           fontFamily: {
-            serif: ['EB Garamond', 'serif'],
-            sans: ['Montserrat', 'sans-serif'],
-            script: ['Dancing Script', 'cursive']
+            serif: ["EB Garamond", "serif"],
+            sans: ["Montserrat", "sans-serif"],
+            script: ["Dancing Script", "cursive"],
           },
-        }
-      }
-    }
+        },
+      },
+    };
   </script>
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
       background-color: #F8F4E8;
-    }
-    .script-text {
-      font-family: 'Dancing Script', cursive;
-    }
-    .serif-text {
-      font-family: 'EB Garamond', serif;
     }
     .vertical-text {
       writing-mode: vertical-rl;
       text-orientation: mixed;
       transform: rotate(180deg);
     }
-    .topast-blue {
+    .article-link {
+      font-style: italic;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      color: #10243E;
+      display: block;
+      margin-bottom: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .article-link:hover {
       color: #4168a8;
     }
-    .topast-navy {
+    .main-heading {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.5rem;
       color: #10243E;
-    }
-    .topast-bg {
-      background-color: #F8F4E8;
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-      transition: transform 0.3s ease;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
     }
   </style>
 </head>
-<body class="topast-bg min-h-screen">
-  <!-- Navigation header -->
+<body>
+  <!-- Header -->
   <header class="bg-blue-50 py-4">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center">
@@ -95,10 +97,10 @@
       <div class="mt-4 flex flex-wrap justify-center">
         <a href="index.html#about" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">ABOUT US</a>
         <a href="index.html#menu" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">OUR MENU</a>
-        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">EVENT</a>
+        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">GIFTS</a>
         <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
         <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-navy hover:bg-blue-100 transition">FIND US</a>
-        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-navy hover:bg-yellow-100 transition">BLOG</a>
+        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-blue-200 border border-blue-300 text-navy hover:bg-blue-100 transition">FIND AN ARTICLE</a>
       </div>
 
       <!-- Mobile Navigation (hidden by default) -->
@@ -112,10 +114,10 @@
           </div>
           <a href="index.html#about" class="block py-2 text-navy font-medium">ABOUT US</a>
           <a href="index.html#menu" class="block py-2 text-navy font-medium">OUR MENU</a>
-          <a href="index.html#events" class="block py-2 text-navy font-medium">EVENT</a>
+          <a href="index.html#events" class="block py-2 text-navy font-medium">GIFTS</a>
           <a href="index.html#testimonials" class="block py-2 text-navy font-medium">TESTIMONIAL</a>
           <a href="index.html#find" class="block py-2 text-navy font-medium">FIND US</a>
-          <a href="blog.html" class="block py-2 text-navy font-medium">BLOG</a>
+          <a href="blog.html" class="block py-2 text-navy font-medium">FIND AN ARTICLE</a>
           <a href="#" class="block py-2 text-navy font-medium">
             <i class="fas fa-shopping-bag mr-2"></i>View Cart
           </a>
@@ -124,152 +126,94 @@
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12">
-    <!-- Toast Pastry Section -->
-    <section class="bg-cream/60 py-12 mb-16">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-8">
-          <h2 class="text-4xl font-script text-blue-600">Toast Pastry</h2>
-          <p class="text-sm text-gray-600 italic mt-2">*available only at offline store</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-4xl mx-auto">
-          <!-- Strawberry Roll -->
-          <div class="product-card relative">
-            <div class="vertical-text text-tomato text-sm font-medium absolute left-0 top-1/2 transform -translate-y-1/2 -ml-10">
-              STRAWBERRY ROLL
-            </div>
-            <div class="rounded-full overflow-hidden mx-auto w-64 h-64 border-8 border-white shadow-lg">
-              <img src="https://images.unsplash.com/photo-1488477181946-6428a0a36077?q=80&w=1287&auto=format&fit=crop" alt="Strawberry Roll" class="w-full h-full object-cover">
-            </div>
-            <div class="text-center mt-6">
-              <p class="font-medium">Rp18.000,00</p>
-            </div>
-          </div>
-
-          <!-- Chocolate Roll -->
-          <div class="product-card relative">
-            <div class="vertical-text text-tomato text-sm font-medium absolute right-0 top-1/2 transform -translate-y-1/2 mr-10 rotate-180">
-              CHOCOLATE ROLL
-            </div>
-            <div class="rounded-full overflow-hidden mx-auto w-64 h-64 border-8 border-white shadow-lg">
-              <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1287&auto=format&fit=crop" alt="Chocolate Roll" class="w-full h-full object-cover">
-            </div>
-            <div class="text-center mt-6">
-              <p class="font-medium">Rp18.000</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog content section -->
-    <section class="mt-20">
-      <div class="prose max-w-none mb-12">
-        <p class="text-navy text-lg leading-relaxed">
-          Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyankan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="prose max-w-none">
-          <h2 class="text-2xl font-serif font-bold text-navy uppercase mb-6">KENAPA HARUS PILIH TOPAST?</h2>
-          <p class="text-navy leading-relaxed">
-            Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!
-          </p>
-          <h3 class="text-xl font-serif font-bold text-navy uppercase mt-8 mb-4">KOMPOSISI</h3>
-          <p class="text-navy leading-relaxed">
-            Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.
-          </p>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" alt="Pastry variant 1" class="rounded-lg h-48 w-full object-cover">
-          <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop" alt="Pastry variant 2" class="rounded-lg h-48 w-full object-cover">
-          <img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=1480&auto=format&fit=crop" alt="Pastry variant 3" class="rounded-lg h-48 w-full object-cover">
-          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1470&auto=format&fit=crop" alt="Pastry variant 4" class="rounded-lg h-48 w-full object-cover">
-        </div>
-      </div>
-    </section>
-
-    <section class="mt-16">
-      <h2 class="text-2xl font-serif font-bold text-navy uppercase mb-6">MAKANAN PENDAMPING KAMU</h2>
+  <!-- Main Content -->
+  <main class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="prose max-w-none">
-          <p class="text-navy leading-relaxed">
-            Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan TikTok @topast.id
-          </p>
+        <div>
+          <h1 class="main-heading">FIND AN ARTICLE</h1>
           
-          <h3 class="text-xl font-serif font-bold text-navy uppercase mt-8 mb-4">MATCHA KUNAFA VS KLEPON</h3>
-          <p class="text-navy leading-relaxed">
-            Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.
-          </p>
+          <a href="blog-post.html?id=1" class="article-link">An Ode to Toast, simplest of breakfast</a>
+          <a href="blog-post.html?id=2" class="article-link">Dessert, embracing pleasure in life</a>
+          <a href="blog-post.html?id=3" class="article-link">Super flaky pastry</a>
+          <a href="blog-post.html?id=3" class="article-link">The Magic of Matcha Kunafa</a>
+          <a href="blog-post.html?id=3" class="article-link">Klepon: A Taste of Indonesia</a>
+          <a href="blog-post.html?id=3" class="article-link">Gourmet Toast: A Global Trend</a>
         </div>
-        <div class="rounded-lg overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop" alt="Topast with tea" class="w-full object-cover h-96">
-          <div class="bg-navy text-white p-4 text-center">
-            <a href="blog-post.html?id=1" class="font-medium hover:underline">Click here to see other Variants</a>
+        
+        <div>
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop" 
+               alt="Topast spread with various pastries" 
+               class="rounded-lg shadow-lg w-full h-[400px] object-cover">
+        </div>
+      </div>
+      
+      <!-- Featured Articles Section -->
+      <div class="mt-20">
+        <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
+                 alt="Food blog post" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>May 5, 2024</span>
+                <span class="mx-2">•</span>
+                <span>Food</span>
+              </div>
+              <h3 class="text-xl font-bold text-navy mb-3">Inspirasi Menu Sarapan dengan Topast</h3>
+              <p class="text-gray-600 mb-4">Sarapan jadi lebih menyenangkan dengan berbagai varian Topast yang bisa kamu nikmati di pagi hari.</p>
+              <a href="blog-post.html?id=1" class="text-blue-light font-medium flex items-center">
+                Read More
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" 
+                 alt="Food blog post" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>April 28, 2024</span>
+                <span class="mx-2">•</span>
+                <span>Culinary</span>
+              </div>
+              <h3 class="text-xl font-bold text-navy mb-3">Kombinasi Teh dan Topast untuk Afternoon Tea</h3>
+              <p class="text-gray-600 mb-4">Nikmati afternoon tea ala café dengan kombinasi teh dan Topast favoritmu di rumah.</p>
+              <a href="blog-post.html?id=2" class="text-blue-light font-medium flex items-center">
+                Read More
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop" 
+                 alt="Food blog post" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span>April 20, 2024</span>
+                <span class="mx-2">•</span>
+                <span>Recipe</span>
+              </div>
+              <h3 class="text-xl font-bold text-navy mb-3">5 Topping Kreatif untuk Topast Original</h3>
+              <p class="text-gray-600 mb-4">Variasikan Topast Original dengan berbagai macam topping yang bisa kamu buat sendiri di rumah.</p>
+              <a href="blog-post.html?id=3" class="text-blue-light font-medium flex items-center">
+                Read More
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="mt-20">
-      <h2 class="text-2xl font-serif font-bold text-navy uppercase mb-8">BLOG POSTS</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" alt="Food blog post" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-3">
-              <span>May 5, 2024</span>
-              <span class="mx-2">•</span>
-              <span>Food</span>
-            </div>
-            <h3 class="text-xl font-bold text-navy mb-3">Inspirasi Menu Sarapan dengan Topast</h3>
-            <p class="text-gray-600 mb-4">Sarapan jadi lebih menyenangkan dengan berbagai varian Topast yang bisa kamu nikmati di pagi hari.</p>
-            <a href="blog-post.html?id=1" class="text-topastblue font-medium flex items-center">
-              Read More
-              <i class="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" alt="Food blog post" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-3">
-              <span>April 28, 2024</span>
-              <span class="mx-2">•</span>
-              <span>Culinary</span>
-            </div>
-            <h3 class="text-xl font-bold text-navy mb-3">Kombinasi Teh dan Topast untuk Afternoon Tea</h3>
-            <p class="text-gray-600 mb-4">Nikmati afternoon tea ala café dengan kombinasi teh dan Topast favoritmu di rumah.</p>
-            <a href="blog-post.html?id=2" class="text-topastblue font-medium flex items-center">
-              Read More
-              <i class="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop" alt="Food blog post" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-3">
-              <span>April 20, 2024</span>
-              <span class="mx-2">•</span>
-              <span>Recipe</span>
-            </div>
-            <h3 class="text-xl font-bold text-navy mb-3">5 Topping Kreatif untuk Topast Original</h3>
-            <p class="text-gray-600 mb-4">Variasikan Topast Original dengan berbagai macam topping yang bisa kamu buat sendiri di rumah.</p>
-            <a href="blog-post.html?id=3" class="text-topastblue font-medium flex items-center">
-              Read More
-              <i class="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-navy text-white py-12 mt-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -316,8 +260,8 @@
           <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
           <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
           <form class="flex flex-col sm:flex-row gap-2">
-            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-topastblue">
-            <button type="submit" class="px-4 py-2 bg-topastblue text-white rounded hover:bg-blue-700 transition-colors">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-light">
+            <button type="submit" class="px-4 py-2 bg-blue-light text-white rounded hover:bg-blue-600 transition-colors">
               Subscribe
             </button>
           </form>
@@ -329,6 +273,22 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.remove("hidden");
+          mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+        } else {
+          mobileMenu.classList.add("hidden");
+          mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
