@@ -30,13 +30,95 @@
             sans: ["Montserrat", "sans-serif"],
             script: ["Dancing Script", "cursive"],
           },
+          typography: (theme) => ({
+            DEFAULT: {
+              css: {
+                color: theme('colors.gray.800'),
+                h2: {
+                  color: theme('colors.navy'),
+                  fontWeight: '700',
+                },
+                h3: {
+                  color: theme('colors.navy'),
+                },
+                strong: {
+                  color: theme('colors.navy'),
+                },
+                a: {
+                  color: theme('colors.blue.light'),
+                  '&:hover': {
+                    color: theme('colors.blue.dark'),
+                  },
+                },
+                blockquote: {
+                  borderLeftColor: theme('colors.blue.light'),
+                },
+              },
+            },
+          }),
         },
       },
+      plugins: [
+        // Add typography plugin (just for reference, not actually used since we're using CDN)
+        // require('@tailwindcss/typography'),
+      ],
     };
   </script>
   <style>
     body {
       background-color: #F8F4E8;
+    }
+    /* Add typography plugin styles inline since we can't use the plugin with CDN */
+    .prose {
+      max-width: 65ch;
+      color: #374151;
+    }
+    .prose p, .prose ul, .prose ol {
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+    }
+    .prose img {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    .prose h2 {
+      margin-top: 2em;
+      margin-bottom: 1em;
+      font-weight: 700;
+      font-size: 1.5em;
+      color: #10243E;
+    }
+    .prose h3 {
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 600;
+      font-size: 1.25em;
+      color: #10243E;
+    }
+    .prose a {
+      color: #4168a8;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .prose a:hover {
+      color: #10243E;
+    }
+    .prose-lg {
+      font-size: 1.125rem;
+      line-height: 1.7777778;
+    }
+    .prose-lg p {
+      margin-top: 1.3333333em;
+      margin-bottom: 1.3333333em;
+    }
+    .prose-lg h2 {
+      margin-top: 1.8888889em;
+      margin-bottom: 0.8888889em;
+      font-size: 1.6666667em;
+      line-height: 1.3;
+    }
+    .max-w-none {
+      max-width: none;
     }
   </style>
 </head>
@@ -208,10 +290,10 @@
     </div>
   </footer>
 
-  <!-- Import blog data -->
+  <!-- Load the blog data -->
   <script src="blog-data.js"></script>
   
-  <!-- Blog post JavaScript -->
+  <!-- Blog functionality -->
   <script>
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -241,7 +323,7 @@
       }
       
       // Get post data
-      const post = BlogUtils.getPost(postId);
+      const post = getPost(postId);
       
       if (post) {
         // Update page title
@@ -270,9 +352,6 @@
         
         // Load related posts
         loadRelatedPosts(postId);
-        
-        // Increment view count
-        BlogUtils.incrementViews(postId);
       } else {
         // Post not found
         const blogContainer = document.getElementById('blog-post-container');
@@ -290,7 +369,7 @@
     
     // Load related posts
     function loadRelatedPosts(currentPostId) {
-      const relatedPosts = BlogUtils.getRelatedPosts(currentPostId, 3);
+      const relatedPosts = getRelatedPosts(currentPostId, 3);
       const relatedContainer = document.getElementById('related-posts-container');
       
       if (relatedPosts.length > 0) {

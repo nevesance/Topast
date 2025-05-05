@@ -131,13 +131,8 @@
         <div>
           <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
           
-          <div id="article-links">
-            <!-- Article links will be loaded here by JavaScript -->
-            <div class="animate-pulse">
-              <div class="h-8 bg-gray-200 rounded w-3/4 mb-6"></div>
-              <div class="h-8 bg-gray-200 rounded w-4/5 mb-6"></div>
-              <div class="h-8 bg-gray-200 rounded w-2/3 mb-6"></div>
-            </div>
+          <div id="article-links-container">
+            <!-- Article links will be loaded here -->
           </div>
         </div>
         
@@ -151,63 +146,8 @@
       <!-- Featured Articles Section -->
       <div class="mt-20">
         <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="assets/Topast_Beef_1.jpg" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 2, 2025</span>
-                <span class="mx-2">•</span>
-                <span>Food</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">Pengganjal Lapar yang Lezat dan Kekinian</h3>
-              <p class="text-gray-600 mb-4">Sarapan jadi lebih menyenangkan dengan berbagai varian Topast yang bisa kamu nikmati di pagi hari.</p>
-              <a href="blog-post.html?id=1" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 28, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Culinary</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">Kombinasi Teh dan Topast untuk Afternoon Tea</h3>
-              <p class="text-gray-600 mb-4">Nikmati afternoon tea ala café dengan kombinasi teh dan Topast favoritmu di rumah.</p>
-              <a href="blog-post.html?id=2" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 20, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Recipe</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">5 Topping Kreatif untuk Topast Original</h3>
-              <p class="text-gray-600 mb-4">Variasikan Topast Original dengan berbagai macam topping yang bisa kamu buat sendiri di rumah.</p>
-              <a href="blog-post.html?id=3" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
+        <div id="featured-posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Featured posts will be loaded here -->
         </div>
       </div>
     </div>
@@ -273,9 +213,10 @@
     </div>
   </footer>
 
-  <!-- Import blog data -->
+  <!-- Load the blog data -->
   <script src="blog-data.js"></script>
   
+  <!-- Blog functionality -->
   <script>
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -293,34 +234,26 @@
       });
     }
     
-    // Load blog articles from data
+    // Load blog content
     document.addEventListener('DOMContentLoaded', function() {
-      // Get all blog posts
-      const allPosts = BlogUtils.getAllPosts();
+      // All the blog posts
+      const posts = getAllPosts();
       
-      // Get container for article links
-      const articleLinksContainer = document.getElementById('article-links');
-      
+      // Load article links
+      const articleLinksContainer = document.getElementById('article-links-container');
       if (articleLinksContainer) {
         let linksHTML = '';
-        
-        // Generate article links
-        allPosts.forEach(post => {
+        posts.forEach(post => {
           linksHTML += `<a href="blog-post.html?id=${post.id}" class="article-link">${post.title}</a>`;
         });
-        
-        // Update the container
         articleLinksContainer.innerHTML = linksHTML;
       }
       
-      // Update featured articles section
-      const featuredArticlesContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-3.gap-8');
-      
-      if (featuredArticlesContainer) {
+      // Load featured articles
+      const featuredContainer = document.getElementById('featured-posts-container');
+      if (featuredContainer) {
         let featuredHTML = '';
-        
-        // Generate featured article cards (limited to 3)
-        allPosts.slice(0, 3).forEach(post => {
+        posts.slice(0, 3).forEach(post => {
           featuredHTML += `
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
               <img src="${post.featuredImage}" 
@@ -342,9 +275,7 @@
             </div>
           `;
         });
-        
-        // Update the container
-        featuredArticlesContainer.innerHTML = featuredHTML;
+        featuredContainer.innerHTML = featuredHTML;
       }
     });
   </script>
