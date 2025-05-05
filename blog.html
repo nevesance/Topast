@@ -131,11 +131,11 @@
         <div>
           <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
           
-          <div>
-            <a href="blog-post.html?id=1" class="article-link">An Ode to Toast, simplest of breakfast</a>
-            <a href="blog-post.html?id=2" class="article-link">Dessert, embracing pleasure in life</a>
-            <a href="blog-post.html?id=3" class="article-link">Super flaky pastry</a>
-            <a href="blog-post.html?id=5" class="article-link">Pengganjal Lapar yang Lezat dan Kekinian</a>
+          <div id="article-links-container">
+            <!-- Article links will be loaded here from blog-data.js -->
+            <div class="flex justify-center items-center min-h-[200px]">
+              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div>
+            </div>
           </div>
         </div>
         
@@ -149,67 +149,38 @@
       <!-- Featured Articles Section -->
       <div class="mt-20">
         <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Article 1 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>May 15, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Food</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">An Ode to Toast, simplest of breakfast</h3>
-              <p class="text-gray-600 mb-4">Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.</p>
-              <a href="blog-post.html?id=1" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
+        <div id="featured-posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Featured posts will be loaded here from blog-data.js -->
+          <!-- Placeholder loading state -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">
+            <div class="bg-gray-300 h-48 w-full"></div>
+            <div class="p-4">
+              <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+              <div class="h-4 bg-gray-300 rounded w-1/2"></div>
             </div>
           </div>
-
-          <!-- Article 2 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 28, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Culinary</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">Dessert, embracing pleasure in life</h3>
-              <p class="text-gray-600 mb-4">Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.</p>
-              <a href="blog-post.html?id=2" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">
+            <div class="bg-gray-300 h-48 w-full"></div>
+            <div class="p-4">
+              <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+              <div class="h-4 bg-gray-300 rounded w-1/2"></div>
             </div>
           </div>
-
-          <!-- Article 3 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop" 
-                 alt="Food blog post" 
-                 class="w-full h-48 object-cover">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <span>April 20, 2024</span>
-                <span class="mx-2">•</span>
-                <span>Recipe</span>
-              </div>
-              <h3 class="text-xl font-bold text-navy mb-3">Super flaky pastry</h3>
-              <p class="text-gray-600 mb-4">Apa rahasia di balik kulit pastry Topast yang super flaky? Yuk, kenali proses pembuatan pastry yang sempurna dari Topast.</p>
-              <a href="blog-post.html?id=3" class="text-blue-light font-medium flex items-center">
-                Read More
-                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-              </a>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">
+            <div class="bg-gray-300 h-48 w-full"></div>
+            <div class="p-4">
+              <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+              <div class="h-4 bg-gray-300 rounded w-1/2"></div>
             </div>
           </div>
         </div>
+      </div>
+      
+      <!-- External Articles Link -->
+      <div class="mt-20 text-center">
+        <a href="articles.html" class="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition-colors font-medium text-lg">
+          View External Articles
+        </a>
       </div>
     </div>
   </main>
@@ -274,23 +245,7 @@
     </div>
   </footer>
 
-  <!-- Mobile menu toggle script -->
-  <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.remove("hidden");
-          mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
-        } else {
-          mobileMenu.classList.add("hidden");
-          mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-        }
-      });
-    }
-  </script>
+  <!-- Load the blog data -->
+  <script src="blog-data.js"></script>
 </body>
 </html>

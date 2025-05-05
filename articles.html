@@ -3,28 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ModernWeb - Articles</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Topast - External Articles</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#2563eb',
-            secondary: '#0f172a',
+            navy: "#10243E",
+            cream: "#F8F4E8",
+            gold: "#C59C5F",
+            pastel: "#EBE8D5",
+            tomato: "#BF3B2C",
+            blue: {
+              light: "#4168a8",
+              dark: "#10243E"
+            },
+            primary: '#4168a8',
+            secondary: '#10243E'
+          },
+          fontFamily: {
+            sans: ["Montserrat", "sans-serif"],
+            serif: ["EB Garamond", "serif"],
+            script: ["Dancing Script", "cursive"],
           },
         },
-        fontFamily: {
-          sans: ['Inter', 'sans-serif'],
-        },
       },
-    }
+    };
   </script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      background-color: #F8F4E8;
+      font-family: 'Montserrat', sans-serif;
     }
     .article-card {
       transition: transform 0.2s ease-in-out;
@@ -34,156 +49,124 @@
     }
   </style>
 </head>
-<body class="bg-gray-50">
-  <header class="bg-white shadow py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center space-x-2">
-        <i class="fas fa-cube text-primary text-2xl"></i>
-        <span class="text-xl font-bold text-secondary">ModernWeb</span>
-      </a>
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">Home</a>
-        <a href="blog.html" class="text-gray-600 hover:text-primary transition-colors">Blog</a>
-        <a href="articles.html" class="text-primary font-semibold">Articles</a>
-        <button class="px-4 py-2 bg-primary text-white rounded shadow hover:bg-primary/90 transition-colors">
-          Contact Us
-        </button>
-      </nav>
-      <button class="md:hidden text-gray-600">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+<body>
+  <header class="bg-blue-50 py-4">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="flex items-center">
+            <h1 class="text-3xl font-serif font-bold">
+              <span class="text-navy">Top</span><span class="text-blue-500">ast</span><span class="text-navy">..</span>
+            </h1>
+          </a>
+        </div>
+
+        <!-- Search and Cart -->
+        <div class="flex items-center space-x-4">
+          <div class="relative flex items-center">
+            <button class="absolute left-3 text-gray-500">
+              <i class="fas fa-search"></i>
+            </button>
+            <input type="text" placeholder="SEARCH & SHOP" class="border border-gray-300 rounded-full px-10 py-1 text-sm w-56 bg-white">
+          </div>
+          <a href="#" class="text-navy">
+            <i class="fas fa-shopping-bag text-xl"></i>
+          </a>
+          <div class="w-12 h-6 bg-red-600 rounded"></div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="mt-4 flex flex-wrap justify-center">
+        <a href="index.html#about" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">ABOUT US</a>
+        <a href="index.html#menu" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">OUR MENU</a>
+        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">GIFTS</a>
+        <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
+        <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">FIND US</a>
+        <a href="blog.html" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">FIND AN ARTICLE</a>
+      </div>
+
+      <!-- Mobile Navigation (hidden by default) -->
+      <div id="mobile-menu" class="hidden mt-4">
+        <div class="space-y-2 bg-blue-50 p-4 rounded-lg">
+          <div class="flex items-center mb-4 relative">
+            <i class="fas fa-search absolute left-3 text-gray-500"></i>
+            <input type="text" placeholder="SEARCH & SHOP" class="border border-gray-300 rounded-full pl-10 pr-4 py-1 text-sm w-full">
+          </div>
+          <a href="index.html#about" class="block py-2 text-navy font-medium">ABOUT US</a>
+          <a href="index.html#menu" class="block py-2 text-navy font-medium">OUR MENU</a>
+          <a href="index.html#events" class="block py-2 text-navy font-medium">GIFTS</a>
+          <a href="index.html#testimonials" class="block py-2 text-navy font-medium">TESTIMONIAL</a>
+          <a href="index.html#find" class="block py-2 text-navy font-medium">FIND US</a>
+          <a href="blog.html" class="block py-2 text-navy font-medium">FIND AN ARTICLE</a>
+          <a href="#" class="block py-2 text-navy font-medium">
+            <i class="fas fa-shopping-bag mr-2"></i>View Cart
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="container mx-auto px-4 py-12">
     <div class="text-center mb-12">
-      <h1 class="text-3xl md:text-4xl font-bold text-secondary mb-4">External Articles</h1>
-      <p class="text-gray-600 max-w-2xl mx-auto">Explore these curated articles from around the web about web development, design trends, and technology innovations.</p>
+      <h1 class="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">External Articles</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">Explore these curated articles from around the web about pastry, baking, and food innovations.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="article-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop" alt="Web Development" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>May 2, 2024</span>
-            <span class="mx-2">•</span>
-            <span>CSS-Tricks</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">The Complete Guide to Flexbox</h2>
-          <p class="text-gray-600 mb-4">Our comprehensive guide to CSS flexbox layout. This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element.</p>
-          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
-            Read on CSS-Tricks
-            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-          </a>
+    <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- External articles will be loaded here -->
+      <!-- Placeholder loading state -->
+      <div class="article-card bg-white rounded-lg shadow overflow-hidden animate-pulse">
+        <div class="bg-gray-300 h-48 w-full"></div>
+        <div class="p-4">
+          <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+          <div class="h-4 bg-gray-300 rounded w-1/2"></div>
         </div>
       </div>
-
-      <div class="article-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=1471&auto=format&fit=crop" alt="Modern Web Design" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 28, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Smashing Magazine</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Modern CSS Solutions for Common Problems</h2>
-          <p class="text-gray-600 mb-4">This article explores modern CSS solutions to problems that web developers have been trying to solve with JavaScript for years.</p>
-          <a href="https://www.smashingmagazine.com/category/css/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
-            Read on Smashing Magazine
-            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-          </a>
+      <div class="article-card bg-white rounded-lg shadow overflow-hidden animate-pulse">
+        <div class="bg-gray-300 h-48 w-full"></div>
+        <div class="p-4">
+          <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+          <div class="h-4 bg-gray-300 rounded w-1/2"></div>
         </div>
       </div>
-
-      <div class="article-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?q=80&w=1476&auto=format&fit=crop" alt="JavaScript Frameworks" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 15, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Dev.to</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">The State of JavaScript Frameworks in 2024</h2>
-          <p class="text-gray-600 mb-4">A comprehensive overview of the current landscape of JavaScript frameworks, their strengths, weaknesses, and when to use each one.</p>
-          <a href="https://dev.to/t/javascript" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
-            Read on Dev.to
-            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-          </a>
+      <div class="article-card bg-white rounded-lg shadow overflow-hidden animate-pulse">
+        <div class="bg-gray-300 h-48 w-full"></div>
+        <div class="p-4">
+          <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+          <div class="h-4 bg-gray-300 rounded w-1/2"></div>
         </div>
       </div>
-
-      <div class="article-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop" alt="Web Performance" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 10, 2024</span>
-            <span class="mx-2">•</span>
-            <span>Web.dev</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Core Web Vitals: The Ultimate Guide</h2>
-          <p class="text-gray-600 mb-4">Learn everything you need to know about Core Web Vitals, why they matter for SEO, and how to optimize your website to improve these critical metrics.</p>
-          <a href="https://web.dev/learn/performance/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
-            Read on Web.dev
-            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="article-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470&auto=format&fit=crop" alt="Frontend Development" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>April 5, 2024</span>
-            <span class="mx-2">•</span>
-            <span>FreeCodeCamp</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Frontend Development Best Practices for 2024</h2>
-          <p class="text-gray-600 mb-4">A detailed guide to the latest best practices in frontend development, covering everything from accessibility to performance optimization.</p>
-          <a href="https://www.freecodecamp.org/news/tag/front-end-development/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
-            Read on FreeCodeCamp
-            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="article-card bg-white rounded-lg shadow overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1550063873-ab792950096b?q=80&w=1470&auto=format&fit=crop" alt="UI/UX Design" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="flex items-center text-sm text-gray-500 mb-3">
-            <span>March 25, 2024</span>
-            <span class="mx-2">•</span>
-            <span>UX Collective</span>
-          </div>
-          <h2 class="text-xl font-bold text-secondary mb-3">Designing for Dark Mode: A Comprehensive Guide</h2>
-          <p class="text-gray-600 mb-4">Everything you need to know about designing for dark mode, from color selection to accessibility considerations and implementation tips.</p>
-          <a href="https://uxdesign.cc/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center">
-            Read on UX Collective
-            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-          </a>
-        </div>
-      </div>
+    </div>
+    
+    <!-- Back to blog link -->
+    <div class="text-center mt-12">
+      <a href="blog.html" class="inline-flex items-center text-blue-light font-medium">
+        <i class="fas fa-arrow-left mr-2"></i> Back to Topast Articles
+      </a>
     </div>
   </main>
 
-  <footer class="bg-gray-800 text-white py-12">
+  <!-- Footer -->
+  <footer class="bg-navy text-white py-12 mt-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <h2 class="text-xl font-bold mb-4">ModernWeb</h2>
-          <p class="text-gray-400 mb-4">Building better web experiences with modern technologies and clean design.</p>
+          <h2 class="text-xl font-bold mb-4">Topast</h2>
+          <p class="text-gray-400 mb-4">Pengganjal lapar yang lezat dan kekinian untuk menemani waktu santaimu.</p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-tiktok"></i>
             </a>
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
               <i class="fab fa-facebook"></i>
             </a>
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-github"></i>
+              <i class="fab fa-twitter"></i>
             </a>
           </div>
         </div>
@@ -192,7 +175,7 @@
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
           </ul>
@@ -201,10 +184,10 @@
         <div>
           <h3 class="text-lg font-semibold mb-4">Resources</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Locations</a></li>
             <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+            <li><a href="articles.html" class="text-gray-400 hover:text-white transition-colors">Articles</a></li>
           </ul>
         </div>
 
@@ -212,39 +195,31 @@
           <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
           <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
           <form class="flex flex-col sm:flex-row gap-2">
-            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
-            <button type="submit" class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-light">
+            <button type="submit" class="px-4 py-2 bg-blue-light text-white rounded hover:bg-blue-600 transition-colors">
               Subscribe
             </button>
           </form>
         </div>
       </div>
       <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
-        <p>&copy; 2024 ModernWeb. All rights reserved.</p>
+        <p>&copy; 2024 Topast. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Load the blog data -->
+  <script src="blog-data.js"></script>
+  
+  <!-- Mobile menu toggle script -->
   <script>
     // Mobile menu toggle
-    const menuButton = document.querySelector('button.md\\:hidden');
-    const mobileMenu = document.querySelector('nav.hidden');
+    const mobileMenuButton = document.querySelector('button.md\\:hidden');
+    const mobileMenu = document.getElementById('mobile-menu');
     
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener('click', () => {
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('flex');
-        mobileMenu.classList.toggle('flex-col');
-        mobileMenu.classList.toggle('absolute');
-        mobileMenu.classList.toggle('top-16');
-        mobileMenu.classList.toggle('right-4');
-        mobileMenu.classList.toggle('bg-white');
-        mobileMenu.classList.toggle('p-4');
-        mobileMenu.classList.toggle('shadow-lg');
-        mobileMenu.classList.toggle('rounded');
-        mobileMenu.classList.toggle('space-y-4');
-        mobileMenu.classList.toggle('z-50');
-        mobileMenu.classList.toggle('w-48');
       });
     }
   </script>
