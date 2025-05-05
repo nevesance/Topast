@@ -3,53 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Updated Title -->
-  <title>Blog Post - Topast</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Updated Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Topast Blog Post</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#10243E',
+            cream: '#F8F4E8',
+            gold: '#C59C5F',
+            pastel: '#EBE8D5',
+            tomato: '#BF3B2C',
+            topastblue: '#4168a8'
+          },
+          fontFamily: {
+            serif: ['EB Garamond', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            script: ['Dancing Script', 'cursive']
+          },
+        }
+      }
+    }
+  </script>
   <style>
     body {
-      /* Updated default font */
-      font-family: 'Inter', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
-    /* Add Tailwind's @layer base styles for prose if needed, or customize */
-    .prose h2 { @apply font-serif; } /* Example: Apply serif font to headings in content */
-    .font-serif { font-family: 'Merriweather', serif; } /* Define font-serif utility */
+    .blog-header {
+      font-family: 'EB Garamond', serif;
+    }
+    .blog-title {
+      font-family: 'Dancing Script', cursive;
+    }
   </style>
 </head>
-<body class="bg-gray-50">
-  <!-- Updated Header Branding and Colors -->
-  <header class="bg-white shadow-sm py-4 px-6 mb-6">
-    <div class="container mx-auto flex justify-between items-center">
-      <!-- Updated Brand Name and Color -->
-      <a href="index.html" class="text-2xl font-bold text-blue-700">
-        <i class="fas fa-utensils mr-2"></i> <!-- Changed icon -->
-        Topast
-      </a>
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="index.html" class="text-gray-600 hover:text-blue-700 transition-colors duration-200">Home</a>
-        <a href="blog.html" class="text-blue-700 font-semibold">Blog</a>
-        <a href="articles.html" class="text-gray-600 hover:text-blue-700 transition-colors duration-200">Articles</a>
-        <a href="#" class="text-gray-600 hover:text-blue-700 transition-colors duration-200">Contact</a>
-      </nav>
-      <button class="md:hidden text-gray-600">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+<body class="bg-cream">
+  <header class="bg-topastblue text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2 blog-header uppercase">TOPAST BLOG</h1>
+      <p class="text-xl md:text-2xl blog-title italic">Pengganjal Lapar yang Lezat dan Kekinian</p>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 md:px-6 max-w-4xl">
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
     <div class="mb-6">
-      <!-- Updated Back Link Color -->
-      <a href="blog.html" class="text-blue-700 hover:text-blue-800 flex items-center mb-4">
+      <a href="blog.html" class="text-topastblue hover:underline flex items-center mb-4">
         <i class="fas fa-arrow-left mr-2"></i>
-        Back to Blog
+        Kembali ke Blog
       </a>
-      <!-- Apply Serif font to title -->
-      <h1 id="post-title" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif">Loading article...</h1>
+      <h1 id="post-title" class="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">Loading article...</h1>
       <div class="flex items-center text-gray-500 text-sm mb-6">
         <span id="post-date">Loading date...</span>
         <span class="mx-2">•</span>
@@ -58,59 +66,53 @@
     </div>
 
     <div class="shadow-lg rounded-lg overflow-hidden bg-white mb-8">
-      <img id="post-image" src="https://via.placeholder.com/800x400/cccccc/969696?text=Loading+Image" alt="Blog post cover" class="w-full h-64 md:h-80 object-cover">
-      <div class="p-6 md:p-8">
-        <!-- Added prose class for typography defaults, adjust as needed -->
-        <div id="post-content" class="prose max-w-none text-gray-800">
+      <img id="post-image" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" alt="Blog post cover" class="w-full h-64 md:h-80 object-cover">
+      <div class="p-6">
+        <div id="post-content" class="prose max-w-none">
           <p class="text-gray-600">Loading content...</p>
         </div>
       </div>
     </div>
 
-    <!-- Updated Newsletter Section Colors -->
-    <div class="bg-blue-50 rounded-lg p-6 mb-8">
-      <h3 class="text-xl font-bold text-gray-900 mb-4 font-serif">Subscribe to our Newsletter</h3>
-      <p class="text-gray-600 mb-4">Stay updated with our latest news and recipes.</p>
+    <div class="bg-navy bg-opacity-5 rounded-lg p-6 mb-8">
+      <h3 class="text-xl font-bold text-navy mb-4">Subscribe to our Newsletter</h3>
+      <p class="text-gray-600 mb-4">Stay updated with our latest articles and news.</p>
       <form class="flex flex-col sm:flex-row gap-2">
-        <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <!-- Updated Button Color -->
-        <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors duration-200">
+        <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-topastblue">
+        <button type="submit" class="px-4 py-2 bg-topastblue text-white rounded hover:bg-blue-700 transition-colors duration-200">
           Subscribe
         </button>
       </form>
     </div>
   </main>
 
-  <!-- Updated Footer Branding and Colors -->
-  <footer class="bg-gray-800 text-white py-12 px-4">
+  <footer class="bg-navy text-white py-12 px-4">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
-        <!-- Updated Brand Name -->
-        <h2 class="text-xl font-bold mb-4 font-serif">Topast</h2>
-        <p class="text-gray-400 mb-4">Pengganjal Lapar yang Lezat dan Kekinian.</p>
+        <h2 class="text-xl font-bold mb-4">Topast</h2>
+        <p class="text-gray-400 mb-4">Pengganjal lapar yang lezat dan kekinian untuk menemani waktu santaimu.</p>
         <div class="flex space-x-4">
-          <!-- Using generic social icons -->
-          <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors duration-200">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" aria-label="TikTok" class="text-gray-400 hover:text-white transition-colors duration-200">
-             <i class="fab fa-tiktok"></i>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-tiktok"></i>
           </a>
-          <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors duration-200">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors duration-200">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
             <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-twitter"></i>
           </a>
         </div>
       </div>
-
+      
       <div>
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Products</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Gallery</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Contact</a></li>
         </ul>
       </div>
@@ -118,28 +120,26 @@
       <div>
         <h3 class="text-lg font-semibold mb-4">Resources</h3>
         <ul class="space-y-2">
-           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">FAQ</a></li>
-           <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
-           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-           <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">FAQs</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Locations</a></li>
+          <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
+          <li><a href="articles.html" class="text-gray-400 hover:text-white transition-colors duration-200">Articles</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-        <p class="text-gray-400 mb-4">Subscribe for updates & promotions</p>
+        <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
         <form class="flex flex-col sm:flex-row gap-2">
-          <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <!-- Updated Button Color -->
-          <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors duration-200">
+          <input type="email" placeholder="Your email" class="px-4 py-2 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-topastblue">
+          <button type="submit" class="px-4 py-2 bg-topastblue text-white rounded hover:bg-blue-700 transition-colors duration-200">
             Subscribe
           </button>
         </form>
       </div>
     </div>
     <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
-      <!-- Updated Copyright -->
-      <p>© 2024 Topast. All rights reserved.</p>
+      <p>&copy; 2024 Topast. All rights reserved.</p>
     </div>
   </footer>
 
@@ -152,112 +152,229 @@
       return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    // Mobile menu toggle
-    const menuButton = document.querySelector('button.md\\:hidden');
-    // Corrected selector for the navigation element
-    const mobileMenu = document.querySelector('nav.hidden.md\\:flex'); 
-    const navContainer = document.querySelector('nav.hidden.md\\:flex'); // Target the nav element directly
-
-    if (menuButton && navContainer) {
-        menuButton.addEventListener('click', () => {
-            // Toggle classes for visibility and layout on mobile
-            navContainer.classList.toggle('hidden'); // Toggle base hidden state
-            navContainer.classList.toggle('md:flex'); // Ensure md:flex is toggled correctly if needed, though it might be better to leave it and toggle simpler classes
-            
-            // Add/remove classes for mobile dropdown style
-            navContainer.classList.toggle('flex'); 
-            navContainer.classList.toggle('flex-col');
-            navContainer.classList.toggle('absolute');
-            navContainer.classList.toggle('top-16'); // Adjust based on header height
-            navContainer.classList.toggle('right-4');
-            navContainer.classList.toggle('bg-white');
-            navContainer.classList.toggle('p-4');
-            navContainer.classList.toggle('shadow-lg');
-            navContainer.classList.toggle('rounded');
-            navContainer.classList.toggle('space-y-4');
-            navContainer.classList.toggle('w-48'); // Example width
-        });
-    }
-
-
     // Blog post data - Sample data (in a real app, this would come from an API)
-    // Kept the original sample data for demonstration
     const blogPosts = {
-       1: {
-        title: "10 Essential VS Code Extensions for Web Developers",
-        date: "May 2, 2024",
-        views: 2456,
-        image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop",
+      1: {
+        title: "Inspirasi Menu Sarapan dengan Topast",
+        date: "May 5, 2024",
+        views: 342,
+        image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
         content: `
-          <p class="mb-4">Visual Studio Code (VS Code) has become the preferred code editor for many web developers due to its speed, flexibility, and extensive ecosystem of extensions. With the right set of extensions, you can transform VS Code into a powerful IDE tailored specifically to your workflow.</p>
+          <p class="mb-4">Di pagi hari, seringkali kita mengalami dilema untuk memilih menu sarapan yang praktis namun tetap bergizi. Topast hadir sebagai solusi sarapan yang tidak hanya mudah disiapkan, tetapi juga lezat dan mengenyangkan.</p>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">1. ESLint</h2> 
+          <h2 class="text-2xl font-bold my-4 text-navy">1. Topast Original dengan Telur Mata Sapi</h2>
           
-          <p class="mb-4">ESLint is essential for maintaining code quality and consistency. It analyzes your code to quickly find and fix problems, enforcing your team's coding standards automatically.</p>
+          <p class="mb-4">Kombinasi klasik yang tidak pernah salah adalah Topast Original yang disajikan dengan telur mata sapi di atasnya. Kuning telur yang masih setengah matang akan menciptakan saus alami yang lezat ketika dipotong, meresap ke dalam tekstur renyah Topast.</p>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">2. Prettier</h2>
+          <h2 class="text-2xl font-bold my-4 text-navy">2. Topast dengan Selai dan Buah Segar</h2>
           
-          <p class="mb-4">Prettier is an opinionated code formatter that ensures your code follows a consistent style. It supports many languages and integrates seamlessly with ESLint.</p>
+          <p class="mb-4">Untuk pecinta makanan manis di pagi hari, cobalah Topast dengan selai favorit kamu dan tambahkan potongan buah segar seperti stroberi, pisang, atau kiwi. Selain menambah rasa, buah-buahan ini juga memberikan asupan vitamin yang dibutuhkan tubuhmu di pagi hari.</p>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">3. Live Server</h2>
+          <h2 class="text-2xl font-bold my-4 text-navy">3. Topast Avocado Toast</h2>
           
-          <p class="mb-4">This extension launches a local development server with live reload feature for static and dynamic pages. It's perfect for quickly viewing changes to your HTML, CSS, and JavaScript without manually refreshing the browser.</p>
+          <p class="mb-4">Tren sarapan sehat yang populer adalah avocado toast. Kamu bisa menciptakan versi unikmu sendiri dengan menggunakan Topast sebagai base-nya. Hancurkan setengah alpukat matang, beri sedikit perasan jeruk nipis, garam, dan lada. Oleskan di atas Topast yang masih hangat, lalu tambahkan potongan tomat ceri dan taburan biji wijen untuk tekstur tambahan.</p>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">4. JavaScript (ES6) Code Snippets</h2>
+          <h2 class="text-2xl font-bold my-4 text-navy">4. Topast Breakfast Sandwich</h2>
           
-          <p class="mb-4">This extension provides snippets for JavaScript in ES6 syntax, saving you time when writing common patterns and structures in modern JavaScript.</p>
+          <p class="mb-4">Untuk sarapan yang lebih mengenyangkan, buatlah sandwich sarapan dengan dua potong Topast, isi dengan telur orak-arik, keju leleh, dan beberapa lembar daging asap. Sarapan ini kaya protein dan akan membuatmu kenyang hingga jam makan siang.</p>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">5. Git Lens</h2>
+          <h2 class="text-2xl font-bold my-4 text-navy">5. Yogurt dan Granola Topast Bowl</h2>
           
-          <p class="mb-4">Git Lens supercharges the Git capabilities built into VS Code. It helps you visualize code authorship, seamlessly navigate through git repositories, and gain insights into how and why your code has evolved.</p>
+          <p class="mb-4">Inovasi menarik lainnya adalah menciptakan "Topast Bowl". Potong-potong Topast menjadi kubus kecil, panggang sebentar hingga lebih renyah, lalu sajikan di atas yogurt Yunani dengan taburan granola dan madu. Tekstur renyah Topast akan menciptakan kontras yang menarik dengan kelembutan yogurt.</p>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">6. Auto Rename Tag</h2>
+          <h2 class="text-2xl font-bold my-4 text-navy">Tips Menikmati Topast di Pagi Hari</h2>
           
-          <p class="mb-4">This simple utility automatically renames paired HTML/XML tags as you edit one of them, saving time and reducing errors in your markup.</p>
+          <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2">Hangatkan Topast selama 1-2 menit di toaster atau oven sebelum disajikan untuk mendapatkan tekstur terbaik.</li>
+            <li class="mb-2">Siapkan berbagai topping atau isian pada malam sebelumnya untuk mempercepat proses persiapan di pagi hari.</li>
+            <li class="mb-2">Kombinasikan Topast dengan minuman hangat seperti teh atau kopi untuk pengalaman sarapan yang lengkap.</li>
+            <li class="mb-2">Buat "Sarapan Topast Bar" untuk keluarga di akhir pekan, dimana setiap orang bisa membuat kreasi Topast mereka sendiri dengan berbagai pilihan topping.</li>
+          </ul>
           
-          <h2 class="text-2xl font-bold my-4 font-serif">7. CSS Peek</h2>
-          
-          <p class="mb-4">CSS Peek allows you to quickly jump to the CSS definition of a class or ID from your HTML file, making it easier to navigate between your HTML and CSS.</p>
-          
-          <h2 class="text-2xl font-bold my-4 font-serif">8. Path Intellisense</h2>
-          
-          <p class="mb-4">This extension autocompletes filenames in your code, making it faster and less error-prone to reference other files in your project.</p>
-          
-          <h2 class="text-2xl font-bold my-4 font-serif">9. Color Highlight</h2>
-          
-          <p class="mb-4">Color Highlight visualizes CSS color codes in your text, displaying the actual color as a background for the code. This makes it much easier to identify and work with color values.</p>
-          
-          <h2 class="text-2xl font-bold my-4 font-serif">10. Import Cost</h2>
-          
-          <p class="mb-4">This extension displays the size of imported packages, helping you keep an eye on your application's bundle size as you develop.</p>
-          
-          <h2 class="text-2xl font-bold my-4 font-serif">Conclusion</h2>
-          
-          <p class="mb-4">The right VS Code extensions can significantly improve your productivity and code quality. While these ten extensions provide a solid foundation for web development, don't be afraid to explore the VS Code marketplace for additional tools that might suit your specific needs and workflow.</p>
-          
-          <p class="mb-4">Remember that while extensions are powerful, it's also good practice to keep your VS Code environment lean. Only install extensions you actively use to maintain optimal performance.</p>
+          <p class="mb-4">Dengan berbagai inspirasi menu sarapan menggunakan Topast di atas, kamu tidak perlu lagi bingung menyiapkan sarapan yang praktis namun tetap lezat. Selamat mencoba!</p>
         `
       },
-      2: { // Content for post 2 remains the same...
-        title: "Optimizing Web Performance: A Comprehensive Guide",
+      2: {
+        title: "Kombinasi Teh dan Topast untuk Afternoon Tea",
         date: "April 28, 2024",
-        views: 1872,
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop",
-        content: `...` // Original content for post 2
+        views: 267,
+        image: "https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop",
+        content: `
+          <p class="mb-4">Afternoon tea adalah tradisi yang berasal dari Inggris, dimana orang menikmati teh disertai dengan berbagai kudapan ringan di sore hari. Tradisi ini kini telah mendunia dan diadaptasi dalam berbagai bentuk. Di Indonesia, kita bisa menciptakan versi afternoon tea kekinian dengan menggunakan Topast sebagai pengganti scone tradisional.</p>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">Pemilihan Teh yang Tepat</h2>
+          
+          <p class="mb-4">Sebelum membahas kombinasi teh dan Topast, penting untuk mengetahui jenis-jenis teh yang cocok untuk afternoon tea:</p>
+          
+          <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><strong>Earl Grey:</strong> Teh hitam dengan aroma bergamot yang segar, cocok dipasangkan dengan Topast rasa manis.</li>
+            <li class="mb-2"><strong>English Breakfast:</strong> Teh hitam klasik dengan rasa yang kuat, sempurna untuk Topast dengan rasa savory.</li>
+            <li class="mb-2"><strong>Jasmine Tea:</strong> Teh dengan aroma bunga melati yang lembut, ideal disandingkan dengan Topast rasa original atau varian buah.</li>
+            <li class="mb-2"><strong>Teh Hijau:</strong> Pilihan sehat dengan rasa yang lebih ringan, cocok untuk Topast dengan rasa yang tidak terlalu kuat.</li>
+            <li class="mb-2"><strong>Teh Herbal:</strong> Seperti chamomile atau peppermint, bisa menjadi pilihan bebas kafein yang menyegarkan.</li>
+          </ul>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">Kombinasi Teh dan Topast yang Direkomendasikan</h2>
+          
+          <h3 class="text-xl font-semibold my-3 text-navy">1. Earl Grey dengan Topast Strawberry</h3>
+          
+          <p class="mb-4">Aroma citrus dari Earl Grey melengkapi kesegaran dari Topast Strawberry. Sentuhan bergamot dalam teh menciptakan harmoni rasa yang menarik dengan manisnya stroberi. Untuk pengalaman yang lebih autentik, tambahkan sedikit lemon curd atau clotted cream di atas Topast.</p>
+          
+          <h3 class="text-xl font-semibold my-3 text-navy">2. Teh Hijau dengan Topast Matcha</h3>
+          
+          <p class="mb-4">Kombinasi teh hijau Jepang dengan Topast Matcha menciptakan pengalaman matcha yang mendalam. Rasa sedikit pahit dari teh hijau diimbangi dengan manisnya Topast Matcha, menciptakan keseimbangan rasa yang sempurna. Tambahkan sedikit white chocolate di atas Topast untuk sentuhan manis tambahan.</p>
+          
+          <h3 class="text-xl font-semibold my-3 text-navy">3. English Breakfast dengan Topast Original</h3>
+          
+          <p class="mb-4">Klasik bertemu klasik dalam kombinasi ini. Kekuatan rasa teh English Breakfast menjadi pasangan yang tepat untuk kelezatan sederhana Topast Original. Untuk membuatnya lebih kaya, tambahkan selai homemade atau madu di atas Topast.</p>
+          
+          <h3 class="text-xl font-semibold my-3 text-navy">4. Jasmine Tea dengan Topast Klepon</h3>
+          
+          <p class="mb-4">Kelembutan dan aroma floral dari teh jasmine melengkapi dengan sempurna rasa manis gula aren dan kelapa yang ada dalam Topast Klepon. Kombinasi ini menciptakan pengalaman afternoon tea dengan sentuhan lokal yang unik.</p>
+          
+          <h3 class="text-xl font-semibold my-3 text-navy">5. Chamomile Tea dengan Topast Chocolate</h3>
+          
+          <p class="mb-4">Untuk afternoon tea yang lebih menenangkan, pilihlah chamomile tea yang disandingkan dengan Topast Chocolate. Kehangatan coklat dan kelembutan chamomile menciptakan kombinasi yang nyaman dan menenangkan, cocok untuk sore hari yang santai.</p>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">Cara Menyajikan Afternoon Tea dengan Topast</h2>
+          
+          <ol class="list-decimal ml-6 mb-4">
+            <li class="mb-2">Sajikan teh dalam teapot yang sudah dipanaskan terlebih dahulu untuk menjaga kehangatan teh lebih lama.</li>
+            <li class="mb-2">Potong Topast menjadi bagian-bagian yang lebih kecil dan mudah dimakan.</li>
+            <li class="mb-2">Susun berbagai varian Topast di atas piring bertingkat (tier plate) jika ada, atau gunakan piring saji yang cantik.</li>
+            <li class="mb-2">Tambahkan pelengkap seperti jam (selai), krim, atau madu dalam wadah terpisah.</li>
+            <li class="mb-2">Lengkapi dengan buah-buahan segar atau kue kering lainnya untuk variasi.</li>
+          </ol>
+          
+          <p class="mb-4">Dengan panduan di atas, kamu bisa menciptakan pengalaman afternoon tea yang mewah di rumah dengan menggunakan Topast. Ini bisa menjadi kegiatan spesial untuk menyambut tamu, merayakan momen khusus, atau sekadar memanjakan diri di tengah kesibukan minggu kerja.</p>
+        `
       },
-      3: { // Content for post 3 remains the same...
-        title: "Modern JavaScript Features You Should Be Using",
-        date: "April 15, 2024",
-        views: 1428,
-        image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?q=80&w=1476&auto=format&fit=crop",
-        content: `...` // Original content for post 3
-      },
-       4: { // Content for post 4 remains the same...
-        title: "CSS Grid vs. Flexbox: When to Use Which",
-        date: "April 10, 2024",
-        views: 1056,
-        image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1470&auto=format&fit=crop",
-        content: `...` // Original content for post 4
+      3: {
+        title: "5 Topping Kreatif untuk Topast Original",
+        date: "April 20, 2024",
+        views: 185,
+        image: "https://images.unsplash.com/photo-1532499016263-f2c3e89de9cd?q=80&w=1470&auto=format&fit=crop",
+        content: `
+          <p class="mb-4">Topast Original dengan tekstur renyah di luar dan lembut di dalam menjadi kanvas sempurna untuk eksperimen berbagai topping. Berikut adalah 5 ide topping kreatif yang bisa kamu coba di rumah untuk menambah variasi pada Topast Original favoritmu.</p>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">1. Sweet and Spicy Mango Salsa</h2>
+          
+          <p class="mb-4">Kombinasi manis, asam, dan pedas dalam salsa mangga akan menciptakan ledakan rasa yang menarik di atas Topast Original.</p>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Bahan-bahan:</h3>
+          <ul class="list-disc ml-6 mb-4">
+            <li>1 buah mangga harum manis matang, potong dadu kecil</li>
+            <li>1/4 buah bawang bombay, cincang halus</li>
+            <li>1/2 buah cabai merah, buang biji dan cincang halus</li>
+            <li>1 sdm daun ketumbar cincang</li>
+            <li>1 sdm air jeruk nipis</li>
+            <li>Garam dan lada secukupnya</li>
+          </ul>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Cara Membuat:</h3>
+          <ol class="list-decimal ml-6 mb-4">
+            <li>Campurkan semua bahan dalam mangkuk.</li>
+            <li>Aduk rata dan biarkan selama 15 menit agar rasa menyatu.</li>
+            <li>Sajikan di atas Topast Original yang masih hangat.</li>
+          </ol>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">2. Whipped Feta dengan Thyme Honey</h2>
+          
+          <p class="mb-4">Kombinasi keju feta yang creamy dengan madu beraroma thyme menciptakan topping yang lezat dan elegan.</p>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Bahan-bahan:</h3>
+          <ul class="list-disc ml-6 mb-4">
+            <li>100 gr keju feta</li>
+            <li>2 sdm yogurt plain</li>
+            <li>1 sdm minyak zaitun</li>
+            <li>2 sdm madu</li>
+            <li>1 sdt daun thyme segar</li>
+            <li>Lada hitam bubuk secukupnya</li>
+          </ul>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Cara Membuat:</h3>
+          <ol class="list-decimal ml-6 mb-4">
+            <li>Hancurkan keju feta dengan garpu, lalu campurkan dengan yogurt dan minyak zaitun.</li>
+            <li>Kocok hingga lembut dan creamy (bisa menggunakan food processor untuk hasil yang lebih halus).</li>
+            <li>Panaskan madu dan daun thyme sebentar dalam microwave atau di atas kompor dengan api kecil.</li>
+            <li>Oleskan whipped feta di atas Topast, lalu siram dengan thyme honey.</li>
+            <li>Tambahkan sedikit lada hitam di atasnya.</li>
+          </ol>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">3. Sambal Matah Fusion</h2>
+          
+          <p class="mb-4">Sentuhan lokal dengan twist modern, sambal matah yang segar menjadi topping yang unik untuk Topast Original.</p>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Bahan-bahan:</h3>
+          <ul class="list-disc ml-6 mb-4">
+            <li>5 buah cabai rawit, iris tipis</li>
+            <li>5 siung bawang merah, iris tipis</li>
+            <li>2 batang serai, ambil bagian putihnya dan iris halus</li>
+            <li>3 lembar daun jeruk, buang tulang daun dan iris halus</li>
+            <li>1 sdt terasi bakar, haluskan</li>
+            <li>1 buah jeruk limau, ambil airnya</li>
+            <li>2 sdm minyak kelapa yang dipanaskan</li>
+            <li>Garam secukupnya</li>
+            <li>Opsional: irisan tipis alpukat sebagai alas</li>
+          </ul>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Cara Membuat:</h3>
+          <ol class="list-decimal ml-6 mb-4">
+            <li>Campurkan semua bahan kecuali minyak kelapa dalam mangkuk.</li>
+            <li>Siram dengan minyak kelapa panas dan aduk rata.</li>
+            <li>Beri perasan jeruk limau dan aduk lagi.</li>
+            <li>Letakkan irisan alpukat di atas Topast, lalu tambahkan sambal matah di atasnya.</li>
+          </ol>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">4. Matcha Cream dengan Red Bean</h2>
+          
+          <p class="mb-4">Kombinasi rasa Jepang yang populer ini memberi sentuhan manis dan sedikit bitter pada Topast Original.</p>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Bahan-bahan:</h3>
+          <ul class="list-disc ml-6 mb-4">
+            <li>100 ml whipping cream</li>
+            <li>1 sdm bubuk matcha premium</li>
+            <li>2 sdm gula halus</li>
+            <li>100 gr pasta kacang merah (anko)</li>
+            <li>Opsional: potongan strawberry untuk hiasan</li>
+          </ul>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Cara Membuat:</h3>
+          <ol class="list-decimal ml-6 mb-4">
+            <li>Kocok whipping cream hingga setengah mengembang.</li>
+            <li>Tambahkan bubuk matcha dan gula halus, lalu kocok lagi hingga kaku.</li>
+            <li>Oleskan matcha cream di atas Topast Original.</li>
+            <li>Tambahkan sesendok kecil pasta kacang merah di atasnya.</li>
+            <li>Hiasi dengan potongan strawberry jika diinginkan.</li>
+          </ol>
+          
+          <h2 class="text-2xl font-bold my-4 text-navy">5. Caramelized Banana dan Salted Caramel</h2>
+          
+          <p class="mb-4">Manis dan gurih berpadu dalam topping yang decadent ini, sempurna untuk pencinta makanan manis.</p>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Bahan-bahan:</h3>
+          <ul class="list-disc ml-6 mb-4">
+            <li>2 buah pisang, potong miring</li>
+            <li>2 sdm butter</li>
+            <li>2 sdm gula palem</li>
+            <li>1/4 sdt kayu manis bubuk</li>
+            <li>2 sdm saus caramel</li>
+            <li>1/4 sdt garam laut kasar</li>
+            <li>Opsional: kacang pecan cincang kasar</li>
+          </ul>
+          
+          <h3 class="text-lg font-semibold mt-3 mb-2 text-navy">Cara Membuat:</h3>
+          <ol class="list-decimal ml-6 mb-4">
+            <li>Panaskan butter dalam wajan anti lengket.</li>
+            <li>Tambahkan gula palem dan aduk hingga meleleh.</li>
+            <li>Masukkan potongan pisang dan kayu manis, masak hingga pisang kecokelatan di kedua sisi.</li>
+            <li>Tata pisang karamel di atas Topast Original.</li>
+            <li>Siram dengan saus caramel dan taburi garam laut.</li>
+            <li>Tambahkan kacang pecan jika diinginkan.</li>
+          </ol>
+          
+          <p class="mb-4">Dengan lima ide topping kreatif di atas, kamu bisa menciptakan berbagai variasi rasa untuk meningkatkan pengalaman menikmati Topast Original. Jangan takut untuk bereksperimen dengan bahan-bahan favoritmu sendiri!</p>
+        `
       }
     };
 
@@ -277,12 +394,11 @@
         document.getElementById('post-content').innerHTML = post.content;
         
         // Update page title
-        document.title = post.title + ' - Topast Blog'; // Updated page title branding
+        document.title = post.title + ' - Topast Blog';
       } else {
         // Handle invalid post ID
         document.getElementById('post-title').textContent = 'Post not found';
         document.getElementById('post-content').innerHTML = '<p class="text-red-500">The requested blog post could not be found.</p>';
-         document.title = 'Post Not Found - Topast Blog'; // Update page title branding
       }
     });
   </script>
