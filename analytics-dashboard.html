@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topast Analytics Dashboard</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: "#10243E",
+            cream: "#F8F4E8",
+            gold: "#C59C5F",
+            pastel: "#EBE8D5",
+            tomato: "#BF3B2C",
+            blue: {
+              light: "#4168a8",
+              dark: "#10243E",
+              topast: "#2b5ea3"
+            },
+            primary: '#4168a8',
+            secondary: '#10243E'
+          },
+          fontFamily: {
+            serif: ["EB Garamond", "serif"],
+            sans: ["Montserrat", "sans-serif"],
+            script: ["Dancing Script", "cursive"],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #F8F4E8;
+    }
+    .card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-serif text-navy mb-2">Topast Analytics</h2>
+        <p class="text-gray-600">Please sign in to access the dashboard</p>
+      </div>
+      
+      <div id="login-error" class="hidden bg-red-100 text-red-700 p-3 rounded mb-4">
+        Invalid username or password
+      </div>
+      
+      <form id="login-form" class="space-y-6">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+          <input type="text" id="username" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-light">
+        </div>
+        
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-light">
+        </div>
+        
+        <button type="submit" class="w-full bg-blue-topast text-white py-2 px-4 rounded-md hover:bg-blue-dark transition-colors">
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="hidden">
+    <!-- Header -->
+    <header class="bg-blue-topast text-white py-4 shadow-md">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl font-serif">Topast Analytics Dashboard</h1>
+        <button id="logout-button" class="px-4 py-2 bg-white text-blue-topast rounded hover:bg-gray-100 transition-colors">
+          <i class="fas fa-sign-out-alt mr-2"></i>Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+      <!-- Date Range Selector -->
+      <div class="card mb-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold text-navy">Date Range</h2>
+          <div class="flex space-x-2">
+            <button class="date-range-btn px-3 py-1 rounded border border-gray-300 hover:bg-gray-100" data-range="today">Today</button>
+            <button class="date-range-btn px-3 py-1 rounded border border-gray-300 hover:bg-gray-100" data-range="yesterday">Yesterday</button>
+            <button class="date-range-btn px-3 py-1 rounded border border-gray-300 hover:bg-gray-100" data-range="7days">Last 7 Days</button>
+            <button class="date-range-btn px-3 py-1 rounded border border-gray-300 hover:bg-gray-100" data-range="30days">Last 30 Days</button>
+            <button class="date-range-btn px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 active" data-range="all">All Time</button>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <div>
+            <label for="start-date" class="block text-sm text-gray-600 mb-1">Start Date</label>
+            <input type="date" id="start-date" class="px-3 py-2 border border-gray-300 rounded">
+          </div>
+          <div>
+            <label for="end-date" class="block text-sm text-gray-600 mb-1">End Date</label>
+            <input type="date" id="end-date" class="px-3 py-2 border border-gray-300 rounded">
+          </div>
+          <div class="flex items-end">
+            <button id="apply-date-range" class="px-4 py-2 bg-blue-topast text-white rounded hover:bg-blue-dark transition-colors">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="card p-6 flex flex-col">
+          <div class="text-gray-500 text-sm mb-1">Total Page Views</div>
+          <div class="text-3xl font-bold text-navy mb-2" id="total-page-views">0</div>
+          <div class="text-sm text-gray-500" id="total-page-views-trend">
+            <span class="text-green-500"><i class="fas fa-arrow-up"></i> 0%</span> vs previous period
+          </div>
+        </div>
+        
+        <div class="card p-6 flex flex-col">
+          <div class="text-gray-500 text-sm mb-1">Unique Visitors</div>
+          <div class="text-3xl font-bold text-navy mb-2" id="unique-visitors">0</div>
+          <div class="text-sm text-gray-500" id="unique-visitors-trend">
+            <span class="text-green-500"><i class="fas fa-arrow-up"></i> 0%</span> vs previous period
+          </div>
+        </div>
+        
+        <div class="card p-6 flex flex-col">
+          <div class="text-gray-500 text-sm mb-1">Avg. Session Duration</div>
+          <div class="text-3xl font-bold text-navy mb-2" id="avg-session-duration">0:00</div>
+          <div class="text-sm text-gray-500" id="avg-session-duration-trend">
+            <span class="text-green-500"><i class="fas fa-arrow-up"></i> 0%</span> vs previous period
+          </div>
+        </div>
+        
+        <div class="card p-6 flex flex-col">
+          <div class="text-gray-500 text-sm mb-1">Bounce Rate</div>
+          <div class="text-3xl font-bold text-navy mb-2" id="bounce-rate">0%</div>
+          <div class="text-sm text-gray-500" id="bounce-rate-trend">
+            <span class="text-red-500"><i class="fas fa-arrow-down"></i> 0%</span> vs previous period
+          </div>
+        </div>
+      </div>
+
+      <!-- Traffic Overview -->
+      <div class="card mb-6">
+        <h2 class="text-xl font-semibold text-navy mb-4">Traffic Overview</h2>
+        <div class="h-80">
+          <canvas id="traffic-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Page Performance and Traffic Sources -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="card">
+          <h2 class="text-xl font-semibold text-navy mb-4">Top Pages</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full">
+              <thead>
+                <tr class="border-b">
+                  <th class="text-left py-2">Page</th>
+                  <th class="text-right py-2">Views</th>
+                  <th class="text-right py-2">Avg. Time</th>
+                </tr>
+              </thead>
+              <tbody id="top-pages-table">
+                <!-- Table rows will be populated dynamically -->
+                <tr class="border-b">
+                  <td class="py-2 text-gray-500">No data available</td>
+                  <td class="py-2 text-right">-</td>
+                  <td class="py-2 text-right">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2 class="text-xl font-semibold text-navy mb-4">Traffic Sources</h2>
+          <div class="h-64">
+            <canvas id="traffic-sources-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Behavior and Devices -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="card">
+          <h2 class="text-xl font-semibold text-navy mb-4">User Behavior</h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <div class="text-sm text-gray-500 mb-1">Conversion Rate</div>
+              <div class="text-2xl font-bold text-navy mb-4" id="conversion-rate">0%</div>
+              
+              <div class="text-sm text-gray-500 mb-1">Time on Site</div>
+              <div class="text-2xl font-bold text-navy" id="time-on-site">0:00</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500 mb-1">Returning Visitors</div>
+              <div class="text-2xl font-bold text-navy mb-4" id="returning-visitors">0%</div>
+              
+              <div class="text-sm text-gray-500 mb-1">Pages per Session</div>
+              <div class="text-2xl font-bold text-navy" id="pages-per-session">0</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2 class="text-xl font-semibold text-navy mb-4">Devices</h2>
+          <div class="h-64">
+            <canvas id="devices-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ===================================================
+    // AUTHENTICATION CONFIGURATION
+    // ===================================================
+    // Set your credentials here (in a real app, this would be server-side validated)
+    const validCredentials = {
+      username: 'admin',
+      password: 'topast2024'
+    };
+
+    // ===================================================
+    // DATA HANDLING
+    // ===================================================
+    
+    // Get analytics data from localStorage
+    function getAnalyticsData() {
+      try {
+        return JSON.parse(localStorage.getItem('topast_analytics') || '{}');
+      } catch (e) {
+        console.error('Error loading analytics data:', e);
+        return {};
+      }
+    }
+    
+    // Format numbers for display
+    function formatNumber(num) {
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+      } else if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+      }
+      return num.toString();
+    }
+    
+    // Format time (seconds) to MM:SS or HH:MM:SS
+    function formatTime(seconds) {
+      if (!seconds) return '0:00';
+      
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = Math.floor(seconds % 60);
+      
+      if (hours > 0) {
+        return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+      
+      return `${minutes}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    // Calculate date range
+    function getDateRange(range) {
+      const now = new Date();
+      const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+      let start;
+      
+      switch (range) {
+        case 'today':
+          start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+          break;
+        case 'yesterday':
+          start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1, 0, 0, 0);
+          end.setDate(end.getDate() - 1);
+          break;
+        case '7days':
+          start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6, 0, 0, 0);
+          break;
+        case '30days':
+          start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 29, 0, 0, 0);
+          break;
+        case 'all':
+        default:
+          // Use earliest recorded date or 90 days ago as fallback
+          const data = getAnalyticsData();
+          if (data.firstVisit) {
+            start = new Date(data.firstVisit);
+          } else {
+            start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 90, 0, 0, 0);
+          }
+      }
+      
+      return { start, end };
+    }
+
+    // ===================================================
+    // CHART SETUP
+    // ===================================================
+    
+    // Create traffic chart
+    function createTrafficChart(dateRange) {
+      const ctx = document.getElementById('traffic-chart').getContext('2d');
+      
+      // Sample data - in a real app, this would be filtered based on dateRange
+      const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      const pageViews = [721, 802, 753, 825, 912, 699, 840];
+      const visitors = [402, 486, 438, 512, 602, 412, 523];
+      
+      // Create or update chart
+      if (window.trafficChart) {
+        window.trafficChart.data.labels = labels;
+        window.trafficChart.data.datasets[0].data = pageViews;
+        window.trafficChart.data.datasets[1].data = visitors;
+        window.trafficChart.update();
+      } else {
+        window.trafficChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Page Views',
+                data: pageViews,
+                borderColor: '#4168a8',
+                backgroundColor: 'rgba(65, 104, 168, 0.1)',
+                fill: true,
+                tension: 0.3
+              },
+              {
+                label: 'Unique Visitors',
+                data: visitors,
+                borderColor: '#10243E',
+                backgroundColor: 'rgba(16, 36, 62, 0.1)',
+                fill: true,
+                tension: 0.3
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      }
+    }
+    
+    // Create traffic sources chart
+    function createTrafficSourcesChart() {
+      const ctx = document.getElementById('traffic-sources-chart').getContext('2d');
+      
+      // Sample data - in a real app, this would come from analytics
+      const data = {
+        labels: ['Direct', 'Organic Search', 'Social Media', 'Referral', 'Email'],
+        datasets: [{
+          data: [42.3, 31.2, 15.6, 7.5, 3.4],
+          backgroundColor: [
+            '#4168a8',
+            '#10243E',
+            '#C59C5F',
+            '#BF3B2C',
+            '#6B7280'
+          ]
+        }]
+      };
+      
+      window.trafficSourcesChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+            }
+          }
+        }
+      });
+    }
+    
+    // Create devices chart
+    function createDevicesChart() {
+      const ctx = document.getElementById('devices-chart').getContext('2d');
+      
+      // Sample data - in a real app, this would come from analytics
+      const data = {
+        labels: ['Mobile', 'Desktop', 'Tablet'],
+        datasets: [{
+          data: [62, 30, 8],
+          backgroundColor: [
+            '#4168a8',
+            '#10243E',
+            '#C59C5F'
+          ]
+        }]
+      };
+      
+      window.devicesChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+            }
+          }
+        }
+      });
+    }
+
+    // ===================================================
+    // DASHBOARD UPDATES
+    // ===================================================
+    
+    // Update KPI cards
+    function updateKPICards(dateRange) {
+      // In a real app, this would filter data based on dateRange
+      // For now, we'll use sample data
+      
+      document.getElementById('total-page-views').textContent = formatNumber(5247);
+      document.getElementById('unique-visitors').textContent = formatNumber(2845);
+      document.getElementById('avg-session-duration').textContent = formatTime(214);
+      document.getElementById('bounce-rate').textContent = '32.4%';
+      
+      document.getElementById('total-page-views-trend').innerHTML = 
+        '<span class="text-green-500"><i class="fas fa-arrow-up"></i> 12.3%</span> vs previous period';
+      
+      document.getElementById('unique-visitors-trend').innerHTML = 
+        '<span class="text-green-500"><i class="fas fa-arrow-up"></i> 8.7%</span> vs previous period';
+      
+      document.getElementById('avg-session-duration-trend').innerHTML = 
+        '<span class="text-green-500"><i class="fas fa-arrow-up"></i> 5.2%</span> vs previous period';
+      
+      document.getElementById('bounce-rate-trend').innerHTML = 
+        '<span class="text-red-500"><i class="fas fa-arrow-down"></i> 2.1%</span> vs previous period';
+    }
+    
+    // Update top pages table
+    function updateTopPagesTable(dateRange) {
+      // In a real app, this would filter data based on dateRange
+      const tbody = document.getElementById('top-pages-table');
+      
+      // Sample data
+      const topPages = [
+        { path: '/', views: 1243, avgTime: 124 },
+        { path: '/blog.html', views: 986, avgTime: 215 },
+        { path: '/index.html', views: 845, avgTime: 98 },
+        { path: '/blog-all.html', views: 732, avgTime: 176 },
+        { path: '/cart.html', views: 512, avgTime: 143 }
+      ];
+      
+      let html = '';
+      topPages.forEach(page => {
+        html += `
+          <tr class="border-b hover:bg-gray-50">
+            <td class="py-2">${page.path}</td>
+            <td class="py-2 text-right">${formatNumber(page.views)}</td>
+            <td class="py-2 text-right">${formatTime(page.avgTime)}</td>
+          </tr>
+        `;
+      });
+      
+      tbody.innerHTML = html;
+    }
+    
+    // Update user behavior stats
+    function updateUserBehavior(dateRange) {
+      // In a real app, this would filter data based on dateRange
+      document.getElementById('conversion-rate').textContent = '4.2%';
+      document.getElementById('time-on-site').textContent = formatTime(242);
+      document.getElementById('returning-visitors').textContent = '38.7%';
+      document.getElementById('pages-per-session').textContent = '3.4';
+    }
+    
+    // Update all dashboard components
+    function updateDashboard(dateRange) {
+      updateKPICards(dateRange);
+      createTrafficChart(dateRange);
+      updateTopPagesTable(dateRange);
+      updateUserBehavior(dateRange);
+    }
+
+    // ===================================================
+    // EVENT HANDLERS
+    // ===================================================
+    
+    // Handle login form submission
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      if (username === validCredentials.username && password === validCredentials.password) {
+        // Store login state (in a real app, this would be a secure HTTP-only cookie or JWT)
+        sessionStorage.setItem('topast_analytics_auth', 'true');
+        
+        // Show dashboard
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+        
+        // Initialize dashboard
+        initializeDashboard();
+      } else {
+        // Show error
+        document.getElementById('login-error').classList.remove('hidden');
+      }
+    });
+    
+    // Handle logout
+    document.getElementById('logout-button').addEventListener('click', function() {
+      // Clear auth state
+      sessionStorage.removeItem('topast_analytics_auth');
+      
+      // Show login screen
+      document.getElementById('login-screen').classList.remove('hidden');
+      document.getElementById('dashboard').classList.add('hidden');
+      
+      // Clear form
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('login-error').classList.add('hidden');
+    });
+    
+    // Handle date range selection
+    document.querySelectorAll('.date-range-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Update active state
+        document.querySelectorAll('.date-range-btn').forEach(b => {
+          b.classList.remove('active', 'bg-blue-100', 'text-blue-topast');
+        });
+        this.classList.add('active', 'bg-blue-100', 'text-blue-topast');
+        
+        // Get date range
+        const range = this.getAttribute('data-range');
+        const { start, end } = getDateRange(range);
+        
+        // Update date inputs
+        document.getElementById('start-date').value = formatDateForInput(start);
+        document.getElementById('end-date').value = formatDateForInput(end);
+        
+        // Update dashboard
+        updateDashboard({ start, end });
+      });
+    });
+    
+    // Handle custom date range
+    document.getElementById('apply-date-range').addEventListener('click', function() {
+      const startDate = new Date(document.getElementById('start-date').value);
+      const endDate = new Date(document.getElementById('end-date').value);
+      
+      // Reset active state on preset buttons
+      document.querySelectorAll('.date-range-btn').forEach(b => {
+        b.classList.remove('active', 'bg-blue-100', 'text-blue-topast');
+      });
+      
+      // Update dashboard with custom range
+      updateDashboard({ start: startDate, end: endDate });
+    });
+
+    // ===================================================
+    // INITIALIZATION
+    // ===================================================
+    
+    // Format date for input field (YYYY-MM-DD)
+    function formatDateForInput(date) {
+      return date.toISOString().split('T')[0];
+    }
+    
+    // Initialize all charts and data
+    function initializeDashboard() {
+      // Set default date range (all time)
+      const { start, end } = getDateRange('all');
+      document.getElementById('start-date').value = formatDateForInput(start);
+      document.getElementById('end-date').value = formatDateForInput(end);
+      
+      // Initialize all components
+      updateKPICards({ start, end });
+      createTrafficChart({ start, end });
+      createTrafficSourcesChart();
+      createDevicesChart();
+      updateTopPagesTable({ start, end });
+      updateUserBehavior({ start, end });
+    }
+    
+    // Check login state on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (sessionStorage.getItem('topast_analytics_auth') === 'true') {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+        initializeDashboard();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -111,6 +111,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get('/script.js', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'script.js'));
   });
+  
+  // Serve analytics.js tracking script
+  app.get('/analytics.js', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'analytics.js'));
+  });
+  
+  // Serve the protected analytics dashboard
+  app.get('/analytics', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'analytics-dashboard.html'));
+  });
 
   const httpServer = createServer(app);
 
