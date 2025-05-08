@@ -2,7 +2,7 @@
 // This file contains all the data for the blog application
 
 // Analytics and KPI Tracking data - all initialized with zero values as requested
-const analyticsData = {
+window.analyticsData = {
   // Traffic sources
   trafficSources: {
     'direct': { visits: 0, percentage: 0 },
@@ -40,7 +40,7 @@ const analyticsData = {
 };
 
 // Blog posts data
-const blogPostsData = [
+window.blogPostsData = [
   {
     id: 1,
     title: "An Ode to Toast, simplest of breakfast",
@@ -177,7 +177,7 @@ const blogPostsData = [
 ];
 
 // External articles data
-const externalArticlesData = [
+window.externalArticlesData = [
   {
     id: 1,
     title: "The Complete Guide to Flexbox",
@@ -241,7 +241,7 @@ const externalArticlesData = [
 ];
 
 // Analytics utility functions
-const analytics = {
+window.blogAnalytics = {
   // Track page view
   trackPageView: function(page) {
     // In a real implementation, this would send data to an analytics service
@@ -325,8 +325,8 @@ const analytics = {
 
 // Export all data and functions
 window.blogData = {
-  analytics: analyticsData,
-  blogPosts: blogPostsData,
-  externalArticles: externalArticlesData,
-  analyticsUtils: analytics
+  analytics: window.analyticsData,
+  blogPosts: window.blogPostsData,
+  externalArticles: window.externalArticlesData,
+  analyticsUtils: window.blogAnalytics
 };

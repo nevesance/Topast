@@ -608,8 +608,7 @@
   <!-- Application Script -->
   <script>
     // Access the data from the external file
-    // These variables are defined in blog-data.js
-    const blogPosts = window.blogPostsData;
+    // These variables are defined in blog-data.js and exposed globally on the window object
     
     // Analytics utility functions
     // Create our own analytics object that uses the TopastAnalytics global from analytics.js
@@ -700,7 +699,7 @@
           html = '<ul class="space-y-2">';
           sortedPosts.forEach(([postId, count], index) => {
             // Find post title
-            const post = blogPosts.find(p => p.id === parseInt(postId));
+            const post = window.blogPostsData.find(p => p.id === parseInt(postId));
             const title = post ? post.title : `Post #${postId}`;
             
             html += `
