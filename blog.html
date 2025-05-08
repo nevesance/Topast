@@ -791,7 +791,9 @@
           currentView: 'blog',
           currentPostId: null,
           viewCounts: {},
-          ...blogData  // Spread the blog data
+          blogPosts: window.blogPostsData,
+          externalArticles: window.externalArticlesData,
+          analyticsData: window.analyticsData
         };
       },
       computed: {

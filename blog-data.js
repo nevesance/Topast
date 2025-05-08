@@ -1,41 +1,41 @@
 // Blog Data File
 // This file contains all the data for the blog application
 
-// Analytics and KPI Tracking data
+// Analytics and KPI Tracking data - all initialized with zero values as requested
 const analyticsData = {
   // Traffic sources
   trafficSources: {
-    'direct': { visits: 423, percentage: 42.3 },
-    'organic-search': { visits: 312, percentage: 31.2 },
-    'social-media': { visits: 156, percentage: 15.6 },
-    'referral': { visits: 75, percentage: 7.5 },
-    'email': { visits: 34, percentage: 3.4 }
+    'direct': { visits: 0, percentage: 0 },
+    'organic-search': { visits: 0, percentage: 0 },
+    'social-media': { visits: 0, percentage: 0 },
+    'referral': { visits: 0, percentage: 0 },
+    'email': { visits: 0, percentage: 0 }
   },
   // Average time (in seconds)
   averageTimeOnPage: {
-    'blog': 124,
-    'post': 318,
-    'articles': 87
+    'blog': 0,
+    'post': 0,
+    'articles': 0
   },
   // Bounce rate (percentage)
   bounceRate: {
-    'blog': 35.2,
-    'post': 22.8,
-    'articles': 41.5
+    'blog': 0,
+    'post': 0,
+    'articles': 0
   },
   // Conversion rates (percentage)
   conversionRate: {
-    'newsletter-signup': 4.2,
-    'product-click': 2.8,
-    'social-share': 1.5
+    'newsletter-signup': 0,
+    'product-click': 0,
+    'social-share': 0
   },
   // Sessions
   sessions: {
-    'today': 127,
-    'yesterday': 145,
-    'last7days': 872,
-    'last30days': 3426,
-    'averageDuration': 214 // in seconds
+    'today': 0,
+    'yesterday': 0,
+    'last7days': 0,
+    'last30days': 0,
+    'averageDuration': 0 // in seconds
   }
 };
 
@@ -46,7 +46,7 @@ const blogPostsData = [
     title: "An Ode to Toast, simplest of breakfast",
     date: "May 15, 2024",
     category: "Food",
-    views: 1250,
+    views: 0,
     readTime: "5 min",
     excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
     featuredImage: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
@@ -69,7 +69,7 @@ const blogPostsData = [
     title: "Dessert, embracing pleasure in life",
     date: "April 28, 2024",
     category: "Culinary",
-    views: 980,
+    views: 0,
     readTime: "4 min",
     excerpt: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.",
     featuredImage: "https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop",
@@ -98,7 +98,7 @@ const blogPostsData = [
     title: "Super flaky pastry",
     date: "April 20, 2024",
     category: "Baking",
-    views: 850,
+    views: 0,
     readTime: "7 min",
     excerpt: "Rahasia di balik pastry yang super flaky yang akan membuat pengalaman makan kamu tidak terlupakan.",
     featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=1287&auto=format&fit=crop",
@@ -127,7 +127,7 @@ const blogPostsData = [
     title: "Making the perfect hot chocolate",
     date: "April 5, 2024",
     category: "Drinks",
-    views: 1080,
+    views: 0,
     readTime: "3 min",
     excerpt: "Ingin menikmati hot chocolate sempurna di rumah? Topast punya resep spesial untuk menemani momen santaimu.",
     featuredImage: "https://images.unsplash.com/photo-1517578239113-b03992dcdd25?q=80&w=1470&auto=format&fit=crop",
@@ -156,7 +156,7 @@ const blogPostsData = [
     title: "Pengganjal Lapar yang Lezat dan Kekinian",
     date: "May 15, 2024",
     category: "Food",
-    views: 1250,
+    views: 0,
     readTime: "5 min",
     excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
     featuredImage: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
