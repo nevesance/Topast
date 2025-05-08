@@ -73,23 +73,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.join(process.cwd(), 'index.html'));
   });
 
-  // Serve the static HTML blog pages directly
-  // Blog routes
-  app.get('/blog', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'blog.html'));
-  });
-  
-  app.get('/blog.html', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'blog.html'));
-  });
-  
-  // Serve combined blog HTML file
-  app.get('/blog-combined.html', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'blog-combined.html'));
-  });
-  
-  // Serve the all-in-one blog HTML file
-  app.get('/blog-all.html', (req, res) => {
+  // Serve the blog page
+  app.get(['/blog', '/blog.html'], (req, res) => {
     res.sendFile(path.join(process.cwd(), 'blog-all.html'));
   });
   
