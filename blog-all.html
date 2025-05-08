@@ -439,6 +439,7 @@
   <script src="blog-data.js"></script>
   
   <!-- Topast Analytics -->
+  <script src="reset-analytics.js"></script>
   <script src="analytics.js"></script>
   
   <!-- Application Script -->
@@ -690,33 +691,20 @@
     // END OF BLOG DATA
     // ===================================================
 
-    // Analytics Utilities
+    // Analytics Utilities - Uses global TopastAnalytics from analytics.js
     const analytics = {
       // Track page view
       trackPageView: function(page) {
-        // In a real implementation, this would send data to an analytics service
+        // Log for debugging
         console.log(`Page view tracked: ${page}`);
         
-        // Store in localStorage for demonstration
         try {
-          const analyticsKey = 'topast_blog_analytics';
-          let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
-          
-          if (!analyticsData.pageViews) {
-            analyticsData.pageViews = {};
+          // Use the global TopastAnalytics object from analytics.js
+          if (window.TopastAnalytics) {
+            window.TopastAnalytics.trackPageView();
+          } else {
+            console.error("TopastAnalytics not found. Make sure analytics.js is loaded first.");
           }
-          
-          if (!analyticsData.pageViews[page]) {
-            analyticsData.pageViews[page] = 0;
-          }
-          
-          analyticsData.pageViews[page]++;
-          analyticsData.lastVisit = new Date().toISOString();
-          
-          localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
-          
-          // Update the analytics dashboard
-          updateAnalyticsDashboard();
         } catch (e) {
           console.error("Error tracking analytics:", e);
         }
@@ -724,34 +712,16 @@
       
       // Track event (click, conversion, etc.)
       trackEvent: function(category, action, label = null) {
-        // In a real implementation, this would send data to an analytics service
+        // Log for debugging
         console.log(`Event tracked: ${category} - ${action}${label ? ' - ' + label : ''}`);
         
-        // Store in localStorage for demonstration
         try {
-          const analyticsKey = 'topast_blog_analytics';
-          let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
-          
-          if (!analyticsData.events) {
-            analyticsData.events = [];
+          // Use the global TopastAnalytics object from analytics.js
+          if (window.TopastAnalytics) {
+            window.TopastAnalytics.trackEvent(category, action, label);
+          } else {
+            console.error("TopastAnalytics not found. Make sure analytics.js is loaded first.");
           }
-          
-          analyticsData.events.push({
-            category,
-            action,
-            label,
-            timestamp: new Date().toISOString()
-          });
-          
-          // Limit stored events to prevent localStorage overflow
-          if (analyticsData.events.length > 100) {
-            analyticsData.events = analyticsData.events.slice(-100);
-          }
-          
-          localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
-          
-          // Update the analytics dashboard
-          updateAnalyticsDashboard();
         } catch (e) {
           console.error("Error tracking event:", e);
         }
@@ -760,7 +730,8 @@
       // Get analytics data
       getAnalyticsData: function() {
         try {
-          const analyticsKey = 'topast_blog_analytics';
+          // Use the same storage key as analytics.js
+          const analyticsKey = 'topast_analytics';
           return JSON.parse(localStorage.getItem(analyticsKey) || '{}');
         } catch (e) {
           console.error("Error getting analytics data:", e);
