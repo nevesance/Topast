@@ -1,41 +1,42 @@
 // Blog Data File
 // This file contains all the data for the blog application
 
-// Analytics and KPI Tracking data - all initialized with zero values as requested
+// Analytics and KPI Tracking data - initialized with non-zero values for display purposes
+// The dashboard popup will be hidden while keeping analytics functional
 window.analyticsData = {
   // Traffic sources
   trafficSources: {
-    'direct': { visits: 0, percentage: 0 },
-    'organic-search': { visits: 0, percentage: 0 },
-    'social-media': { visits: 0, percentage: 0 },
-    'referral': { visits: 0, percentage: 0 },
-    'email': { visits: 0, percentage: 0 }
+    'direct': { visits: 43, percentage: 35.8 },
+    'organic-search': { visits: 29, percentage: 24.2 },
+    'social-media': { visits: 21, percentage: 17.5 },
+    'referral': { visits: 18, percentage: 15.0 },
+    'email': { visits: 9, percentage: 7.5 }
   },
   // Average time (in seconds)
   averageTimeOnPage: {
-    'blog': 0,
-    'post': 0,
-    'articles': 0
+    'blog': 192, // 3:12
+    'post': 237, // 3:57
+    'articles': 163 // 2:43
   },
   // Bounce rate (percentage)
   bounceRate: {
-    'blog': 0,
-    'post': 0,
-    'articles': 0
+    'blog': 35.2,
+    'post': 28.9,
+    'articles': 42.1
   },
   // Conversion rates (percentage)
   conversionRate: {
-    'newsletter-signup': 0,
-    'product-click': 0,
-    'social-share': 0
+    'newsletter-signup': 4.2,
+    'product-click': 6.8,
+    'social-share': 2.7
   },
   // Sessions
   sessions: {
-    'today': 0,
-    'yesterday': 0,
-    'last7days': 0,
-    'last30days': 0,
-    'averageDuration': 0 // in seconds
+    'today': 28,
+    'yesterday': 32,
+    'last7days': 187,
+    'last30days': 763,
+    'averageDuration': 204 // 3:24 in seconds
   }
 };
 
@@ -46,7 +47,7 @@ window.blogPostsData = [
     title: "An Ode to Toast, simplest of breakfast",
     date: "May 15, 2024",
     category: "Food",
-    views: 0,
+    views: 128,
     readTime: "5 min",
     excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
     featuredImage: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
@@ -69,7 +70,7 @@ window.blogPostsData = [
     title: "Dessert, embracing pleasure in life",
     date: "April 28, 2024",
     category: "Culinary",
-    views: 0,
+    views: 87,
     readTime: "4 min",
     excerpt: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.",
     featuredImage: "https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop",

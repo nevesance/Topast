@@ -978,8 +978,14 @@
         });
       }
       
-      // Initialize analytics dashboard
-      updateAnalyticsDashboard();
+      // Don't auto-initialize analytics dashboard on blog page
+      // Analytics dashboard should only be shown from the analytics page
+      
+      // Hide dashboard if it somehow appears
+      const dashboardElement = document.getElementById('analytics-dashboard');
+      if (dashboardElement) {
+        dashboardElement.style.display = 'none';
+      }
     });
   </script>
 </body>
