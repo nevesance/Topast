@@ -50,17 +50,17 @@ window.blogPostsData = [
     views: 128,
     readTime: "5 min",
     excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
-    featuredImage: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop",
+    featuredImage: "assets/Picture3.png",
     introContent: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.",
     whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
     composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
     complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
     specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
     productImages: [
-      { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop", alt: "Topast Product 1" },
-      { src: "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop", alt: "Topast Product 2" },
-      { src: "https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=1480&auto=format&fit=crop", alt: "Topast Product 3" },
-      { src: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1470&auto=format&fit=crop", alt: "Topast Product 4" },
+      { src: "assets/Picture2.png", alt: "Topast Product 1" },
+      { src: "assets/Picture5.png", alt: "Topast Product 2" },
+      { src: "assets/Picture3.png", alt: "Topast Product 3" },
+      { src: "assets/Picture7.png", alt: "Topast Product 4" },
     ],
     complementaryFoodImage: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop",
     specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
@@ -247,25 +247,25 @@ window.blogAnalytics = {
   trackPageView: function(page) {
     // In a real implementation, this would send data to an analytics service
     console.log(`Page view tracked: ${page}`);
-    
+
     // Store in localStorage for demonstration
     try {
       const analyticsKey = 'topast_blog_analytics';
       let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
-      
+
       if (!analyticsData.pageViews) {
         analyticsData.pageViews = {};
       }
-      
+
       if (!analyticsData.pageViews[page]) {
         analyticsData.pageViews[page] = 0;
       }
-      
+
       analyticsData.pageViews[page]++;
       analyticsData.lastVisit = new Date().toISOString();
-      
+
       localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
-      
+
       // Update the analytics dashboard if it exists
       if (typeof updateAnalyticsDashboard === 'function') {
         updateAnalyticsDashboard();
@@ -274,35 +274,35 @@ window.blogAnalytics = {
       console.error("Error tracking analytics:", e);
     }
   },
-  
+
   // Track event (click, conversion, etc.)
   trackEvent: function(category, action, label = null) {
     // In a real implementation, this would send data to an analytics service
     console.log(`Event tracked: ${category} - ${action}${label ? ' - ' + label : ''}`);
-    
+
     // Store in localStorage for demonstration
     try {
       const analyticsKey = 'topast_blog_analytics';
       let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
-      
+
       if (!analyticsData.events) {
         analyticsData.events = [];
       }
-      
+
       analyticsData.events.push({
         category,
         action,
         label,
         timestamp: new Date().toISOString()
       });
-      
+
       // Limit stored events to prevent localStorage overflow
       if (analyticsData.events.length > 100) {
         analyticsData.events = analyticsData.events.slice(-100);
       }
-      
+
       localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
-      
+
       // Update the analytics dashboard if it exists
       if (typeof updateAnalyticsDashboard === 'function') {
         updateAnalyticsDashboard();
@@ -311,7 +311,7 @@ window.blogAnalytics = {
       console.error("Error tracking event:", e);
     }
   },
-  
+
   // Get analytics data
   getAnalyticsData: function() {
     try {
