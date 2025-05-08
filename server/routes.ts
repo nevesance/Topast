@@ -109,17 +109,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Serve script.js file
   app.get('/script.js', (req, res) => {
+    res.set('Content-Type', 'application/javascript');
     res.sendFile(path.join(process.cwd(), 'script.js'));
   });
   
   // Serve analytics.js tracking script
   app.get('/analytics.js', (req, res) => {
+    res.set('Content-Type', 'application/javascript');
     res.sendFile(path.join(process.cwd(), 'analytics.js'));
   });
   
   // Serve reset-analytics.js script
   app.get('/reset-analytics.js', (req, res) => {
+    res.set('Content-Type', 'application/javascript');
     res.sendFile(path.join(process.cwd(), 'reset-analytics.js'));
+  });
+  
+  // Serve blog-data.js script
+  app.get('/blog-data.js', (req, res) => {
+    res.set('Content-Type', 'application/javascript');
+    res.sendFile(path.join(process.cwd(), 'blog-data.js'));
   });
   
   // Serve the protected analytics dashboard
