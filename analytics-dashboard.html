@@ -93,9 +93,14 @@
     <header class="bg-blue-topast text-white py-4 shadow-md">
       <div class="container mx-auto px-4 flex justify-between items-center">
         <h1 class="text-2xl font-serif">Topast Analytics Dashboard</h1>
-        <button id="logout-button" class="px-4 py-2 bg-white text-blue-topast rounded hover:bg-gray-100 transition-colors">
-          <i class="fas fa-sign-out-alt mr-2"></i>Logout
-        </button>
+        <div class="flex space-x-2">
+          <button id="reset-button" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+            <i class="fas fa-trash mr-2"></i>Reset Data
+          </button>
+          <button id="logout-button" class="px-4 py-2 bg-white text-blue-topast rounded hover:bg-gray-100 transition-colors">
+            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+          </button>
+        </div>
       </div>
     </header>
 
@@ -560,6 +565,33 @@
       document.getElementById('username').value = '';
       document.getElementById('password').value = '';
       document.getElementById('login-error').classList.add('hidden');
+    });
+    
+    // Handle reset data
+    document.getElementById('reset-button').addEventListener('click', function() {
+      // Confirm before resetting
+      if (confirm('Are you sure you want to reset ALL analytics data? This cannot be undone.')) {
+        // Clear all analytics data from localStorage and sessionStorage
+        localStorage.removeItem('topast_analytics');
+        localStorage.removeItem('topast_visitor_id');
+        localStorage.removeItem('topast_visitor_timestamp');
+        localStorage.removeItem('topast_blog_analytics');
+        localStorage.removeItem('topast_blog_view_counts');
+        
+        // Clear sessionStorage data
+        sessionStorage.removeItem('topast_session_id');
+        sessionStorage.removeItem('topast_session_timestamp'); 
+        sessionStorage.removeItem('topast_session_pages');
+        sessionStorage.removeItem('topast_session_start');
+        sessionStorage.removeItem('topast_current_page');
+        sessionStorage.removeItem('topast_page_start');
+        sessionStorage.removeItem('topast_previous_page');
+        sessionStorage.removeItem('topast_previous_page_start');
+        
+        // Reload dashboard with fresh data
+        alert('Analytics data has been reset to zero.');
+        updateDashboard(getDateRange('all'));
+      }
     });
     
     // Handle date range selection
