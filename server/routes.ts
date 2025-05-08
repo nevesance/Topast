@@ -88,6 +88,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.join(process.cwd(), 'blog-combined.html'));
   });
   
+  // Serve the all-in-one blog HTML file
+  app.get('/blog-all.html', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog-all.html'));
+  });
+  
   app.get('/blog-post.html', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'blog-post.html'));
   });
