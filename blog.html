@@ -921,13 +921,18 @@
         }
       },
       mounted() {
-        // Handle initial route
-        router.handleInitialRoute();
+        // Set app instance in router first to prevent "App instance not set" error
+        router.setAppInstance(this);
         
-        // Set up navigation listener
-        window.addEventListener('popstate', () => {
+        // Handle initial route with slight delay to ensure Vue is fully mounted
+        setTimeout(() => {
           router.handleInitialRoute();
-        });
+          
+          // Set up navigation listener
+          window.addEventListener('popstate', () => {
+            router.handleInitialRoute();
+          });
+        }, 50);
         
         // Load view counts from localStorage
         try {
@@ -958,9 +963,6 @@
     
     // Initialize the Vue app
     const vueApp = app.mount('#app');
-    
-    // Set app instance in router now that Vue app is created
-    router.setAppInstance(vueApp);
     
     // Make router available globally
     window.router = router;
