@@ -593,6 +593,12 @@
     </div>
   </footer>
 
+  <!-- Reset Analytics -->
+  <script src="reset-analytics.js"></script>
+  
+  <!-- Topast Analytics -->
+  <script src="analytics.js"></script>
+  
   <!-- Load External Blog Data -->
   <script src="blog-data.js"></script>
   
@@ -601,11 +607,39 @@
   
   <!-- Application Script -->
   <script>
-    // First, access the data from the external file
-    const blogData = window.blogData;
+    // Access the data from the external file
+    // These variables are defined in blog-data.js
+    const blogPosts = window.blogPostsData;
     
-    // Analytics utility functions from the external file
-    const analytics = blogData.analyticsUtils;
+    // Analytics utility functions
+    // Create our own analytics object that uses the TopastAnalytics global from analytics.js
+    const analytics = {
+      trackPageView: function(page) {
+        console.log(`Page view tracked: ${page}`);
+        if (window.TopastAnalytics) {
+          window.TopastAnalytics.trackPageView();
+        } else {
+          console.error("TopastAnalytics not found");
+        }
+      },
+      trackEvent: function(category, action, label = null) {
+        console.log(`Event tracked: ${category} - ${action}${label ? ' - ' + label : ''}`);
+        if (window.TopastAnalytics) {
+          window.TopastAnalytics.trackEvent(category, action, label);
+        } else {
+          console.error("TopastAnalytics not found");
+        }
+      },
+      getAnalyticsData: function() {
+        const analyticsKey = 'topast_analytics';
+        try {
+          return JSON.parse(localStorage.getItem(analyticsKey) || '{}');
+        } catch (e) {
+          console.error("Error getting analytics data:", e);
+          return {};
+        }
+      }
+    };
     
     // Update analytics dashboard
     function updateAnalyticsDashboard() {
@@ -666,7 +700,7 @@
           html = '<ul class="space-y-2">';
           sortedPosts.forEach(([postId, count], index) => {
             // Find post title
-            const post = blogData.blogPosts.find(p => p.id === parseInt(postId));
+            const post = blogPosts.find(p => p.id === parseInt(postId));
             const title = post ? post.title : `Post #${postId}`;
             
             html += `
