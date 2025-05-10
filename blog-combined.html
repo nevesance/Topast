@@ -319,19 +319,19 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
-              
+
               <div>
                 <a v-for="post in blogPosts" :key="post.id" href="#" @click.prevent="showPost(post.id)" class="article-link">{{ post.title }}</a>
               </div>
             </div>
-            
+
             <div>
               <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
                   alt="Topast spread with various pastries" 
                   class="rounded-lg w-full object-cover">
             </div>
           </div>
-          
+
           <!-- Featured Articles Section -->
           <div class="mt-20">
             <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
@@ -425,7 +425,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- External Articles Link -->
           <div class="mt-20 text-center">
             <a href="#" @click.prevent="router.navigate('/articles')" class="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition-colors font-medium text-lg">
@@ -454,7 +454,7 @@
               <p class="text-gray-800 leading-relaxed" v-html="currentPost.introContent"></p>
             </div>
           </div>
-          
+
           <div class="mt-6">
             <img :src="currentPost.featuredImage" 
                  :alt="currentPost.title" 
@@ -465,7 +465,7 @@
         <!-- Why Choose Topast Section -->
         <div v-if="currentPost.whyChooseTopast" class="bg-white p-8 rounded-lg shadow-md mb-8">
           <h2 class="section-title">KENAPA HARUS PILIH TOPAST?</h2>
-          
+
           <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
               <!-- Product Images Grid -->
@@ -476,7 +476,7 @@
                      class="rounded-lg shadow-sm w-full h-48 object-cover">
               </div>
             </div>
-            
+
             <div class="md:w-1/2">
               <p class="text-gray-800 leading-relaxed" v-html="currentPost.whyChooseTopast"></p>
             </div>
@@ -486,7 +486,7 @@
         <!-- Composition Section -->
         <div v-if="currentPost.composition" class="bg-white p-8 rounded-lg shadow-md mb-8">
           <h2 class="section-title">KOMPOSISI</h2>
-          
+
           <p class="text-gray-800 leading-relaxed" v-html="currentPost.composition"></p>
         </div>
 
@@ -495,10 +495,10 @@
           <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
               <h2 class="section-title">MAKANAN PENDAMPING KAMU</h2>
-              
+
               <p class="text-gray-800 leading-relaxed mb-6" v-html="currentPost.complementaryFood"></p>
             </div>
-            
+
             <div class="md:w-1/2">
               <img :src="currentPost.complementaryFoodImage" 
                    alt="Complementary food" 
@@ -512,16 +512,16 @@
           <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
               <h2 class="section-title">MATCHA KUNAFA VS KLEPON</h2>
-              
+
               <p class="text-gray-800 leading-relaxed mb-6" v-html="currentPost.specialVariants"></p>
-              
+
               <div class="text-center mt-8">
                 <a href="#variants" class="inline-block px-6 py-3 bg-blue-topast text-white rounded shadow hover:bg-blue-800 transition-colors font-medium text-lg">
                   Click here to see other Variants
                 </a>
               </div>
             </div>
-            
+
             <div class="md:w-1/2">
               <img :src="currentPost.specialVariantsImage" 
                    alt="Special variants" 
@@ -529,12 +529,12 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Additional Content Section -->
         <div v-if="currentPost.additionalContent" class="bg-white p-8 rounded-lg shadow-md mb-8">
           <div v-html="currentPost.additionalContent"></div>
         </div>
-        
+
         <!-- Related Articles -->
         <div class="mt-16">
           <h3 class="text-2xl font-serif font-bold text-navy mb-8">Related Articles</h3>
@@ -553,7 +553,7 @@
             </a>
           </div>
         </div>
-        
+
         <!-- Back to blog link -->
         <div class="text-center mt-12">
           <a href="#" @click.prevent="router.navigate('/blog')" class="inline-flex items-center text-blue-light font-medium">
@@ -590,7 +590,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Back to blog link -->
         <div class="text-center mt-12">
           <a href="#" @click.prevent="router.navigate('/blog')" class="inline-flex items-center text-blue-light font-medium">
@@ -623,7 +623,7 @@
             </a>
           </div>
         </div>
-        
+
         <div>
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
@@ -663,14 +663,14 @@
 
   <!-- Vue.js -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-  
+
   <!-- Application Script -->
   <script>
     // Blog Data - BLOG DATA STARTS HERE
     // ===================================================
     // All blog post data is contained within this section
     // To add or edit blog posts, simply modify this section
-    
+
     // Analytics data
     const analyticsData = {
       // Traffic sources
@@ -708,7 +708,7 @@
         'averageDuration': 0 // in seconds
       }
     };
-    
+
     // Blog posts data
     const blogPostsData = [
       {
@@ -736,6 +736,29 @@
       },
       {
         id: 2,
+        title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
+        date: "May 1, 2024",
+        category: "Culinary",
+        views: 0,
+        readTime: "5 min",
+        excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
+        featuredImage: "https://example.com/roti-bersisik.jpg",
+        introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Roti bersisik hadir sebagai camilan lembut yang mengingatkan kita untuk menikmati momen-momen sederhana.",
+        whyChooseTopast: "Roti bersisik memiliki tekstur unik dengan lapisan luar yang renyah dan bagian dalam yang lembut. Rasanya yang manis dan gurih membuatnya menjadi camilan yang cocok untuk semua suasana.",
+        composition: "Roti bersisik terbuat dari bahan-bahan berkualitas seperti tepung terigu, mentega, gula, dan telur. Setiap bahan dipilih dengan cermat untuk menghasilkan rasa dan tekstur yang sempurna.",
+        complementaryFood: "Roti bersisik cocok dinikmati bersama secangkir teh hangat atau kopi. Anda juga bisa menambahkan topping seperti cokelat atau keju untuk variasi rasa yang lebih menarik.",
+        specialVariants: "Kami menawarkan berbagai varian roti bersisik, mulai dari rasa original hingga rasa cokelat, keju, dan matcha. Setiap varian memiliki cita rasa yang unik dan akan memanjakan lidah Anda.",
+        productImages: [
+          { src: "https://example.com/roti-bersisik-1.jpg", alt: "Roti Bersisik 1" },
+          { src: "https://example.com/roti-bersisik-2.jpg", alt: "Roti Bersisik 2" },
+          { src: "https://example.com/roti-bersisik-3.jpg", alt: "Roti Bersisik 3" },
+          { src: "https://example.com/roti-bersisik-4.jpg", alt: "Roti Bersisik 4" },
+        ],
+        complementaryFoodImage: "https://example.com/teh-hangat.jpg",
+        specialVariantsImage: "https://example.com/roti-bersisik-varian.jpg",
+      },
+      {
+        id: 3,
         title: "Dessert, embracing pleasure in life",
         date: "April 28, 2024",
         category: "Culinary",
@@ -764,7 +787,7 @@
         `,
       },
       {
-        id: 3,
+        id: 4,
         title: "Super flaky pastry",
         date: "April 20, 2024",
         category: "Baking",
@@ -793,7 +816,7 @@
         `,
       },
       {
-        id: 4,
+        id: 5,
         title: "Making the perfect hot chocolate",
         date: "April 5, 2024",
         category: "Drinks",
@@ -822,7 +845,7 @@
         `,
       },
       {
-        id: 5,
+        id: 6,
         title: "Pengganjal Lapar yang Lezat dan Kekinian",
         date: "May 15, 2024",
         category: "Food",
@@ -845,7 +868,7 @@
         specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
       }
     ];
-    
+
     // External articles data
     const externalArticlesData = [
       {
@@ -909,85 +932,85 @@
         linkText: "Read on UX Collective"
       }
     ];
-    
+
     // Combine all data into one object
     const blogData = {
       analytics: analyticsData,
       blogPosts: blogPostsData,
       externalArticles: externalArticlesData
     };
-    
+
     // BLOG DATA ENDS HERE
     // ===================================================
-    
-    
+
+
     // Analytics utility functions
     const analytics = {
       // Track page view
       trackPageView(page) {
         // In a real implementation, this would send data to an analytics service
         console.log(`Page view tracked: ${page}`);
-        
+
         // Store in localStorage for demonstration
         try {
           const analyticsKey = 'topast_blog_analytics';
           let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
-          
+
           if (!analyticsData.pageViews) {
             analyticsData.pageViews = {};
           }
-          
+
           if (!analyticsData.pageViews[page]) {
             analyticsData.pageViews[page] = 0;
           }
-          
+
           analyticsData.pageViews[page]++;
           analyticsData.lastVisit = new Date().toISOString();
-          
+
           localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
-          
+
           // Update the analytics dashboard
           updateAnalyticsDashboard();
         } catch (e) {
           console.error("Error tracking analytics:", e);
         }
       },
-      
+
       // Track event (click, conversion, etc.)
       trackEvent(category, action, label = null) {
         // In a real implementation, this would send data to an analytics service
         console.log(`Event tracked: ${category} - ${action}${label ? ' - ' + label : ''}`);
-        
+
         // Store in localStorage for demonstration
         try {
           const analyticsKey = 'topast_blog_analytics';
           let analyticsData = JSON.parse(localStorage.getItem(analyticsKey) || '{}');
-          
+
           if (!analyticsData.events) {
             analyticsData.events = [];
           }
-          
+
           analyticsData.events.push({
             category,
             action,
             label,
             timestamp: new Date().toISOString()
           });
-          
+
           // Limit stored events to prevent localStorage overflow
           if (analyticsData.events.length > 100) {
             analyticsData.events = analyticsData.events.slice(-100);
           }
-          
+
           localStorage.setItem(analyticsKey, JSON.stringify(analyticsData));
-          
+
           // Update the analytics dashboard
           updateAnalyticsDashboard();
         } catch (e) {
           console.error("Error tracking event:", e);
         }
       },
-      
+
       // Get analytics data
       getAnalyticsData() {
         try {
@@ -999,24 +1022,24 @@
         }
       }
     };
-    
+
     // Update analytics dashboard
     function updateAnalyticsDashboard() {
       const data = analytics.getAnalyticsData();
-      
+
       // Update page view stats
       const totalVisitsElement = document.getElementById('total-visits');
       if (totalVisitsElement && data.pageViews) {
         const totalVisits = Object.values(data.pageViews).reduce((sum, count) => sum + count, 0);
         totalVisitsElement.textContent = totalVisits.toLocaleString();
       }
-      
+
       // Update recent page views
       const recentPageviewsElement = document.getElementById('recent-pageviews');
       if (recentPageviewsElement && data.pageViews) {
         let html = '';
         const pageViewEntries = Object.entries(data.pageViews);
-        
+
         if (pageViewEntries.length === 0) {
           html = '<div class="text-sm text-gray-600">No page views recorded yet.</div>';
         } else {
@@ -1031,16 +1054,16 @@
           });
           html += '</ul>';
         }
-        
+
         recentPageviewsElement.innerHTML = html;
       }
-      
+
       // Update top posts
       const topPostsElement = document.getElementById('top-posts');
       if (topPostsElement && data.pageViews) {
         let html = '';
         const postViews = {};
-        
+
         // Extract post views
         for (const [key, count] of Object.entries(data.pageViews)) {
           if (key.startsWith('post/')) {
@@ -1048,11 +1071,11 @@
             postViews[postId] = count;
           }
         }
-        
+
         const sortedPosts = Object.entries(postViews)
           .sort(([, countA], [, countB]) => countB - countA)
           .slice(0, 5);
-        
+
         if (sortedPosts.length === 0) {
           html = '<div class="text-sm text-gray-600">No posts viewed yet.</div>';
         } else {
@@ -1061,7 +1084,7 @@
             // Find post title
             const post = blogData.blogPosts.find(p => p.id === parseInt(postId));
             const title = post ? post.title : `Post #${postId}`;
-            
+
             html += `
               <li class="flex justify-between items-center">
                 <span class="text-sm">${index + 1}. ${title}</span>
@@ -1071,11 +1094,11 @@
           });
           html += '</ul>';
         }
-        
+
         topPostsElement.innerHTML = html;
       }
     }
-    
+
     // Toggle analytics panel
     function toggleAnalyticsPanel() {
       const panel = document.getElementById('analytics-panel');
@@ -1084,7 +1107,7 @@
         updateAnalyticsDashboard();
       }
     }
-    
+
     // Simple router - define before Vue instance is created
     const router = {
       routes: {
@@ -1101,20 +1124,20 @@
           console.error('App instance not set in router');
           return;
         }
-        
+
         const route = this.routes[path] || 'blog';
         this.appInstance.currentView = route;
-        
+
         if (route === 'post' && params.id) {
           this.appInstance.currentPostId = params.id;
           this.appInstance.loadCurrentPost();
         }
-        
+
         // Update URL without page reload
         const url = new URL(window.location);
         url.hash = path + (params.id ? `/${params.id}` : '');
         window.history.pushState({}, '', url);
-        
+
         // Scroll to top
         window.scrollTo(0, 0);
       },
@@ -1123,18 +1146,18 @@
           console.error('App instance not set in router');
           return;
         }
-        
+
         // Parse the current URL
         const hash = window.location.hash.slice(1);
         if (!hash) {
           this.navigate('/blog');
           return;
         }
-        
+
         const parts = hash.split('/');
         const route = parts[0];
         const id = parts[1] ? parseInt(parts[1]) : null;
-        
+
         if (this.routes[route]) {
           this.navigate(route, id ? { id } : {});
         } else {
@@ -1178,28 +1201,28 @@
         },
         loadCurrentPost() {
           if (!this.currentPostId) return;
-          
+
           // Track page view
           analytics.trackPageView(`post/${this.currentPostId}`);
-          
+
           // Track session length start time
           this.trackSessionStart();
-          
+
           // Update view count
           try {
             // Get current view counts from localStorage
             const viewCountsKey = 'topast_blog_view_counts';
             let viewCounts = JSON.parse(localStorage.getItem(viewCountsKey) || '{}');
-            
+
             // Create a unique key for this post
             const postKey = `post_${this.currentPostId}`;
-            
+
             // Increment the view count
             viewCounts[postKey] = (viewCounts[postKey] || 0) + 1;
-            
+
             // Save back to localStorage
             localStorage.setItem(viewCountsKey, JSON.stringify(viewCounts));
-            
+
             // Store in component data
             this.viewCounts = viewCounts;
           } catch (e) {
@@ -1225,14 +1248,14 @@
           try {
             const sessionKey = 'topast_blog_session';
             const sessionDataStr = localStorage.getItem(sessionKey);
-            
+
             if (sessionDataStr) {
               const sessionData = JSON.parse(sessionDataStr);
               const endTime = new Date().getTime();
               const duration = (endTime - sessionData.startTime) / 1000; // in seconds
-              
+
               analytics.trackEvent('session', 'end', `duration: ${duration}s, page: ${sessionData.page}`);
-              
+
               // Clear session data
               localStorage.removeItem(sessionKey);
             }
@@ -1243,7 +1266,7 @@
         // Track conversion (newsletter signup, product click, etc.)
         trackConversion(type) {
           analytics.trackEvent('conversion', type);
-          
+
           // You could also show a success message or update UI here
           console.log(`Conversion tracked: ${type}`);
         },
@@ -1258,7 +1281,7 @@
               alert('Thanks for subscribing!');
             });
           });
-          
+
           // Track product clicks
           const productLinks = document.querySelectorAll('a[href*="#variants"]');
           productLinks.forEach(link => {
@@ -1266,7 +1289,7 @@
               analytics.trackEvent('product', 'click', 'variant-selection');
             });
           });
-          
+
           // Track social media clicks
           const socialLinks = document.querySelectorAll('a[href*="instagram"], a[href*="facebook"], a[href*="twitter"], a[href*="tiktok"]');
           socialLinks.forEach(link => {
@@ -1282,15 +1305,15 @@
       mounted() {
         // Set app instance in router
         router.setAppInstance(this);
-        
+
         // Handle initial route
         router.handleInitialRoute();
-        
+
         // Set up navigation listener
         window.addEventListener('popstate', () => {
           router.handleInitialRoute();
         });
-        
+
         // Load view counts from localStorage
         try {
           const viewCountsKey = 'topast_blog_view_counts';
@@ -1298,29 +1321,29 @@
         } catch (e) {
           console.error("Error loading view counts:", e);
         }
-        
+
         // Track page view on initial load
         analytics.trackPageView(this.currentView);
         this.trackSessionStart();
-        
+
         // Add event listener for when user leaves the page
         window.addEventListener('beforeunload', this.trackSessionEnd);
-        
+
         // Set up event tracking for UI interactions
         this.setupEventTracking();
       },
       beforeUnmount() {
         // Clean up event listeners
         window.removeEventListener('beforeunload', this.trackSessionEnd);
-        
+
         // Track session end when component is destroyed
         this.trackSessionEnd();
       }
     });
-    
+
     // Initialize the Vue app
     const vueApp = app.mount('#app');
-    
+
     // Make router available globally
     window.router = router;
 
@@ -1328,13 +1351,13 @@
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuButton = document.querySelector('.fa-search').parentNode;
       const mobileMenu = document.getElementById('mobile-menu');
-      
+
       if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
         });
       }
-      
+
       // Initialize analytics dashboard
       updateAnalyticsDashboard();
     });
