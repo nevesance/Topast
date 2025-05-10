@@ -204,19 +204,19 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 class="text-4xl text-navy font-serif uppercase mb-12">FIND AN ARTICLE</h1>
-            
+
             <div id="blog-links-container">
               <!-- Blog links will be populated here -->
             </div>
           </div>
-          
+
           <div>
             <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
                 alt="Topast spread with various pastries" 
                 class="rounded-lg w-full object-cover">
           </div>
         </div>
-        
+
         <!-- Featured Articles Section -->
         <div class="mt-20">
           <h2 class="text-3xl font-serif text-navy mb-12 text-center">Featured Articles</h2>
@@ -224,7 +224,7 @@
             <!-- Featured articles will be populated here -->
           </div>
         </div>
-        
+
         <!-- External Articles Link -->
         <div class="mt-20 text-center">
           <a href="#" onclick="showExternalArticles(); return false;" class="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition-colors font-medium text-lg">
@@ -254,7 +254,7 @@
               </p>
             </div>
           </div>
-          
+
           <div class="mt-6">
             <img id="blog-post-featured-image" src="" alt="" class="w-full h-auto object-cover rounded-lg">
           </div>
@@ -263,7 +263,7 @@
         <!-- Why Choose Topast Section -->
         <div id="why-choose-topast-section" class="bg-white p-8 rounded-lg shadow-md mb-8 hidden">
           <h2 class="section-title">KENAPA HARUS PILIH TOPAST?</h2>
-          
+
           <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
               <!-- Product Images Grid -->
@@ -271,7 +271,7 @@
                 <!-- Product images will be populated here -->
               </div>
             </div>
-            
+
             <div class="md:w-1/2">
               <p id="why-choose-topast-text" class="text-gray-800 leading-relaxed">
                 <!-- Why choose Topast text -->
@@ -283,7 +283,7 @@
         <!-- Composition Section -->
         <div id="composition-section" class="bg-white p-8 rounded-lg shadow-md mb-8 hidden">
           <h2 class="section-title">KOMPOSISI</h2>
-          
+
           <p id="composition-text" class="text-gray-800 leading-relaxed">
             <!-- Composition text -->
           </p>
@@ -294,12 +294,12 @@
           <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
               <h2 class="section-title">MAKANAN PENDAMPING KAMU</h2>
-              
+
               <p id="complementary-food-text" class="text-gray-800 leading-relaxed mb-6">
                 <!-- Complementary food text -->
               </p>
             </div>
-            
+
             <div class="md:w-1/2">
               <img id="complementary-food-image" src="" alt="Complementary food" class="rounded-lg shadow-md w-full h-auto object-cover">
             </div>
@@ -311,31 +311,31 @@
           <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
               <h2 class="section-title">MATCHA KUNAFA VS KLEPON</h2>
-              
+
               <p id="special-variants-text" class="text-gray-800 leading-relaxed mb-6">
                 <!-- Special variants text -->
               </p>
-              
+
               <div class="text-center mt-8">
                 <a href="#variants" class="inline-block px-6 py-3 bg-blue-topast text-white rounded shadow hover:bg-blue-800 transition-colors font-medium text-lg">
                   Click here to see other Variants
                 </a>
               </div>
             </div>
-            
+
             <div class="md:w-1/2">
               <img id="special-variants-image" src="" alt="Special variants" class="rounded-lg shadow-md w-full h-auto object-cover">
             </div>
           </div>
         </div>
-        
+
         <!-- Additional Content Section -->
         <div id="additional-content-section" class="bg-white p-8 rounded-lg shadow-md mb-8 hidden">
           <div id="additional-content">
             <!-- Additional content will be populated here -->
           </div>
         </div>
-        
+
         <!-- Related Articles -->
         <div class="mt-16">
           <h3 class="text-2xl font-serif font-bold text-navy mb-8">Related Articles</h3>
@@ -343,7 +343,7 @@
             <!-- Related articles will be populated here -->
           </div>
         </div>
-        
+
         <!-- Back to blog link -->
         <div class="text-center mt-12">
           <a href="#" onclick="showBlogListing(); return false;" class="inline-flex items-center text-blue-light font-medium">
@@ -364,7 +364,7 @@
         <div id="external-articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- External articles will be populated here -->
         </div>
-        
+
         <!-- Back to blog link -->
         <div class="text-center mt-12">
           <a href="#" onclick="showBlogListing(); return false;" class="inline-flex items-center text-blue-light font-medium">
@@ -397,7 +397,7 @@
             </a>
           </div>
         </div>
-        
+
         <div>
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
           <ul class="space-y-2">
@@ -437,17 +437,17 @@
 
   <!-- Blog Data -->
   <script src="blog-data.js"></script>
-  
+
   <!-- Topast Analytics -->
   <script src="reset-analytics.js"></script>
   <script src="analytics.js"></script>
-  
+
   <!-- Application Script -->
   <script>
     // ===================================================
     // BLOG DATA - EDIT THIS SECTION TO UPDATE BLOG CONTENT
     // ===================================================
-    
+
     // Blog posts data
     const blogPosts = [
       {
@@ -476,26 +476,32 @@
       {
         id: 2,
         title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
-        date: "April 5, 2024",
-        category: "Drinks",
-        views: 1080,
-        readTime: "3 min",
-        excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
-        featuredImage: "assets/Picture3.png",
+        date: "April 25, 2024",
+        category: "Baking",
+        views: 980,
+        readTime: "4 min",
+        excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
+        featuredImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff",
         introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Salah satunya adalah camilan sederhana yang mengingatkan kita akan rumah dan kehangatan. Roti bersisik adalah salah satu dari camilan itu—makanan yang tak hanya mengenyangkan, tapi juga memanjakan indera.",
-        whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
-        composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
-        complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
-        specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
-        productImages: [
-          { src: "assets/Picture2.png", alt: "Topast Product 1" },
-          { src: "assets/Picture5.png", alt: "Topast Product 2" },
-          { src: "assets/Picture3.png", alt: "Topast Product 3" },
-          { src: "assets/Picture7.png", alt: "Topast Product 4" },
-        ],
-        complementaryFoodImage: "assets/Topast_Matcha.jpg",
-        specialVariantsImage: "assets/Topast_klepon.jpg",
-        },
+        additionalContent: `
+          <h2 class="section-title">TEKSTUR YANG MENGGODA</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Roti ini dikenal karena tekstur permukaannya yang bersisik dan renyah, namun ketika digigit, bagian dalamnya justru lembut, hangat, dan menggoda. Perpaduan ini menciptakan sensasi unik yang membuat siapa pun ingin terus mengambil potongan demi potongan. Biasanya dinikmati saat masih hangat, roti bersisik cocok disajikan bersama selai buah, mentega, atau bahkan madu alami.
+          </p>
+          <div class="grid grid-cols-2 gap-4 my-8">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" 
+                 alt="Flaky bread texture" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" 
+                 alt="Bread being torn" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+          </div>
+          <h2 class="section-title">TEMAN SETIA SARAPAN</h2>
+          <p class="text-gray-800 leading-relaxed">
+            Disajikan bersama secangkir teh atau kopi pagi, roti bersisik dapat menjadi bagian dari rutinitas yang menenangkan. Kombinasi rasa hangat dan aroma roti yang baru matang bisa membawa suasana damai sejak pagi hari. Bagi yang menyukai sarapan bergaya Eropa atau Timur Tengah, menambahkan keju, telur rebus, atau zaitun bisa menjadi pelengkap yang sempurna.
+          </p>
+        `
+      },
       {
         id: 3,
         title: "Super flaky pastry",
@@ -526,7 +532,7 @@
         `,
       }
     ];
-    
+
     // External articles data
     const externalArticles = [
       {
@@ -590,7 +596,7 @@
         linkText: "Read on UX Collective"
       }
     ];
-    
+
     // Analytics data
     const analyticsData = {
       // Traffic sources
@@ -628,7 +634,7 @@
         'averageDuration': 214 // in seconds
       }
     };
-    
+
     // ===================================================
     // END OF BLOG DATA
     // ===================================================
@@ -639,7 +645,7 @@
       trackPageView: function(page) {
         // Log for debugging
         console.log(`Page view tracked: ${page}`);
-        
+
         try {
           // Use the global TopastAnalytics object from analytics.js
           if (window.TopastAnalytics) {
@@ -651,12 +657,12 @@
           console.error("Error tracking analytics:", e);
         }
       },
-      
+
       // Track event (click, conversion, etc.)
       trackEvent: function(category, action, label = null) {
         // Log for debugging
         console.log(`Event tracked: ${category} - ${action}${label ? ' - ' + label : ''}`);
-        
+
         try {
           // Use the global TopastAnalytics object from analytics.js
           if (window.TopastAnalytics) {
@@ -668,7 +674,7 @@
           console.error("Error tracking event:", e);
         }
       },
-      
+
       // Get analytics data
       getAnalyticsData: function() {
         try {
@@ -681,33 +687,33 @@
         }
       }
     };
-    
+
     // Views
     const views = {
       blogListing: document.getElementById('blog-listing'),
       blogPost: document.getElementById('blog-post'),
       externalArticles: document.getElementById('external-articles')
     };
-    
+
     // Show blog listing
     function showBlogListing() {
       views.blogListing.classList.remove('hidden');
       views.blogPost.classList.add('hidden');
       views.externalArticles.classList.add('hidden');
-      
+
       // Track page view
       analytics.trackPageView('blog');
-      
+
       // Populate blog links
       populateBlogLinks();
-      
+
       // Populate featured articles
       populateFeaturedArticles();
-      
+
       // Track session start time
       trackSessionStart('blog');
     }
-    
+
     // Show blog post
     function showBlogPost(postId) {
       // Find the post
@@ -716,68 +722,68 @@
         console.error('Post not found:', postId);
         return;
       }
-      
+
       views.blogListing.classList.add('hidden');
       views.blogPost.classList.remove('hidden');
       views.externalArticles.classList.add('hidden');
-      
+
       // Track page view
       analytics.trackPageView(`post/${postId}`);
-      
+
       // Track event
       analytics.trackEvent('navigation', 'show_post', `id: ${postId}`);
-      
+
       // Update view count in localStorage
       updatePostViewCount(postId);
-      
+
       // Populate post content
       populatePostContent(post);
-      
+
       // Populate related articles
       populateRelatedArticles(postId);
-      
+
       // Track session start time
       trackSessionStart('post');
     }
-    
+
     // Show external articles
     function showExternalArticles() {
       views.blogListing.classList.add('hidden');
       views.blogPost.classList.add('hidden');
       views.externalArticles.classList.remove('hidden');
-      
+
       // Track page view
       analytics.trackPageView('external-articles');
-      
+
       // Populate external articles
       populateExternalArticles();
-      
+
       // Track session start time
       trackSessionStart('external-articles');
     }
-    
+
     // Populate blog links
     function populateBlogLinks() {
       const container = document.getElementById('blog-links-container');
       if (!container) return;
-      
+
       let html = '';
       blogPosts.forEach(post => {
         html += `<a href="#" onclick="showBlogPost(${post.id}); return false;" class="article-link">${post.title}</a>`;
       });
-      
+
       container.innerHTML = html;
     }
-    
+
     // Populate featured articles
     function populateFeaturedArticles() {
       const container = document.getElementById('featured-articles');
       if (!container) return;
-      
+
       let html = '';
       // Get first 3 posts as featured
       const featuredPosts = blogPosts.slice(0, 3);
-      
+
       featuredPosts.forEach(post => {
         html += `
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -823,32 +829,32 @@
           </div>
         </div>`;
       });
-      
+
       container.innerHTML = html;
     }
-    
+
     // Populate post content
     function populatePostContent(post) {
       // Set post title
       document.getElementById('blog-post-title').textContent = post.title;
-      
+
       // Set post intro
       document.getElementById('blog-post-intro').innerHTML = post.introContent;
-      
+
       // Set featured image
       const featuredImage = document.getElementById('blog-post-featured-image');
       featuredImage.src = post.featuredImage;
       featuredImage.alt = post.title;
-      
+
       // Why Choose Topast section
       const whyChooseSection = document.getElementById('why-choose-topast-section');
       const whyChooseText = document.getElementById('why-choose-topast-text');
       const productImagesGrid = document.getElementById('product-images-grid');
-      
+
       if (post.whyChooseTopast) {
         whyChooseSection.classList.remove('hidden');
         whyChooseText.innerHTML = post.whyChooseTopast;
-        
+
         // Product images
         if (post.productImages && post.productImages.length > 0) {
           let imagesHtml = '';
@@ -863,27 +869,27 @@
       } else {
         whyChooseSection.classList.add('hidden');
       }
-      
+
       // Composition section
       const compositionSection = document.getElementById('composition-section');
       const compositionText = document.getElementById('composition-text');
-      
+
       if (post.composition) {
         compositionSection.classList.remove('hidden');
         compositionText.innerHTML = post.composition;
       } else {
         compositionSection.classList.add('hidden');
       }
-      
+
       // Complementary Food section
       const complementaryFoodSection = document.getElementById('complementary-food-section');
       const complementaryFoodText = document.getElementById('complementary-food-text');
       const complementaryFoodImage = document.getElementById('complementary-food-image');
-      
+
       if (post.complementaryFood) {
         complementaryFoodSection.classList.remove('hidden');
         complementaryFoodText.innerHTML = post.complementaryFood;
-        
+
         if (post.complementaryFoodImage) {
           complementaryFoodImage.src = post.complementaryFoodImage;
           complementaryFoodImage.alt = "Complementary food for Topast";
@@ -891,16 +897,16 @@
       } else {
         complementaryFoodSection.classList.add('hidden');
       }
-      
+
       // Special Variants section
       const specialVariantsSection = document.getElementById('special-variants-section');
       const specialVariantsText = document.getElementById('special-variants-text');
       const specialVariantsImage = document.getElementById('special-variants-image');
-      
+
       if (post.specialVariants) {
         specialVariantsSection.classList.remove('hidden');
         specialVariantsText.innerHTML = post.specialVariants;
-        
+
         if (post.specialVariantsImage) {
           specialVariantsImage.src = post.specialVariantsImage;
           specialVariantsImage.alt = "Special Topast variants";
@@ -908,11 +914,11 @@
       } else {
         specialVariantsSection.classList.add('hidden');
       }
-      
+
       // Additional Content section
       const additionalContentSection = document.getElementById('additional-content-section');
       const additionalContent = document.getElementById('additional-content');
-      
+
       if (post.additionalContent) {
         additionalContentSection.classList.remove('hidden');
         additionalContent.innerHTML = post.additionalContent;
@@ -920,17 +926,17 @@
         additionalContentSection.classList.add('hidden');
       }
     }
-    
+
     // Populate related articles
     function populateRelatedArticles(currentPostId) {
       const container = document.getElementById('related-articles');
       if (!container) return;
-      
+
       // Get 3 posts that are not the current post
       const relatedPosts = blogPosts
         .filter(post => post.id !== currentPostId)
         .slice(0, 3);
-      
+
       let html = '';
       relatedPosts.forEach(post => {
         html += `
@@ -946,15 +952,15 @@
           </div>
         </a>`;
       });
-      
+
       container.innerHTML = html;
     }
-    
+
     // Populate external articles
     function populateExternalArticles() {
       const container = document.getElementById('external-articles-grid');
       if (!container) return;
-      
+
       let html = '';
       externalArticles.forEach(article => {
         html += `
@@ -975,34 +981,34 @@
           </div>
         </div>`;
       });
-      
+
       container.innerHTML = html;
     }
-    
+
     // Update post view count
     function updatePostViewCount(postId) {
       try {
         // Get current view counts from localStorage
         const viewCountsKey = 'topast_blog_view_counts';
         let viewCounts = JSON.parse(localStorage.getItem(viewCountsKey) || '{}');
-        
+
         // Create a unique key for this post
         const postKey = `post_${postId}`;
-        
+
         // Increment the view count
         viewCounts[postKey] = (viewCounts[postKey] || 0) + 1;
-        
+
         // Save back to localStorage
         localStorage.setItem(viewCountsKey, JSON.stringify(viewCounts));
       } catch (e) {
         console.error("Error updating view count:", e);
       }
     }
-    
+
     // Analytics dashboard functions removed - now accessed via protected dashboard
-    
+
     // Analytics panel functions removed - now accessed via protected dashboard
-    
+
     // Track session start
     function trackSessionStart(page) {
       try {
@@ -1017,20 +1023,20 @@
         console.error("Error tracking session start:", e);
       }
     }
-    
+
     // Track session end
     function trackSessionEnd() {
       try {
         const sessionKey = 'topast_blog_session';
         const sessionDataStr = localStorage.getItem(sessionKey);
-        
+
         if (sessionDataStr) {
           const sessionData = JSON.parse(sessionDataStr);
           const endTime = new Date().getTime();
           const duration = (endTime - sessionData.startTime) / 1000; // in seconds
-          
+
           analytics.trackEvent('session', 'end', `duration: ${duration}s, page: ${sessionData.page}`);
-          
+
           // Clear session data
           localStorage.removeItem(sessionKey);
         }
@@ -1038,7 +1044,7 @@
         console.error("Error tracking session end:", e);
       }
     }
-    
+
     // Mobile menu toggle
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobile-menu');
@@ -1046,21 +1052,21 @@
         mobileMenu.classList.toggle('hidden');
       }
     }
-    
+
     // Initialize
     function init() {
       // Set up navigation listener
       window.addEventListener('popstate', handlePopState);
-      
+
       // Add event listener for when user leaves the page
       window.addEventListener('beforeunload', trackSessionEnd);
-      
+
       // Initialize mobile menu
       const mobileMenuButton = document.querySelector('.fa-search').parentNode;
       if (mobileMenuButton) {
         mobileMenuButton.addEventListener('click', toggleMobileMenu);
       }
-      
+
       // Handle newsletter form submissions
       const newsletterForm = document.getElementById('newsletter-form');
       if (newsletterForm) {
@@ -1071,14 +1077,14 @@
           alert('Thanks for subscribing!');
         });
       }
-      
+
       // Handle product variant links
       document.addEventListener('click', (e) => {
         if (e.target.matches('a[href="#variants"]')) {
           analytics.trackEvent('product', 'click', 'variant-selection');
         }
       });
-      
+
       // Handle social media links
       document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href*="instagram"], a[href*="facebook"], a[href*="twitter"], a[href*="tiktok"]');
@@ -1089,16 +1095,16 @@
           analytics.trackEvent('social', 'click', platform);
         }
       });
-      
+
       // Initialize the page based on URL hash
       handlePopState();
     }
-    
+
     // Handle browser back/forward buttons
     function handlePopState() {
       // Parse the current URL hash
       const hash = window.location.hash.slice(1);
-      
+
       if (!hash || hash === 'blog' || hash === '') {
         showBlogListing();
       } else if (hash.startsWith('post/')) {
@@ -1110,10 +1116,10 @@
         showBlogListing();
       }
     }
-    
+
     // Initialize when the DOM is loaded
     document.addEventListener('DOMContentLoaded', init);
-    
+
     // Initialize the page now in case we're already loaded
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
       setTimeout(init, 1);
