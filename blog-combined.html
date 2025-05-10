@@ -338,9 +338,36 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               <!-- Featured Articles -->
               <div v-for="post in featuredPosts" :key="post.id" class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img :src="post.featuredImage" 
-                    :alt="post.title" 
-                    class="w-full h-48 object-cover">
+                <template v-if="post.category === 'Food'">
+                  <div class="relative">
+                    <img :src="post.featuredImage" 
+                        :alt="post.title" 
+                        class="w-full h-64 object-cover">
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent w-full h-1/2"></div>
+                  </div>
+                </template>
+                <template v-else-if="post.category === 'Culinary'">
+                  <div class="grid grid-cols-2">
+                    <img :src="post.featuredImage" 
+                        :alt="post.title" 
+                        class="h-48 w-full object-cover">
+                    <div class="bg-navy/5 h-48 flex items-center justify-center">
+                      <span class="text-2xl font-serif text-navy">{{ post.category }}</span>
+                    </div>
+                  </div>
+                </template>
+                <template v-else-if="post.category === 'Baking'">
+                  <div class="relative overflow-hidden">
+                    <img :src="post.featuredImage" 
+                        :alt="post.title" 
+                        class="w-full h-56 object-cover transform hover:scale-105 transition-transform duration-500">
+                  </div>
+                </template>
+                <template v-else>
+                  <img :src="post.featuredImage" 
+                      :alt="post.title" 
+                      class="w-full h-48 object-cover">
+                </template>
                 <div class="p-6">
                   <div class="flex items-center text-sm text-gray-500 mb-3">
                     <span>{{ post.date }}</span>
