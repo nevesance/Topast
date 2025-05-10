@@ -1,0 +1,27 @@
+        title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
+        date: "April 25, 2024",
+        category: "Baking",
+        views: 980,
+        readTime: "4 min",
+        excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
+        featuredImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff",
+        introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Salah satunya adalah camilan sederhana yang mengingatkan kita akan rumah dan kehangatan. Roti bersisik adalah salah satu dari camilan itu—makanan yang tak hanya mengenyangkan, tapi juga memanjakan indera.",
+        additionalContent: `
+          <h2 class="section-title">TEKSTUR YANG MENGGODA</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Roti ini dikenal karena tekstur permukaannya yang bersisik dan renyah, namun ketika digigit, bagian dalamnya justru lembut, hangat, dan menggoda. Perpaduan ini menciptakan sensasi unik yang membuat siapa pun ingin terus mengambil potongan demi potongan. Biasanya dinikmati saat masih hangat, roti bersisik cocok disajikan bersama selai buah, mentega, atau bahkan madu alami.
+          </p>
+          <div class="grid grid-cols-2 gap-4 my-8">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" 
+                 alt="Flaky bread texture" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" 
+                 alt="Bread being torn" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+          </div>
+          <h2 class="section-title">TEMAN SETIA SARAPAN</h2>
+          <p class="text-gray-800 leading-relaxed">
+            Disajikan bersama secangkir teh atau kopi pagi, roti bersisik dapat menjadi bagian dari rutinitas yang menenangkan. Kombinasi rasa hangat dan aroma roti yang baru matang bisa membawa suasana damai sejak pagi hari. Bagi yang menyukai sarapan bergaya Eropa atau Timur Tengah, menambahkan keju, telur rebus, atau zaitun bisa menjadi pelengkap yang sempurna.
+          </p>
+        `
+      }
