@@ -226,11 +226,11 @@ window.blogPostsData = [
     readTime: "4 min",
     excerpt: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia.",
     featuredImage: "https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=774&auto=format&fit=crop",
-    introContent: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia. Salah satunya adalah ketika kita duduk santai, menikmati sepotong roti hangat atau pastri renyah yang baru keluar dari oven.",
+    introContent: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia. Salah satunya adalah ketika kita duduk santai, menikmati sepotong roti hangat atau pastri renyah yang baru keluar dari oven. Aroma mentega yang menyeruak dari dapur, tekstur lapisan luar yang renyah, dan kelembutan di dalamnya adalah kombinasi yang tidak pernah gagal menggoda. Camilan seperti ini tidak sekadar mengisi perut, tetapi juga mengisi ruang-ruang kecil dalam hati yang kadang terlupakan karena kesibukan.",
     additionalContent: `
       <h2 class="section-title">Roti yang Crunchy di Luar, Lembut di Dalam</h2>
       <p class="text-gray-800 leading-relaxed mb-6">
-        Roti yang benar-benar menggugah selera bukan hanya soal rasa, tetapi juga soal tekstur. Permukaan luar yang crunchy, dipanggang hingga keemasan dan sedikit pecah saat disentuh, memberikan sensasi gigitan pertama yang memuaskan. Namun saat digigit lebih dalam, kita akan menemukan bagian dalam yang empuk, lembut, dan sedikit hangat—seolah-olah roti itu menyambut kita pulang. Inilah yang membuat roti terasa istimewa. Tidak hanya kenyang, tetapi juga nyaman.
+        Roti yang benar-benar menggugah selera bukan hanya soal rasa, tetapi juga soal tekstur. Permukaan luar yang crunchy, dipanggang hingga keemasan dan sedikit pecah saat disentuh, memberikan sensasi gigitan pertama yang memuaskan. Namun saat digigit lebih dalam, kita akan menemukan bagian dalam yang empuk, lembut, dan sedikit hangat—seolah-olah roti itu menyambut kita pulang. Inilah yang membuat roti terasa istimewa. Tidak hanya kenyang, tetapi juga nyaman. Apalagi jika disantap dengan segelas teh hangat atau kopi yang baru diseduh, nikmatnya tiada tara.
       </p>
       <div class="grid grid-cols-2 gap-4 my-8">
         <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
@@ -242,7 +242,7 @@ window.blogPostsData = [
       </div>
       <h2 class="section-title">Pastri: Si Kecil yang Penuh Kejutan</h2>
       <p class="text-gray-800 leading-relaxed mb-6">
-        Sementara roti memberi kenyamanan, pastri menawarkan kejutan. Pastri sering kali kecil ukurannya, namun besar dalam rasa. Lapisan-lapisan tipis yang dibuat dengan teknik khusus menghasilkan tekstur yang renyah dan buttery di setiap gigitan. Dari isian cokelat lembut, apel kayu manis, hingga keju asin atau kacang almond, setiap pastri membawa karakter yang berbeda. Itulah mengapa pastri selalu menjadi favorit di meja sarapan, camilan sore, atau bahkan sebagai hadiah kecil untuk orang tersayang.
+        Sementara roti memberi kenyamanan, pastri menawarkan kejutan. Pastri sering kali kecil ukurannya, namun besar dalam rasa. Lapisan-lapisan tipis yang dibuat dengan teknik khusus menghasilkan tekstur yang renyah dan buttery di setiap gigitan. Dari isian cokelat lembut, apel kayu manis, hingga keju asin atau kacang almond, setiap pastri membawa karakter yang berbeda. Itulah mengapa pastri selalu menjadi favorit di meja sarapan, camilan sore, atau bahkan sebagai hadiah kecil untuk orang tersayang. Satu gigitan pastri yang baik bisa membuat hari yang paling buruk sekalipun terasa lebih ringan.
       </p>
       <div class="my-8">
         <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
