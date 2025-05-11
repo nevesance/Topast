@@ -346,15 +346,22 @@ function initFeaturedArticles() {
   // Generate HTML for featured posts
   const html = featuredPosts.map(post => `
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="${post.featuredImage}" alt="${post.title}" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-4">
-          <span class="text-sm text-navy/70">${post.date} • ${post.category}</span>
-          <span class="text-sm text-navy/70">${post.readTime}</span>
+      <div class="relative">
+        <img src="${post.featuredImage}" alt="${post.title}" class="w-full h-52 object-cover">
+        <div class="absolute bottom-0 left-0 bg-white px-4 py-1">
+          <span class="text-xs font-medium text-gray-600">${post.date} • ${post.category}</span>
         </div>
-        <h3 class="text-xl font-bold text-navy mb-2">${post.title}</h3>
-        <p class="text-navy/70 mb-4 line-clamp-2">${post.excerpt}</p>
-        <a href="blog-all.html#${post.id}" class="text-tomato hover:text-tomato/80 font-medium">Read More</a>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-navy mb-3">${post.title}</h3>
+        <p class="text-gray-700 mb-4 text-sm">${post.excerpt}</p>
+        <a href="blog-all.html" onclick="showBlogPost(${post.id}); return false;" 
+           class="text-blue-500 font-medium hover:text-blue-700 inline-flex items-center">
+          Read More 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
       </div>
     </div>
   `).join('');
