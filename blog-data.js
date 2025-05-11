@@ -174,6 +174,90 @@ window.blogPostsData = [
     ],
     complementaryFoodImage: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop",
     specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
+    date: "April 25, 2024",
+    category: "Baking",
+    views: 0,
+    readTime: "6 min",
+    excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
+    featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?auto=format&fit=crop",
+    introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Salah satunya adalah camilan sederhana yang mengingatkan kita akan rumah dan kehangatan. Roti bersisik adalah salah satu dari camilan itu—makanan yang tak hanya mengenyangkan, tapi juga memanjakan indera.",
+    additionalContent: `
+      <h2 class="section-title">Tekstur yang Menggoda: Renyah di Luar, Lembut di Dalam</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Roti ini dikenal karena tekstur permukaannya yang bersisik dan renyah, namun ketika digigit, bagian dalamnya justru lembut, hangat, dan menggoda. Perpaduan ini menciptakan sensasi unik yang membuat siapa pun ingin terus mengambil potongan demi potongan. Biasanya dinikmati saat masih hangat, roti bersisik cocok disajikan bersama selai buah, mentega, atau bahkan madu alami.
+      </p>
+      <div class="grid grid-cols-2 gap-4 my-8">
+        <img src="https://images.unsplash.com/photo-1504387432042-8aca549e4729?q=80&w=1287&auto=format&fit=crop" 
+             alt="Tear bread" 
+             class="rounded-lg shadow-md w-full h-48 object-cover">
+        <img src="https://images.unsplash.com/photo-1501432781167-c0ccfd492297?q=80&w=1287&auto=format&fit=crop" 
+             alt="Freshly baked" 
+             class="rounded-lg shadow-md w-full h-48 object-cover">
+      </div>
+      <h2 class="section-title">Teman Setia Sarapan Sederhana</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Disajikan bersama secangkir teh atau kopi pagi, roti bersisik dapat menjadi bagian dari rutinitas yang menenangkan. Kombinasi rasa hangat dan aroma roti yang baru matang bisa membawa suasana damai sejak pagi hari. Bagi yang menyukai sarapan bergaya Eropa atau Timur Tengah, menambahkan keju, telur rebus, atau zaitun bisa menjadi pelengkap yang sempurna.
+      </p>
+      <div class="my-8">
+        <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=774&auto=format&fit=crop" 
+             alt="Breakfast bread" 
+             class="rounded-lg shadow-md w-full max-h-96 object-cover mx-auto">
+      </div>
+      <h2 class="section-title">Membangkitkan Memori Lewat Aroma dan Rasa</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Keistimewaan roti bersisik bukan hanya dari rasanya, tetapi dari pengalaman yang dihadirkannya. Membuat atau menyantapnya bisa menjadi kesenangan sederhana yang membangkitkan kenangan masa kecil, suasana dapur nenek, atau pagi hari yang tenang bersama keluarga. Roti ini juga cocok untuk momen reflektif—menikmatinya pelan-pelan sambil menyeruput teh hangat.
+      </p>
+      <h2 class="section-title">Sebuah Simbol Kehangatan di Era Serba Cepat</h2>
+      <p class="text-gray-800 leading-relaxed">
+        Di era di mana segalanya serba instan dan digital, kesenangan seperti ini menjadi langka tapi sangat berharga. Sebuah potong roti yang renyah di luar dan lembut di dalam, disajikan dengan penuh cinta, bisa menjadi pengingat bahwa kebahagiaan tidak selalu datang dari hal besar—kadang ia tersembunyi di balik camilan hangat yang sederhana.
+      </p>
+    `,
+  },
+  {
+    id: 7,
+    title: "Roti & Pastri — Perpaduan Enak yang Selalu Menggoda",
+    date: "May 5, 2024",
+    category: "Food",
+    views: 0,
+    readTime: "4 min",
+    excerpt: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia.",
+    featuredImage: "https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=774&auto=format&fit=crop",
+    introContent: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia. Salah satunya adalah ketika kita duduk santai, menikmati sepotong roti hangat atau pastri renyah yang baru keluar dari oven.",
+    additionalContent: `
+      <h2 class="section-title">Roti yang Crunchy di Luar, Lembut di Dalam</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Roti yang benar-benar menggugah selera bukan hanya soal rasa, tetapi juga soal tekstur. Permukaan luar yang crunchy, dipanggang hingga keemasan dan sedikit pecah saat disentuh, memberikan sensasi gigitan pertama yang memuaskan. Namun saat digigit lebih dalam, kita akan menemukan bagian dalam yang empuk, lembut, dan sedikit hangat—seolah-olah roti itu menyambut kita pulang. Inilah yang membuat roti terasa istimewa. Tidak hanya kenyang, tetapi juga nyaman.
+      </p>
+      <div class="grid grid-cols-2 gap-4 my-8">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
+             alt="Crunchy bread" 
+             class="rounded-lg shadow-md w-full h-48 object-cover">
+        <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop" 
+             alt="Freshly baked" 
+             class="rounded-lg shadow-md w-full h-48 object-cover">
+      </div>
+      <h2 class="section-title">Pastri: Si Kecil yang Penuh Kejutan</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Sementara roti memberi kenyamanan, pastri menawarkan kejutan. Pastri sering kali kecil ukurannya, namun besar dalam rasa. Lapisan-lapisan tipis yang dibuat dengan teknik khusus menghasilkan tekstur yang renyah dan buttery di setiap gigitan. Dari isian cokelat lembut, apel kayu manis, hingga keju asin atau kacang almond, setiap pastri membawa karakter yang berbeda. Itulah mengapa pastri selalu menjadi favorit di meja sarapan, camilan sore, atau bahkan sebagai hadiah kecil untuk orang tersayang.
+      </p>
+      <div class="my-8">
+        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
+             alt="Pastry variety" 
+             class="rounded-lg shadow-md w-full max-h-96 object-cover mx-auto">
+      </div>
+      <h2 class="section-title">Kombinasi Enak untuk Setiap Suasana</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Roti dan pastri adalah pilihan camilan yang fleksibel dan universal. Baik dinikmati saat sarapan pagi dengan secangkir kopi hangat, sebagai pengisi energi di tengah hari, atau sebagai teman membaca buku saat sore menjelang malam. Rasa manis dan gurih yang bisa dikombinasikan dengan topping atau isian apapun membuat roti dan pastri selalu relevan dan menarik. Bahkan, dengan sedikit kreativitas, keduanya bisa ditingkatkan menjadi hidangan mewah untuk acara spesial.
+      </p>
+      <h2 class="section-title">Menikmati Hidup Lewat Gigitan Kecil</h2>
+      <p class="text-gray-800 leading-relaxed">
+        Saat dunia terasa terlalu cepat dan waktu serasa berlari, kadang kita hanya perlu duduk, mengambil napas, dan menikmati sesuatu yang sederhana. Sepotong roti atau pastri bisa menjadi pengingat bahwa hidup tak selalu harus terburu-buru. Kenikmatan kecil seperti ini adalah bentuk self-care yang paling mudah diakses. Sebuah camilan hangat bisa mengembalikan mood, membangkitkan semangat, dan bahkan menginspirasi momen penuh syukur. Roti dan pastri bukan sekadar makanan, tetapi simbol dari kebahagiaan sederhana yang tetap kita butuhkan di tengah kehidupan modern.
+      </p>
+    `,
   }
 ];
 
