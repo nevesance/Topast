@@ -340,39 +340,11 @@ function initFeaturedArticles() {
   const container = document.getElementById('featured-articles');
   if (!container) return;
 
-  // Static blog posts data
-  const staticBlogPosts = [
-    {
-      id: 1,
-      title: "An Ode to Toast, simplest of breakfast",
-      date: "May 15, 2024",
-      category: "Food",
-      readTime: "5 min",
-      excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
-      featuredImage: "assets/blog_1/Picture3.png"
-    },
-    {
-      id: 2,
-      title: "Dessert, embracing pleasure in life",
-      date: "April 28, 2024",
-      category: "Culinary",
-      readTime: "4 min",
-      excerpt: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.",
-      featuredImage: "https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
-      date: "April 20, 2024",
-      category: "Baking",
-      readTime: "7 min",
-      excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
-      featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=1287&auto=format&fit=crop"
-    }
-  ];
+  // Get first 3 posts from blog-data.js
+  const featuredPosts = window.blogPostsData.slice(0, 3);
 
   // Generate HTML for featured posts
-  const html = staticBlogPosts.map(post => `
+  const html = featuredPosts.map(post => `
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
       <img src="${post.featuredImage}" alt="${post.title}" class="w-full h-48 object-cover">
       <div class="p-6">
