@@ -115,6 +115,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.set('Content-Type', 'application/javascript');
     res.sendFile(path.join(process.cwd(), 'blog-data.js'));
   });
+
+  // Serve blog-all.html page
+  app.get('/blog-all.html', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'blog-all.html'));
+  });
   
   // Serve the protected analytics dashboard
   app.get('/analytics', (req, res) => {
