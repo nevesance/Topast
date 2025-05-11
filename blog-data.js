@@ -96,14 +96,14 @@ window.blogPostsData = [
   },
   {
     id: 3,
-    title: "Super flaky pastry",
+    title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
     date: "April 20, 2024",
     category: "Baking",
-    views: 0,
+    views: 850,
     readTime: "7 min",
-    excerpt: "Rahasia di balik pastry yang super flaky yang akan membuat pengalaman makan kamu tidak terlupakan.",
+    excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
     featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=1287&auto=format&fit=crop",
-    introContent: "Pastry yang flaky adalah salah satu keajaiban dunia kuliner. Lapisan-lapisan tipis yang renyah menciptakan sensasi yang tak terlupakan saat digigit. Topast mengungkap rahasia di balik pastry super flaky yang selalu membuat pelanggan kembali untuk mendapatkan lebih.",
+    introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Salah satunya adalah camilan sederhana yang mengingatkan kita akan rumah dan kehangatan. Roti bersisik adalah salah satu dari camilan itu—makanan yang tak hanya mengenyangkan, tapi juga memanjakan indera.",
     additionalContent: `
       <h2 class="section-title">TEKNIK BERLAPIS</h2>
       <p class="text-gray-800 leading-relaxed mb-6">
