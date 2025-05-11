@@ -335,7 +335,43 @@ function initBlogViewCounters() {
   });
 }
 
-// Initialize the page
+// Initialize the featured articles section
+function initFeaturedArticles() {
+  const container = document.getElementById('featured-articles');
+  if (!container) return;
+
+  // Check if blog posts data is available
+  if (!window.blogPostsData) {
+    console.error('Blog posts data not found');
+    return;
+  }
+
+  // Get first 3 posts as featured
+  const featuredPosts = window.blogPostsData.slice(0, 3);
+  
+  // Generate HTML for each featured post
+  const html = featuredPosts.map(post => `
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <img src="${post.featuredImage}" alt="${post.title}" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-sm text-navy/70">${post.date} • ${post.category}</span>
+          <span class="text-sm text-navy/70">${post.readTime}</span>
+        </div>
+        <h3 class="text-xl font-bold text-navy mb-2">${post.title}</h3>
+        <p class="text-navy/70 mb-4 line-clamp-2">${post.excerpt}</p>
+        <a href="blog-all.html#${post.id}" class="text-tomato hover:text-tomato/80 font-medium">Read More</a>
+      </div>
+    </div>
+  `).join('');
+
+  container.innerHTML = html;
+}
+
+// Initialize all components
+document.addEventListener('DOMContentLoaded', function() {
+  initFeaturedArticles();
+});
 function init() {
   // Set current year in footer
   if (currentYearSpan) {
