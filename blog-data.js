@@ -43,251 +43,112 @@ window.analyticsData = {
 // Blog posts data
 window.blogPostsData = [
   {
-    id: 3,
-    title: "Roti Berlapis Mentega — Kelezatan Sederhana yang Selalu Menggoda",
-    date: "May 10, 2024",
-    category: "Food",
-    views: 0,
-    readTime: "6 min",
-    excerpt: "Dalam keseharian yang penuh dengan rutinitas dan jadwal yang padat, tidak ada yang lebih menyenangkan dari menemukan momen singkat untuk menikmati sesuatu yang benar-benar kita sukai.",
-    featuredImage: "assets/Croissant-cook.jpg",
-    introContent: "Dalam keseharian yang penuh dengan rutinitas dan jadwal yang padat, tidak ada yang lebih menyenangkan dari menemukan momen singkat untuk menikmati sesuatu yang benar-benar kita sukai. Salah satunya adalah sepotong roti berlapis mentega (Buttery Layers) yang disajikan hangat, langsung dari oven.",
-    additionalContent: `
-      <h2 class="section-title">FLAKY & SOFT: PERPADUAN TEKSTUR YANG MENGHIPNOTIS</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Tidak semua roti memiliki karakter seperti ini. Bagian luar yang flaky, tipis dan sedikit garing, memberi kesan elegan sekaligus autentik—hasil dari teknik memanggang yang presisi dan adonan yang kaya mentega. Lalu, saat kita menggigitnya, bagian dalam yang soft dan berpori-pori halus langsung meleleh di lidah.
-      </p>
-      <div class="grid grid-cols-2 gap-4 my-8">
-        <img src="assets/Bakery.jpeg" alt="Flaky bread texture" class="rounded-lg shadow-md w-full h-48 object-cover">
-        <img src="assets/Bakery_foto.jpg" alt="Fresh baked bread" class="rounded-lg shadow-md w-full h-48 object-cover">
-      </div>
-      <h2 class="section-title">SATU ROTI, DUA DUNIA RASA</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Salah satu hal paling menarik dari roti berlapis mentega adalah kemampuannya untuk menjadi dua jenis camilan sekaligus. Saat ditambah topping manis seperti selai stroberi, madu, atau krim vanila, roti ini menjadi dessert ringan yang elegan. Namun saat dipadukan dengan daging asap, telur rebus, atau keju asin, ia berubah menjadi camilan gurih yang mengenyangkan.
-      </p>
-      <h2 class="section-title">SIMPLE INDULGENCE</h2>
-      <p class="text-gray-800 leading-relaxed">
-        Dalam dunia yang penuh dengan gangguan dan tekanan, menikmati sesuatu yang sederhana bisa menjadi bentuk penghargaan pada diri sendiri. Simple indulgence bukan berarti mewah atau mahal, tapi sesuatu yang kita nikmati sepenuh hati. Roti berlapis mentega adalah salah satu bentuk indulgence itu—mudah didapat, mudah dibuat, tapi dampaknya luar biasa bagi mood dan semangat kita.
-      </p>
-    `
-  },
-  {
     id: 1,
-    title: "An Ode to Toast, simplest of breakfast",
-    date: "May 15, 2024",
-    category: "Food",
-    views: 128,
-    readTime: "5 min",
-    excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
-    featuredImage: "assets/Picture3.png",
-    introContent: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.",
-    whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
-    composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
-    complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
-    specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
-    productImages: [
-      { src: "assets/Picture2.png", alt: "Topast Product 1" },
-      { src: "assets/Picture5.png", alt: "Topast Product 2" },
-      { src: "assets/Picture3.png", alt: "Topast Product 3" },
-      { src: "assets/Picture7.png", alt: "Topast Product 4" },
-    ],
-    complementaryFoodImage: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop",
-    specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Dessert, embracing pleasure in life",
-    date: "April 28, 2024",
-    category: "Culinary",
-    views: 87,
-    readTime: "4 min",
-    excerpt: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert.",
-    featuredImage: "https://images.unsplash.com/photo-1556679343-c1c1c9658f86?q=80&w=1364&auto=format&fit=crop",
-    introContent: "Kehidupan memang penuh dengan tantangan, tapi kamu perlu meluangkan waktu untuk menikmati hal-hal sederhana seperti dessert. Topast menyajikan berbagai pilihan dessert yang akan membuat hidupmu lebih manis dan menyenangkan.",
-    additionalContent: `
-      <h2 class="section-title">DESSERT DALAM KEHIDUPAN MODERN</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Dalam kehidupan yang serba cepat, kita sering lupa untuk menikmati hal-hal sederhana. Dessert bukan hanya sekadar makanan penutup, tapi juga sebuah momen untuk berhenti sejenak dan merayakan kebahagiaan kecil. Topast hadir untuk mengingatkan kita bahwa kadang-kadang, hal terbaik dalam hidup bisa datang dalam bentuk makanan manis yang lezat.
-      </p>
-      <div class="grid grid-cols-2 gap-4 my-8">
-        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop" 
-             alt="Dessert 1" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-        <img src="https://images.unsplash.com/photo-1525640788966-69bdb028aa73?q=80&w=1287&auto=format&fit=crop" 
-             alt="Dessert 2" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-      </div>
-      <h2 class="section-title">PERPADUAN RASA DAN TEKSTUR</h2>
-      <p class="text-gray-800 leading-relaxed">
-        Topast menggabungkan rasa manis yang pas dengan tekstur yang beragam untuk memberikan pengalaman dessert yang tidak terlupakan. Dari kelembutan whipped cream hingga kerenyahan pastry, setiap gigitan adalah petualangan baru untuk indra perasamu.
-      </p>
-    `,
-  },
-  {
-    id: 3,
-    title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
-    date: "April 20, 2024",
-    category: "Baking",
-    views: 850,
-    readTime: "7 min",
-    excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
-    featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?q=80&w=1287&auto=format&fit=crop",
-    introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Salah satunya adalah camilan sederhana yang mengingatkan kita akan rumah dan kehangatan. Roti bersisik adalah salah satu dari camilan itu—makanan yang tak hanya mengenyangkan, tapi juga memanjakan indera.",
-    additionalContent: `
-      <h2 class="section-title">TEKNIK BERLAPIS</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Proses pembuatan pastry yang flaky membutuhkan ketelitian dan kesabaran. Dengan teknik yang tepat, adonan yang dilipat berulang kali akan menghasilkan lapisan-lapisan tipis yang saat dipanggang, akan mengembang dan menciptakan tekstur yang renyah dan berlapis. Topast menguasai teknik ini dengan sempurna, sehingga setiap gigitan pastry kami selalu konsisten dan memuaskan.
-      </p>
-      <div class="grid grid-cols-2 gap-4 my-8">
-        <img src="https://images.unsplash.com/photo-1504387432042-8aca549e4729?q=80&w=1287&auto=format&fit=crop" 
-             alt="Layered Pastry 1" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-        <img src="https://images.unsplash.com/photo-1501432781167-c0ccfd492297?q=80&w=1287&auto=format&fit=crop" 
-             alt="Layered Pastry 2" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-      </div>
-      <h2 class="section-title">RAHASIA MENTEGA BERKUALITAS</h2>
-      <p class="text-gray-800 leading-relaxed">
-        Bahan baku memegang peranan penting dalam menciptakan pastry yang sempurna. Topast hanya menggunakan mentega berkualitas tinggi yang memiliki titik leleh dan kandungan lemak yang ideal untuk pastry. Kombinasi ini menghasilkan aroma yang harum dan tekstur yang tidak mudah lembek meski sudah beberapa jam di suhu ruangan.
-      </p>
-    `,
-  },
-  {
-    id: 4,
-    title: "Making the perfect hot chocolate",
-    date: "April 5, 2024",
-    category: "Drinks",
-    views: 0,
-    readTime: "3 min",
-    excerpt: "Ingin menikmati hot chocolate sempurna di rumah? Topast punya resep spesial untuk menemani momen santaimu.",
-    featuredImage: "https://images.unsplash.com/photo-1517578239113-b03992dcdd25?q=80&w=1470&auto=format&fit=crop",
-    introContent: "Tidak ada yang lebih menenangkan daripada secangkir hot chocolate yang lembut dan kaya rasa di hari yang dingin atau saat kamu butuh sesuatu yang menenangkan. Topast berbagi resep hot chocolate spesial yang akan membuat momen bersantaimu semakin sempurna.",
-    additionalContent: `
-      <h2 class="section-title">RAHASIA HOT CHOCOLATE YANG SEMPURNA</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Membuat hot chocolate yang sempurna bukan hanya tentang mencampurkan bubuk cokelat dengan susu panas. Ada beberapa rahasia yang akan membuat minumanmu naik kelas. Pertama, gunakan cokelat asli, bukan bubuk cokelat instan. Kedua, panaskan susu secara perlahan dan aduk terus agar tidak gosong. Terakhir, tambahkan sedikit garam untuk memperkuat rasa cokelat.
-      </p>
-      <div class="grid grid-cols-2 gap-4 my-8">
-        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=1421&auto=format&fit=crop" 
-             alt="Hot Chocolate 1" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1287&auto=format&fit=crop" 
-             alt="Hot Chocolate 2" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-      </div>
-      <h2 class="section-title">PASANGAN SEMPURNA UNTUK HOT CHOCOLATE</h2>
-      <p class="text-gray-800 leading-relaxed">
-        Hot chocolate yang kaya dan lembut adalah pasangan sempurna untuk Topast Original atau varian pastry manis lainnya. Perpaduan antara minuman hangat yang menenangkan dengan gigitan renyah pastry akan menciptakan pengalaman yang tak terlupakan di setiap momen santaimu.
-      </p>
-    `,
-  },
-  {
-    id: 5,
-    title: "Pengganjal Lapar yang Lezat dan Kekinian",
-    date: "May 15, 2024",
-    category: "Food",
-    views: 0,
-    readTime: "5 min",
-    excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
-    featuredImage: "assets/Picture3.png",
-    introContent: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.",
-    whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
-    composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
-    complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
-    specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
-    productImages: [
-      { src: "assets/Picture2.png", alt: "Topast Product 1" },
-      { src: "assets/Picture5.png", alt: "Topast Product 2" },
-      { src: "assets/Picture3.png", alt: "Topast Product 3" },
-      { src: "assets/Picture 7.png", alt: "Topast Product 4" },
-    ],
-    complementaryFoodImage: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1364&auto=format&fit=crop",
-    specialVariantsImage: "https://images.unsplash.com/photo-1612387069301-4afaa95221ce?q=80&w=1364&auto=format&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Roti Bersisik: Camilan Lembut yang Menjadi Kesenangan Sederhana",
-    date: "April 25, 2024",
-    category: "Baking",
-    views: 0,
-    readTime: "6 min",
-    excerpt: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan.",
-    featuredImage: "https://images.unsplash.com/photo-1512223792601-592a9809eed4?auto=format&fit=crop",
-    introContent: "Di tengah kesibukan yang padat dan dunia yang bergerak cepat, seringkali kita lupa menikmati hal-hal kecil yang membawa kebahagiaan. Salah satunya adalah camilan sederhana yang mengingatkan kita akan rumah dan kehangatan. Roti bersisik adalah salah satu dari camilan itu—makanan yang tak hanya mengenyangkan, tapi juga memanjakan indera.",
-    additionalContent: `
-      <h2 class="section-title">Tekstur yang Menggoda: Renyah di Luar, Lembut di Dalam</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Roti ini dikenal karena tekstur permukaannya yang bersisik dan renyah, namun ketika digigit, bagian dalamnya justru lembut, hangat, dan menggoda. Perpaduan ini menciptakan sensasi unik yang membuat siapa pun ingin terus mengambil potongan demi potongan. Biasanya dinikmati saat masih hangat, roti bersisik cocok disajikan bersama selai buah, mentega, atau bahkan madu alami.
-      </p>
-      <div class="grid grid-cols-2 gap-4 my-8">
-        <img src="https://images.unsplash.com/photo-1504387432042-8aca549e4729?q=80&w=1287&auto=format&fit=crop" 
-             alt="Tear bread" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-        <img src="https://images.unsplash.com/photo-1501432781167-c0ccfd492297?q=80&w=1287&auto=format&fit=crop" 
-             alt="Freshly baked" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-      </div>
-      <h2 class="section-title">Teman Setia Sarapan Sederhana</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Disajikan bersama secangkir teh atau kopi pagi, roti bersisik dapat menjadi bagian dari rutinitas yang menenangkan. Kombinasi rasa hangat dan aroma roti yang baru matang bisa membawa suasana damai sejak pagi hari. Bagi yang menyukai sarapan bergaya Eropa atau Timur Tengah, menambahkan keju, telur rebus, atau zaitun bisa menjadi pelengkap yang sempurna.
-      </p>
-      <div class="my-8">
-        <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=774&auto=format&fit=crop" 
-             alt="Breakfast bread" 
-             class="rounded-lg shadow-md w-full max-h-96 object-cover mx-auto">
-      </div>
-      <h2 class="section-title">Membangkitkan Memori Lewat Aroma dan Rasa</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Keistimewaan roti bersisik bukan hanya dari rasanya, tetapi dari pengalaman yang dihadirkannya. Membuat atau menyantapnya bisa menjadi kesenangan sederhana yang membangkitkan kenangan masa kecil, suasana dapur nenek, atau pagi hari yang tenang bersama keluarga. Roti ini juga cocok untuk momen reflektif—menikmatinya pelan-pelan sambil menyeruput teh hangat.
-      </p>
-      <h2 class="section-title">Sebuah Simbol Kehangatan di Era Serba Cepat</h2>
-      <p class="text-gray-800 leading-relaxed">
-        Di era di mana segalanya serba instan dan digital, kesenangan seperti ini menjadi langka tapi sangat berharga. Sebuah potong roti yang renyah di luar dan lembut di dalam, disajikan dengan penuh cinta, bisa menjadi pengingat bahwa kebahagiaan tidak selalu datang dari hal besar—kadang ia tersembunyi di balik camilan hangat yang sederhana.
-      </p>
-    `,
-  },
-  {
-    id: 7,
-    title: "Roti & Pastri — Perpaduan Enak yang Selalu Menggoda",
-    date: "May 5, 2024",
-    category: "Food",
-    views: 0,
-    readTime: "4 min",
-    excerpt: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia.",
-    featuredImage: "https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=774&auto=format&fit=crop",
-    introContent: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia. Salah satunya adalah ketika kita duduk santai, menikmati sepotong roti hangat atau pastri renyah yang baru keluar dari oven. Aroma mentega yang menyeruak dari dapur, tekstur lapisan luar yang renyah, dan kelembutan di dalamnya adalah kombinasi yang tidak pernah gagal menggoda. Camilan seperti ini tidak sekadar mengisi perut, tetapi juga mengisi ruang-ruang kecil dalam hati yang kadang terlupakan karena kesibukan.",
-    additionalContent: `
-      <h2 class="section-title">Roti yang Crunchy di Luar, Lembut di Dalam</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Roti yang benar-benar menggugah selera bukan hanya soal rasa, tetapi juga soal tekstur. Permukaan luar yang crunchy, dipanggang hingga keemasan dan sedikit pecah saat disentuh, memberikan sensasi gigitan pertama yang memuaskan. Namun saat digigit lebih dalam, kita akan menemukan bagian dalam yang empuk, lembut, dan sedikit hangat—seolah-olah roti itu menyambut kita pulang. Inilah yang membuat roti terasa istimewa. Tidak hanya kenyang, tetapi juga nyaman. Apalagi jika disantap dengan segelas teh hangat atau kopi yang baru diseduh, nikmatnya tiada tara.
-      </p>
-      <div class="grid grid-cols-2 gap-4 my-8">
-        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1472&auto=format&fit=crop" 
-             alt="Crunchy bread" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-        <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1470&auto=format&fit=crop" 
-             alt="Freshly baked" 
-             class="rounded-lg shadow-md w-full h-48 object-cover">
-      </div>
-      <h2 class="section-title">Pastri: Si Kecil yang Penuh Kejutan</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Sementara roti memberi kenyamanan, pastri menawarkan kejutan. Pastri sering kali kecil ukurannya, namun besar dalam rasa. Lapisan-lapisan tipis yang dibuat dengan teknik khusus menghasilkan tekstur yang renyah dan buttery di setiap gigitan. Dari isian cokelat lembut, apel kayu manis, hingga keju asin atau kacang almond, setiap pastri membawa karakter yang berbeda. Itulah mengapa pastri selalu menjadi favorit di meja sarapan, camilan sore, atau bahkan sebagai hadiah kecil untuk orang tersayang. Satu gigitan pastri yang baik bisa membuat hari yang paling buruk sekalipun terasa lebih ringan.
-      </p>
-      <div class="my-8">
-        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1547&auto=format&fit=crop" 
-             alt="Pastry variety" 
-             class="rounded-lg shadow-md w-full max-h-96 object-cover mx-auto">
-      </div>
-      <h2 class="section-title">Kombinasi Enak untuk Setiap Suasana</h2>
-      <p class="text-gray-800 leading-relaxed mb-6">
-        Roti dan pastri adalah pilihan camilan yang fleksibel dan universal. Baik dinikmati saat sarapan pagi dengan secangkir kopi hangat, sebagai pengisi energi di tengah hari, atau sebagai teman membaca buku saat sore menjelang malam. Rasa manis dan gurih yang bisa dikombinasikan dengan topping atau isian apapun membuat roti dan pastri selalu relevan dan menarik. Bahkan, dengan sedikit kreativitas, keduanya bisa ditingkatkan menjadi hidangan mewah untuk acara spesial.
-      </p>
-      <h2 class="section-title">Menikmati Hidup Lewat Gigitan Kecil</h2>
-      <p class="text-gray-800 leading-relaxed">
-        Saat dunia terasa terlalu cepat dan waktu serasa berlari, kadang kita hanya perlu duduk, mengambil napas, dan menikmati sesuatu yang sederhana. Sepotong roti atau pastri bisa menjadi pengingat bahwa hidup tak selalu harus terburu-buru. Kenikmatan kecil seperti ini adalah bentuk self-care yang paling mudah diakses. Sebuah camilan hangat bisa mengembalikan mood, membangkitkan semangat, dan bahkan menginspirasi momen penuh syukur. Roti dan pastri bukan sekadar makanan, tetapi simbol dari kebahagiaan sederhana yang tetap kita butuhkan di tengah kehidupan modern.
-      </p>
-    `,
-  }
+      title: "Pengganjal Lapar yang Lezat dan Kekinian",
+        date: "April 10, 2025",
+        category: "Food",
+        views: 1200,
+        readTime: "5 min",
+        excerpt: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut.",
+        featuredImage: "assets/blog_1/Picture3.png",
+        introContent: "Di tengah kesibukan dan rutinitas yang padat, kadang kita butuh sesuatu yang praktis, enak, dan mengenyangkan untuk mengisi perut. Nah, Topast hadir sebagai solusi untuk pengganjal lapar yang cocok banget buat kamu yang ingin ngemil sambil menikmati waktu senggang. Dengan berbagai varian rasa dan produk yang kreatif, Topast bisa jadi pilihan tepat untuk memenuhi selera makananmu.",
+        whyChooseTopast: "Tekstur Topast, luar roti yang sedikit garing memberikan kontras yang pas dengan kelembutan roti di dalamnya. Mulai dari Topast Original sampai Topast Ice cream, semuanya punya rasa yang bener-bener pas di lidah. Rasa manis, asin hadir dengan porsi yang nggak bikin eneg. Bahkan, meski kamu sudah sering coba rasa yang sama, ada sensasi baru di setiap gigitannya!",
+        composition: "Topast Original punya ukuran yang pas tanpa bikin perut terasa terlalu penuh. Dalam satu Topast Original, kamu bakal menemukan 1 lembar roti tawar yang lembut, dipadukan dengan 1 lembar kulit pastry ukuran 15x10 cm yang garing dan renyah. Komposisi yang seimbang membuat Topast Original cocok jadi camilan untuk mengganjal lapar.",
+        complementaryFood: "Roti atau gorengan kadang terasa monoton, apalagi kalau sudah sering dimakan. Dengan menggunakan air fryer, Topast tentunya jauh lebih sehat dibandingkan cemilan yang digoreng dalam minyak yang banyak, karena lebih rendah lemak dan kalori. Dengan berbagai varian rasa, pastinya bisa disesuaikan dengan teman ngopi/ngeteh kamu. Yukk tunggu apa lagi, langsung kepoin kita di instagram @topast.id dan Tiktok @topast.id",
+        specialVariants: "Topast nggak cuma hadir dengan rasa kekinian, tapi juga membawa sentuhan tradisional yang nggak kalah menarik! Dua varian unggulan yang wajib kamu coba adalah Matcha Kunafa terinspirasi dari kunafa yang viral di Dubai dan cita rasa lokal lewat varian Klepon. Siapa bilang rasa tradisional kalah saing? Justru varian ini jadi daya tarik karena masih jarang banget ada roti apalagi pastry yang berani mengangkat rasa khas Indonesia seperti klepon.",
+        productImages: [
+          { src: "assets/blog_1/Picture2.png", alt: "Topast Product 1" },
+          { src: "assets/blog_1/Picture5.png", alt: "Topast Product 2" },
+          { src: "assets/blog_1/Picture3.png", alt: "Topast Product 3" },
+          { src: "assets/blog_1/Picture7.png", alt: "Topast Product 4" },
+        ],
+        complementaryFoodImage: "assets/Topast_Matcha.jpg",
+        specialVariantsImage: "assets/Topast_klepon.jpg",
+      },
+      {
+        id: 2,
+        title: "Roti & Pastri — Perpaduan Enak yang Selalu Menggoda",
+        date: "April 16, 2025",
+        category: "Food",
+        views: 980,
+        readTime: "5 min",
+        excerpt: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia.",
+        featuredImage: "assets/Blog_2/top_photo.png",
+        introContent: "Dalam hiruk pikuk kehidupan modern, kita sering lupa bagaimana nikmatnya momen sederhana yang bisa membuat hati tenang dan bahagia. Salah satunya adalah ketika kita duduk santai, menikmati sepotong roti hangat atau pastri renyah yang baru keluar dari oven. Aroma mentega yang menyeruak dari dapur, tekstur lapisan luar yang renyah, dan kelembutan di dalamnya adalah kombinasi yang tidak pernah gagal menggoda. Camilan seperti ini tidak sekadar mengisi perut, tetapi juga mengisi ruang-ruang emosional yang kadang kita abaikan—mengingatkan kita pada rumah, kenangan bersama keluarga, dan kenyamanan yang sulit dijelaskan dengan kata-kata.",
+        additionalContent: `
+          <h2 class="section-title">ROTI YANG CRUNCHY DI LUAR, LEMBUT DI DALAM</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Roti yang benar-benar menggugah selera bukan hanya soal rasa, tetapi juga soal tekstur. Permukaan luar yang crunchy, dipanggang hingga keemasan dan sedikit pecah saat disentuh, memberikan sensasi gigitan pertama yang memuaskan. Namun saat digigit lebih dalam, kita akan menemukan bagian dalam yang empuk, lembut, dan sedikit hangat—seolah-olah roti itu menyambut kita pulang. Inilah yang membuat roti terasa istimewa. Tidak hanya kenyang, tetapi juga nyaman. Apalagi jika disantap dengan tambahan mentega yang meleleh di permukaan atau madu yang meresap sempurna ke dalam lapisannya.
+          </p>
+          <div class="grid grid-cols-2 gap-4 my-8">
+            <img src="https://www.tastingtable.com/img/gallery/why-you-shouldnt-slice-into-fresh-baked-bread-before-its-cool/intro-1652472978.jpg" 
+                 alt="Crunchy bread" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+            <img src="https://i.ytimg.com/vi/vKf6DAjaHIM/maxresdefault.jpg" 
+                 alt="Freshly baked" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+          </div>
+          <h2 class="section-title">PASTRI: SI KECIL YANG PENUH KEJUTAN</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Sementara roti memberi kenyamanan, pastri menawarkan kejutan. Pastri sering kali kecil ukurannya, namun besar dalam rasa. Lapisan-lapisan tipis yang dibuat dengan teknik khusus menghasilkan tekstur yang renyah dan buttery di setiap gigitan. Dari isian cokelat lembut, apel kayu manis, hingga keju asin atau kacang almond, setiap pastri membawa karakter yang berbeda. Itulah mengapa pastri selalu menjadi favorit di meja sarapan, camilan sore, atau bahkan sebagai hadiah kecil untuk orang tercinta. Di balik tampilannya yang mungil, pastri menyimpan rasa yang kompleks dan mewah.
+          </p>
+          <div class="my-8">
+            <img src="https://www.lushplatters.com/wp-content/uploads/2024/03/19f3b4ec-9516-4468-a37b-f2bad79fa6cb.jpg" 
+                 alt="Pastry variety" 
+                 class="rounded-lg shadow-md w-full max-h-96 object-cover mx-auto">
+          </div>
+          <h2 class="section-title">KOMBINASI ENAK UNTUK SETIAP SUASANA</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Roti dan pastri adalah pilihan camilan yang fleksibel dan universal. Baik dinikmati saat sarapan pagi dengan secangkir kopi hangat, sebagai pengisi energi di tengah hari, atau sebagai teman membaca buku saat sore menjelang malam. Rasa manis dan gurih yang bisa dikombinasikan dengan topping atau isian apapun membuat roti dan pastri selalu relevan dan menarik. Bahkan, dengan sedikit kreativitas, keduanya bisa ditingkatkan menjadi hidangan mewah untuk acara spesial.
+          </p>
+          <h2 class="section-title">MENIKMATI HIDUP LEWAT GIGITAN KECIL</h2>
+          <p class="text-gray-800 leading-relaxed">
+            Saat dunia terasa terlalu cepat dan waktu serasa berlari, kadang kita hanya perlu duduk, mengambil napas, dan menikmati sesuatu yang sederhana. Sepotong roti atau pastri bisa menjadi pengingat bahwa hidup tak selalu harus terburu-buru. Kenikmatan kecil seperti ini adalah bentuk self-care yang paling mudah diakses. Sebuah camilan hangat bisa mengembalikan mood, membangkitkan semangat, dan bahkan menginspirasi momen penuh syukur. Roti dan pastri bukan sekadar makanan, tetapi simbol dari perhatian kecil kepada diri sendiri.
+          </p>
+        `
+      },
+
+      {
+        id: 3,
+        title: "Roti Berlapis Mentega — Kelezatan Sederhana yang Selalu Menggoda",
+        date: "March 3, 2025",
+        category: "Food",
+        views: 750,
+        readTime: "6 min",
+        excerpt: "Dalam keseharian yang penuh dengan rutinitas dan jadwal yang padat, tidak ada yang lebih menyenangkan dari menemukan momen singkat untuk menikmati sesuatu yang benar-benar kita sukai.",
+        featuredImage: "https://www.tastingtable.com/img/gallery/transform-your-morning-toast-by-giving-it-a-literal-twist/l-intro-1699067555.jpg",
+        introContent: "Dalam keseharian yang penuh dengan rutinitas dan jadwal yang padat, tidak ada yang lebih menyenangkan dari menemukan momen singkat untuk menikmati sesuatu yang benar-benar kita sukai. Salah satunya adalah sepotong roti berlapis mentega (Buttery Layers) yang disajikan hangat, langsung dari oven. Setiap lapisan yang terlihat mengilap karena mentega yang meleleh memberikan pengalaman visual yang menggoda sebelum kita mencicipinya. Gigitan pertama pun menghadirkan sensasi lembut yang terasa menyatu sempurna dengan rasa gurih, sedikit manis, dan aroma khas roti panggang yang menenangkan.",
+        additionalContent: `
+          <h2 class="section-title">FLAKY & SOFT: PERPADUAN TEKSTUR YANG MENGHIPNOTIS</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Tidak semua roti memiliki karakter seperti ini. Bagian luar yang flaky, tipis dan sedikit garing, memberi kesan elegan sekaligus autentik—hasil dari teknik memanggang yang presisi dan adonan yang kaya mentega. Lalu, saat kita menggigitnya, bagian dalam yang soft dan berpori-pori halus langsung meleleh di lidah. Sensasi kontras ini menghadirkan pengalaman makan yang lebih dalam dan menggugah. Roti seperti ini bukan sekadar makanan ringan; ia adalah karya seni dalam bentuk makanan.
+          </p>
+          <div class="https://img.freepik.com/free-photo/man-breaking-loaf-bread_23-2148719003.jpg" 
+                 alt="Crunchy bread" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+            <img src="https://www.allrecipes.com/thmb/2GKWhc_9XIMB_bvQc1tx_F4rfbA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6178439-149330d63e9c467a8985e1ec814c18f5.jpg" 
+                 alt="Freshly baked" 
+                 class="rounded-lg shadow-md w-full h-48 object-cover">
+          </div>
+          <h2 class="section-title">PASTRI: SI KECIL YANG PENUH KEJUTAN</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Sementara roti memberi kenyamanan, pastri menawarkan kejutan. Pastri sering kali kecil ukurannya, namun besar dalam rasa. Lapisan-lapisan tipis yang dibuat dengan teknik khusus menghasilkan tekstur yang renyah dan buttery di setiap gigitan. Dari isian cokelat lembut, apel kayu manis, hingga keju asin atau kacang almond, setiap pastri membawa karakter yang berbeda. Itulah mengapa pastri selalu menjadi favorit di meja sarapan, camilan sore, atau bahkan sebagai hadiah kecil untuk orang tersayang. Satu gigitan pastri yang baik bisa membuat hari yang paling buruk sekalipun terasa lebih ringan.
+          </p>
+          <div class="my-8">
+            <img src="https://cdn.prod.website-files.com/667621531549e628ba255b5c/66e9c3930090d42e98933f3c_weeknight-package-inn-little-washington.jpg" 
+                 alt="Pastry variety" 
+                 class="rounded-lg shadow-md w-full max-h-96 object-cover mx-auto">
+          </div>
+          <h2 class="section-title">KOMBINASI ENAK UNTUK SETIAP SUASANA</h2>
+          <p class="text-gray-800 leading-relaxed mb-6">
+            Roti dan pastri adalah pilihan camilan yang fleksibel dan universal. Baik dinikmati saat sarapan pagi dengan secangkir kopi hangat, sebagai pengisi energi di tengah hari, atau sebagai teman membaca buku saat sore menjelang malam. Rasa manis dan gurih yang bisa dikombinasikan dengan topping atau isian apapun membuat roti dan pastri selalu relevan dan menarik. Bahkan, dengan sedikit kreativitas, keduanya bisa ditingkatkan menjadi hidangan mewah untuk acara spesial.
+          </p>
+          <h2 class="section-title">MENIKMATI HIDUP LEWAT GIGITAN KECIL</h2>
+          <p class="text-gray-800 leading-relaxed">
+            Saat dunia terasa terlalu cepat dan waktu serasa berlari, kadang kita hanya perlu duduk, mengambil napas, dan menikmati sesuatu yang sederhana. Sepotong roti atau pastri bisa menjadi pengingat bahwa hidup tak selalu harus terburu-buru. Kenikmatan kecil seperti ini adalah bentuk self-care yang paling mudah diakses. Sebuah camilan hangat bisa mengembalikan mood, membangkitkan semangat, dan bahkan menginspirasi momen penuh syukur. Roti dan pastri bukan sekadar makanan, tetapi simbol dari kebahagiaan sederhana yang tetap kita butuhkan di tengah kehidupan modern.
+          </p>
+        `,
+      }
 ];
 
 // External articles data
