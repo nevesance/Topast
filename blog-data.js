@@ -43,6 +43,35 @@ window.analyticsData = {
 // Blog posts data
 window.blogPostsData = [
   {
+    id: 3,
+    title: "Roti Berlapis Mentega — Kelezatan Sederhana yang Selalu Menggoda",
+    date: "May 10, 2024",
+    category: "Food",
+    views: 0,
+    readTime: "6 min",
+    excerpt: "Dalam keseharian yang penuh dengan rutinitas dan jadwal yang padat, tidak ada yang lebih menyenangkan dari menemukan momen singkat untuk menikmati sesuatu yang benar-benar kita sukai.",
+    featuredImage: "assets/Croissant-cook.jpg",
+    introContent: "Dalam keseharian yang penuh dengan rutinitas dan jadwal yang padat, tidak ada yang lebih menyenangkan dari menemukan momen singkat untuk menikmati sesuatu yang benar-benar kita sukai. Salah satunya adalah sepotong roti berlapis mentega (Buttery Layers) yang disajikan hangat, langsung dari oven.",
+    additionalContent: `
+      <h2 class="section-title">FLAKY & SOFT: PERPADUAN TEKSTUR YANG MENGHIPNOTIS</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Tidak semua roti memiliki karakter seperti ini. Bagian luar yang flaky, tipis dan sedikit garing, memberi kesan elegan sekaligus autentik—hasil dari teknik memanggang yang presisi dan adonan yang kaya mentega. Lalu, saat kita menggigitnya, bagian dalam yang soft dan berpori-pori halus langsung meleleh di lidah.
+      </p>
+      <div class="grid grid-cols-2 gap-4 my-8">
+        <img src="assets/Bakery.jpeg" alt="Flaky bread texture" class="rounded-lg shadow-md w-full h-48 object-cover">
+        <img src="assets/Bakery_foto.jpg" alt="Fresh baked bread" class="rounded-lg shadow-md w-full h-48 object-cover">
+      </div>
+      <h2 class="section-title">SATU ROTI, DUA DUNIA RASA</h2>
+      <p class="text-gray-800 leading-relaxed mb-6">
+        Salah satu hal paling menarik dari roti berlapis mentega adalah kemampuannya untuk menjadi dua jenis camilan sekaligus. Saat ditambah topping manis seperti selai stroberi, madu, atau krim vanila, roti ini menjadi dessert ringan yang elegan. Namun saat dipadukan dengan daging asap, telur rebus, atau keju asin, ia berubah menjadi camilan gurih yang mengenyangkan.
+      </p>
+      <h2 class="section-title">SIMPLE INDULGENCE</h2>
+      <p class="text-gray-800 leading-relaxed">
+        Dalam dunia yang penuh dengan gangguan dan tekanan, menikmati sesuatu yang sederhana bisa menjadi bentuk penghargaan pada diri sendiri. Simple indulgence bukan berarti mewah atau mahal, tapi sesuatu yang kita nikmati sepenuh hati. Roti berlapis mentega adalah salah satu bentuk indulgence itu—mudah didapat, mudah dibuat, tapi dampaknya luar biasa bagi mood dan semangat kita.
+      </p>
+    `
+  },
+  {
     id: 1,
     title: "An Ode to Toast, simplest of breakfast",
     date: "May 15, 2024",
