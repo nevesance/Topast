@@ -1,18 +1,19 @@
-
 [build]
-  command = "npm run build"
+  command = "bash build.sh"
+  publish = "dist/client"
+  functions = "dist/functions"
+
+[dev]
+  command = "npm run dev"
+  port = 5000
   publish = "dist/client"
 
 [[redirects]]
-  from = "/blog/*"
-  to = "/index.html"
+  from = "/"
+  to = "/splash.html"
   status = 200
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[dev]
-  command = "npm run dev"
-  port = 5000
