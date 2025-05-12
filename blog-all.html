@@ -130,46 +130,53 @@
   <!-- Header -->
   <header class="bg-blue-50 py-4">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="flex justify-between items-center">
+      <!-- Top Bar -->
+      <div class="flex justify-between items-center mb-4">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <a href="index.html" class="flex items-center">
-            <h1 class="text-3xl font-bold">
-              <img src="assets/Logo.png" alt="ToPast Logo" class="w-40 h-12 mr-2"
-            </h1>
+          <a href="index.html">
+            <img src="assets/Logo.png" alt="ToPast Logo" class="w-40 h-12">
           </a>
         </div>
 
-        <!-- Search and Cart -->
+        <!-- Right Section -->
         <div class="flex items-center space-x-4">
-          <div class="relative flex items-center">
-            <button class="absolute left-3 text-gray-500">
+          <!-- Search -->
+          <div class="relative">
+            <input type="text" placeholder="SEARCH & SHOP" class="pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm">
+            <button class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
               <i class="fas fa-search"></i>
             </button>
-            <input type="text" placeholder="SEARCH & SHOP" class="border border-gray-300 rounded-full px-10 py-1 text-sm w-56 bg-white">
           </div>
-          <a href="/analytics" class="text-navy hover:text-blue-500 transition-colors mr-3">
+          
+          <!-- Analytics -->
+          <a href="/analytics" class="text-navy hover:text-blue-500 flex items-center">
             <i class="fas fa-chart-line"></i>
-            <span class="hidden md:inline-block ml-1">Analytics</span>
+            <span class="ml-1">Analytics</span>
           </a>
+          
+          <!-- Cart -->
           <a href="#" class="text-navy">
             <i class="fas fa-shopping-bag text-xl"></i>
           </a>
+          
+          <!-- Flag -->
           <div class="flex flex-col w-12 h-6">
             <div class="w-12 h-3 bg-red-600"></div>
             <div class="w-12 h-3 bg-white"></div>
           </div>
+        </div>
       </div>
 
       <!-- Navigation -->
-      <div class="mt-4 flex flex-wrap justify-center">
-        <a href="index.html#about" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">ABOUT US</a>
-        <a href="index.html#menu" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">OUR MENU</a>
-        <a href="index.html#events" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">GIFTS</a>
-        <a href="index.html#testimonials" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">TESTIMONIAL</a>
-        <a href="index.html#find" class="m-1 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-navy hover:bg-blue-100 transition">FIND US</a>
-        <a href="#" onclick="showBlogListing(); return false;" class="m-1 px-6 py-2 rounded-full bg-blue-200 border border-blue-200 text-navy font-medium">FIND AN ARTICLE</a>
-      </div>
+      <nav class="flex justify-center bg-white rounded-full border border-gray-100 shadow-sm">
+        <a href="index.html#about" class="px-6 py-3 text-navy hover:text-blue-600 transition-colors">ABOUT US</a>
+        <a href="index.html#menu" class="px-6 py-3 text-navy hover:text-blue-600 transition-colors">OUR MENU</a>
+        <a href="index.html#events" class="px-6 py-3 text-navy hover:text-blue-600 transition-colors">EVENT</a>
+        <a href="index.html#testimonials" class="px-6 py-3 text-navy hover:text-blue-600 transition-colors">TESTIMONIAL</a>
+        <a href="index.html#find" class="px-6 py-3 text-navy hover:text-blue-600 transition-colors">FIND US</a>
+        <a href="#" onclick="showBlogListing(); return false;" class="px-6 py-3 text-navy hover:text-blue-600 transition-colors">FIND AN ARTICLE</a>
+      </nav>
 
       <!-- Mobile Navigation (hidden by default) -->
       <div id="mobile-menu" class="hidden mt-4">
